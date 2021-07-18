@@ -16,6 +16,7 @@ h2 {
     color:#e48337;
     font-family: 'Indie Flower', cursive;
     font-size: 2rem;
+    line-height: 2.2rem;
 }
 
 h3 {
@@ -66,7 +67,7 @@ section#instructions {
     background-color: #f7ede1;
     background-size: cover;
     position:relative;
-    height:525px;
+    height:550px;
     overflow: hidden;
     transition: 0.2s cubic-bezier(.3,0,0,1);
 }
@@ -87,7 +88,7 @@ section#instructions .content {
     padding-left:0;
     padding-right:0;
     position:absolute;
-    width:300vw;
+    width:310vw;
     overflow: hidden;
     top:0;
     left:-100vw;
@@ -116,17 +117,20 @@ section#instructions .slide button {
     position:absolute;
     z-index:1;
     top:50%;
-    right:150px;
+    right:100px;
     border:none;
     height:50px;
     width:50px;
     border-radius:50%;
     text-indent:-999px;
+    background-color: transparent;
+    background-image: url('styles/ico/skip-next-circle-outline.png');
     overflow:hidden;
     cursor: pointer;
 }
 
-section#instructions .slide button.btn-left {    
+section#instructions .slide button.btn-left {   
+    background-image: url('styles/ico/skip-previous-circle-outline.png'); 
     left:150px;
 }
 
@@ -421,5 +425,66 @@ section .content, footer .content {
     [class*="reveal-"]{
         transition-duration: 0s!important;
         transition-delay: 0s!important;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    section#comment .content {    
+        flex-direction: column;
+    }
+
+    section#comment .img {    
+        padding:0;
+        margin:0;
+        margin-top:50px;
+        align-self: center;
+    }
+
+    section#instructions .slide button {    
+        top:15px;
+    }
+    
+    section#follow .content{
+        flex-direction: column;
+        transform:translateX(0)
+    }
+
+    section#follow .content .card{
+        margin:0;
+        margin-bottom:50px;
+    }
+
+    section#follow .content .img{
+        transform: translateX(0px);
+    }
+
+    section#follow .content .img img{
+        width:100%;
+        height: auto;
+    }
+
+    section#events .reveal-1, section#events .reveal-2, section#events .reveal-3{
+        opacity: 1!important;
+        transform: translateY(0);
+    }
+
+    .card-event-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-event-item {
+        margin-top:50px;
+    }
+
+    footer .content{
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width: 800px){
+    header figure{
+        position:absolute
     }
 }
