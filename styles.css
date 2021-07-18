@@ -8,6 +8,7 @@ body {
 
 header figure {
     position:fixed;
+    z-index:2;
     top:0
 }
 
@@ -67,6 +68,15 @@ section#instructions {
     position:relative;
     height:525px;
     overflow: hidden;
+    transition: 0.2s cubic-bezier(.3,0,0,1);
+}
+
+section#instructions.small {    
+    height:400px;
+}
+
+section#instructions .home h2 {
+    font-size:3rem;
 }
 
 section#instructions h3 {
@@ -80,15 +90,44 @@ section#instructions .content {
     width:300vw;
     overflow: hidden;
     top:0;
-    left:-0vw;
+    left:-100vw;
     max-width:inherit;
     margin:0;
+    transition: 0.5s cubic-bezier(.3,0,0,1);
 }
 
-section#instructions .slide {    
+section#instructions .content.slide-left {
+    left:-0vw;
+}
+
+section#instructions .content.slide-rigth {
+    left:-200vw;
+}
+
+
+section#instructions .slide {  
+    position:relative; 
     float: left;
     width:100vw;
     text-align:center;
+}
+
+section#instructions .slide button {    
+    position:absolute;
+    z-index:1;
+    top:50%;
+    right:150px;
+    border:none;
+    height:50px;
+    width:50px;
+    border-radius:50%;
+    text-indent:-999px;
+    overflow:hidden;
+    cursor: pointer;
+}
+
+section#instructions .slide button.btn-left {    
+    left:150px;
 }
 
 /* Section comment */
@@ -166,6 +205,7 @@ footer{
 footer .content{
     display:flex;
     justify-content:center;
+    color:#ccc4bc;
     align-items: center;
     border-top:1px solid #eee4d9;
     width:50%;
@@ -197,7 +237,7 @@ section .content, footer .content {
     background-color: #7a7add;
 }
 
-.box1 {
+.box {
     display:inline-block;
     padding:10px 20px;
     max-width: 300px;
@@ -207,6 +247,18 @@ section .content, footer .content {
     background-image: url('styles/Background_1850x1040.svg');
     background-size: 100%;
     color:white;
+    cursor: pointer;
+    transition: .3s ease-in-out!important
+}
+
+.box-left:hover {
+    padding:10px 50px;
+    opacity:.7;
+}
+
+.box-right:hover {
+    padding:10px 50px;
+    opacity:.7;
 }
 
 .card {
@@ -317,8 +369,9 @@ section .content, footer .content {
 
 .seo-list-item {
     display:inline-block;
-    background-color: #a8a199;
+    background-color: #ccc4bc;
     border-radius:50%;
+    margin-right:10px;
     text-align:center;
     overflow: hidden;
     opacity: 1;
@@ -336,4 +389,37 @@ section .content, footer .content {
    width:20px;
    padding:7px;
    margin:0 auto;
+}
+
+.reveal-loaded .reveal [class*="reveal-"] {
+    opacity:0!important;
+    transform: translateY(50px)!important;
+    transition: 0s!important
+}
+
+.reveal-loaded [class*="reveal-"]{
+    transition: 1s cubic-bezier(.5,0,0,1);
+}
+
+.reveal-loaded .reveal-2 {
+    transition-delay: .1s;
+}
+
+.reveal-loaded .reveal-3 {
+    transition-delay: .2s;
+}
+
+.reveal-loaded .reveal-4 {
+    transition-delay: .3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal [class*="reveal-"] {
+        opacity:1!important;
+        transform: translateY(0px)!important
+    }
+    [class*="reveal-"]{
+        transition-duration: 0s!important;
+        transition-delay: 0s!important;
+    }
 }
