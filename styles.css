@@ -173,23 +173,6 @@ footer .content{
     padding-top:25px!important;
 }
 
-footer ul {
-    list-style-type: none;
-    padding-left:20px;
-}
-
-footer ul li {
-    display:inline-block;
-    background-color: #a8a199;
-    height:35px;
-    width:35px;
-    line-height: 41px;
-    margin-left:5px;
-    border-radius:50%;
-    text-align:center;
-    overflow: hidden;
-}
-
 /* Global classes */
 
 section .content, footer .content {
@@ -207,6 +190,11 @@ section .content, footer .content {
     background-color: #6b64bc;
     border-radius: 25px;
     text-decoration: none;
+    transition: background-color 0.1s ease-in;
+}
+
+.btn:hover {
+    background-color: #7a7add;
 }
 
 .box1 {
@@ -218,7 +206,7 @@ section .content, footer .content {
     background-color: #e48337;
     background-image: url('styles/Background_1850x1040.svg');
     background-size: 100%;
-    color:white
+    color:white;
 }
 
 .card {
@@ -241,6 +229,12 @@ section .content, footer .content {
 .card-event-item {
     max-width:350px;
     margin:20px;
+    transform: translateY(0px);
+    transition: transform .2s ease-in-out;
+}
+
+.card-event-item:hover {
+    transform: translateY(-10px);
 }
 
 .card-event-item h4{
@@ -274,6 +268,12 @@ section .content, footer .content {
     font-size:0.9rem;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.10); 
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.10);
+    transform: translateY(0px);
+    transition: transform .2s ease-in-out;
+}
+
+.icon-list-item:hover {
+    transform: translateY(-10px);
 }
 
 .icon-list-item img{
@@ -293,8 +293,47 @@ section .content, footer .content {
 
 .follow-list-item {
     margin:0 10px;
+    vertical-align: middle;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
 }
 
-.follow-list-item svg {
-    fill:#e48337;
+.follow-list-item:hover {
+    opacity:.5;
+}
+
+.follow-list-item img {
+    display: inline-block;
+}
+
+.seo-list {
+    margin:0 10px;
+    list-style-type: none;
+    padding-left:20px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.seo-list-item {
+    display:inline-block;
+    background-color: #a8a199;
+    border-radius:50%;
+    text-align:center;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
+}
+
+.seo-list-item:hover {
+   opacity:.5;
+}
+
+.seo-list-item a {
+   display:block;
+   line-height:20px;
+   height:20px;
+   width:20px;
+   padding:7px;
+   margin:0 auto;
 }
