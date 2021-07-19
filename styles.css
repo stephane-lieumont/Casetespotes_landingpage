@@ -203,6 +203,10 @@ section#follow .img img{
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.10);
 }
 
+/* Section events */
+section#events {
+text-align: center;
+}
 
 /* footer */
 footer{
