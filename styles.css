@@ -34,7 +34,7 @@ section {
 
 section#introduction {
     text-align: center;
-    background-image: url('styles/Background_1850x1040.svg');
+    background: url('styles/Background_1850x1040.svg') center 0 no-repeat fixed;
     background-size: cover;
 }
 
@@ -113,6 +113,11 @@ section#instructions .slide {
     text-align:center;
 }
 
+section#instructions .slide p{  
+    width:80vw;
+    margin:0 auto
+}
+
 section#instructions .slide button {    
     position:absolute;
     z-index:1;
@@ -131,7 +136,7 @@ section#instructions .slide button {
 
 section#instructions .slide button.btn-left {   
     background-image: url('styles/ico/skip-previous-circle-outline.png'); 
-    left:150px;
+    left:100px;
 }
 
 /* Section comment */
@@ -146,9 +151,8 @@ section#comment .content .img{
 
 /* Section present */
 section#present {
-    background-image: url('img/case-ton-pote-couche-soleil.jpg');
-    background-size: 100%;
-    background-position: 0px -400px;
+    background: url('img/case-ton-pote-couche-soleil.jpg') center 0 no-repeat fixed;
+    background-size: cover;
     color:white;
 }
 
@@ -241,8 +245,13 @@ section .content, footer .content {
     background-color: #7a7add;
 }
 
+.box-list {
+    display: flex;
+    justify-content: center;
+}
+
 .box {
-    display:inline-block;
+    display:block;
     padding:10px 20px;
     max-width: 300px;
     margin:20px;
@@ -255,13 +264,13 @@ section .content, footer .content {
     transition: .3s ease-in-out!important
 }
 
-.box-left:hover {
-    padding:10px 50px;
-    opacity:.7;
+.box p {
+    width: auto!important;
+    margin:0!important;
+    padding:10px;
 }
 
-.box-right:hover {
-    padding:10px 50px;
+.box:hover {
     opacity:.7;
 }
 
@@ -285,13 +294,8 @@ section .content, footer .content {
 .card-event-item {
     max-width:350px;
     margin:20px;
-    transform: translateY(0px);
-    transition: transform .2s ease-in-out;
 }
 
-.card-event-item:hover {
-    transform: translateY(-10px);
-}
 
 .card-event-item h4{
     margin-bottom:0
@@ -310,6 +314,7 @@ section .content, footer .content {
 .icon-list {
     display:flex;
     justify-content: center;
+    flex-wrap: wrap;
     list-style-type: none;
     padding:20px 0;
 }
@@ -318,7 +323,8 @@ section .content, footer .content {
     background: white;
     padding:20px;
     width:200px;
-    margin: 0 10px;
+    min-width:200px;
+    margin: 10px;
     border-radius:10px;
     text-align: center;
     font-size:0.9rem;
@@ -443,7 +449,23 @@ section .content, footer .content {
     section#instructions .slide button {    
         top:15px;
     }
+
+    section#instructions.small {    
+        height:600px;
+    }
     
+    section#instructions {    
+        height:800px;
+    }
+
+    section#instructions .slide p{    
+        text-align: left!important;
+    }
+
+    section#instructions .box p{    
+        text-align: center!important;
+    }
+
     section#follow .content{
         flex-direction: column;
         transform:translateX(0)
@@ -477,6 +499,11 @@ section .content, footer .content {
         margin-top:50px;
     }
 
+    .box-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
     footer .content{
         flex-direction: column;
     }
@@ -485,6 +512,35 @@ section .content, footer .content {
 
 @media screen and (max-width: 800px){
     header figure{
-        position:absolute
+        position:absolute;
+        width:100%;
+        margin:0;
+        padding:0;
+        padding-top:50px;
+        text-align: center;
+    }
+
+    section#instructions.small {    
+        height:600px;
+    }
+    
+    section#instructions {    
+        height:1300px;
+    }
+
+    section#instructions .slide button {    
+        right:50px;
+    }
+    
+    section#instructions .slide button.btn-left {   
+        left:50px;
+    }
+
+    .card-event-item {
+        text-align: center;
+    }
+
+    section#present {
+        background-size:auto;
     }
 }

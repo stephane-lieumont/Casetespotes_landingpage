@@ -43,4 +43,7 @@ document.querySelectorAll('.slide button').forEach((e) => {
     })
 })
 
-
+$(document).ready(function(){		
+    $('section#introduction').parallax("center", 0.5, 0.1, true);
+    $('section#present').parallax("center", 0.5, 0.1, true);
+})
