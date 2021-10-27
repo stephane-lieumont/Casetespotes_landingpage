@@ -1,4 +1,4 @@
-<footer class="py-2">
+<footer class="py-2 align-self-end">
   <p class="">copyright © CaseTonPote 2021</p>
 </footer>
 <script type="text/javascript" src="main.js"></script>

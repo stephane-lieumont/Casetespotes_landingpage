@@ -254,7 +254,10 @@ nav .material-icons {
   footer p{
     text-align: center;
   }
+}
 
+/* Large devices (desktops, 992px and up) */
+@media screen and (max-width: 992px) { 
   header{
     width: 100%;
     margin: 0;
@@ -301,19 +304,35 @@ nav .material-icons {
   }
 }
 
-/* Large devices (desktops, 992px and up) */
-@media screen and (max-width: 992px) { 
-
-}
-
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (max-width: 1200px) { 
   nav a{
-    text-shadow: 1px 1px 5px rgba(136,32,100,1);
-    font-weight: 400;
+    text-shadow: 1px 1px 10px rgba(136,32,100,1);
   }
 
   nav a.active{
     text-shadow: inherit;
+  }
+}
+
+/* Ipad pro*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* CSS */
+  body{
+    font-size: 1.4rem;
+  }
+  nav a{
+    text-shadow: 1px 1px 10px rgba(136,32,100,1);
+  }
+  nav a.active{
+    text-shadow: inherit;
+  }
+  .gmap {
+    max-width: 90%!important;
+    height: 600px;
+  }
+
+  .gmap iframe{
+    height: 600px;
   }
 }

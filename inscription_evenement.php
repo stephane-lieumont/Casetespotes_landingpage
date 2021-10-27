@@ -30,7 +30,7 @@
           </p>
           <p><strong><i>Attention : nombre de place limité: premier·ères arrivé·es, premier·ères servi·es !</i></strong></p>
         <div class="col-12 text-center">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZWgPOyVK2OpS0G827vPRkNSojKookzntXXPrfNUs3SR3qrw/viewform?usp=sf_link" class="btn btn-primary my-3" role="button">Je participe au jeu Case Ton Pote</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZWgPOyVK2OpS0G827vPRkNSojKookzntXXPrfNUs3SR3qrw/viewform?usp=sf_link" class="btn btn-primary my-3" role="button">Je remplis le formulaire</a>
         </div>
         </section>
         <div class="app-mobile-img col-lg-auto col-md-12 mx-auto mt-3 text-center">

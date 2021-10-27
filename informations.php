@@ -22,11 +22,11 @@
               Case ton pote veut casser les codes des sites de rencontre en mettant l'amitié au cœur de l'amour pour faciliter les rencontres et accompagner les célibataires de la recherche
               de profils à l'organisation de la première rencontre. Ces dernier·ères n'ont plus qu'à se laisser guider et faire confiance à leur meilleur·e ami·e "Caseur" / "Caseuse".
           </p>
-          <div class="image-decoration text-center">
-            <img height="400" class="my-3 text-center" src="./images/principe-casetonpote.jpg" alt="Principe casetonpote" />
+          <div class="image-decoration text-center mt-4 mb-0">
+            <img height="400" class="text-center" src="./images/principe-casetonpote.jpg" alt="Principe casetonpote" />
           </div>
         </section>
-        <div class="app-mobile-img col-lg-auto col-md-12 mx-auto mt-3 text-center">
+        <div class="app-mobile-img col-lg-auto col-md-12 mx-auto mt-5 text-center">
           <img src="./images/app-casetonpote-mobile.png" alt="CaseTonPote - application mobile" />
         </div>
       </main>

@@ -22,7 +22,7 @@
             <li><h4 class="row align-items-center"><span class="material-icons col-auto">local_phone</span><span class="col-auto">06.37.35.35.79</span></h4></li>
             <li><h4 class="row align-items-center"><span class="material-icons col-auto">mail</span><span class="col-auto">contact@casetonpote.com</span></h4></li>
           </ul>
-          <h3>Ou sommes nous ?</h3>
+          <h3>Où sommes nous ?</h3>
           <div class="gmap mb-5">
             <iframe width="600" height="240" src="https://maps.google.fr/maps?width=700&amp;height=440&amp;hl=fr&amp;q=1%20Rue%20Dalayrac%2C%2031000%20Toulouse+(Titre)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
           </div>          
