@@ -1,0 +1,319 @@
+/* GLOBAL STYLE SHEET */
+html, body {
+  font-family: 'Montserrat', sans-serif!important;
+  color: #00374c;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+header {
+  padding:20px 40px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+  top:0;
+  left:0;
+  pointer-events: none;
+}
+
+footer {
+  width: 90%!important;
+  margin: 0 auto!important;
+  color:#cdcece;
+  border-top: 1px solid #dfe3e4;
+  text-align: right;
+}
+
+footer p, footer ul {
+  font-size: 0.8rem;;
+  padding-left:0!important;
+  margin-left: 0!important;
+  padding-right:0!important;
+  margin-right: 0!important;  
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+  pointer-events: all;
+}
+
+h2 {
+  font-size: 2.2rem!important;
+}
+
+h3 {
+  font-size: 1.5rem!important;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1rem!important;
+}
+
+a {
+  color: #cf0058;
+}
+
+p {
+  text-indent: 20px;
+}
+
+
+ul {
+  padding:0;
+  margin:0;
+  margin-bottom:20px;
+}
+
+li {
+  list-style: none;
+}
+
+nav {
+  pointer-events: all;
+}
+
+nav a {
+  font-weight: 400;
+  text-decoration: none;
+  color:white;
+  transition: all .2s ease-in-out;
+}
+
+nav a.active {
+  color: #cf0058;
+  font-weight: 700!important;
+}
+
+nav a:hover {
+  color: #cf0058;
+}
+
+nav .material-icons {
+  display: none;
+}
+
+.body-content {
+  padding-top: 180px;
+  height: 100vh;
+}
+
+.background-circle {
+  position: absolute;
+  z-index: -1;
+  width: 1100px;
+  height:1100px;
+  bottom:30%;
+  left:52%;
+  transform: translate(0%, 0%);
+}
+
+.main-content-left {
+  max-width:700px;
+  position: relative;
+}
+
+/* SURCHARGE BOOTSTRAP */
+.btn {
+  border-radius: 25px;
+  height: 36px;
+  padding-left:25px;
+  padding-right:25px;
+  transition: all .2s ease-in-out;
+}
+
+.btn:hover {
+  opacity: .6;
+}
+
+.btn-primary {
+  background: rgb(207,0,88)!important;
+  background: linear-gradient(90deg, rgba(207,0,88,1) 0%, rgba(136,32,100,1) 100%)!important;
+  border: none;;
+}
+
+.container-xxl {
+  max-width: 1500px;
+}
+
+.social-link{
+  display: block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  overflow:hidden;
+  text-indent: -9999px;
+  background-color: #00374c;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 13px;
+  transition: all .2s ease-in-out;
+}
+
+.social-link:hover{
+  background-color: #058b8c;
+}
+
+.social-link--instagram{
+  background-image: url('./img/instagram-icon-seo.png');
+}
+
+.social-link--facebook{
+  background-image: url('./img/facebook-icon-seo.png');
+}
+
+.gmap{
+  height:244px;
+  width: 604px;
+  border: 2px solid rgba(207,0,88,0.5)!important;
+  border-radius: 10px;
+  overflow:hidden;
+}
+
+.image-decoration {
+  background-color: #ffe03d;
+  height:400px;
+  width: 400px;
+  margin-bottom: 50px;;
+}
+
+.image-decoration img {
+  transform: translate(30px, 10px);
+}
+
+.loading main, .loading footer, .loading header nav {
+  opacity: 0!important;
+}
+
+
+.load main, .load footer, .load header nav {
+  animation-duration: .5s;
+  animation-name: fadein;
+} 
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) 
+   No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (max-width: 576px) {
+  h4 {
+    font-size: 0.8rem!important;
+  }
+
+  .btn{
+    font-size: x-small!important;
+    height: auto!important;
+    display:block;
+  }
+
+  .app-mobile-img img{
+    max-width: 200px!important;
+  }
+  
+  .logo-img img{
+    max-width: 180px;
+    padding-top: 50px;
+    padding-left: 25px;
+  }
+
+  .gmap{
+    height:244px;
+    width: 100%;
+    overflow:hidden;
+  }
+
+  .gmap iframe{
+    width: 100%;
+  }
+
+  .image-decoration, .image-decoration img {
+    max-width: 200px!important;
+    height: 200px!important;
+  }
+
+  footer p{
+    font-size: 0.6rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (max-width: 768px) {
+  footer p{
+    text-align: center;
+  }
+
+  header{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%!important;
+    bottom: 0;
+    background-color: rgb(207,0,88);
+    margin:0;
+  }
+
+  nav .material-icons {
+    display: block;
+    align-content: center;
+  }
+
+  nav li {
+    padding: 0;
+    margin:0;
+    height: 24px!important;
+  }
+
+  nav a{
+    display: inline-block;
+    color: white!important;
+    padding-top: 5px;
+    height: 44px;
+    width: 44px;
+    line-height: 60px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  nav a.active{
+    text-decoration: underline;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (max-width: 992px) { 
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (max-width: 1200px) { 
+  nav a{
+    text-shadow: 1px 1px 5px rgba(136,32,100,1);
+    font-weight: 400;
+  }
+
+  nav a.active{
+    text-shadow: inherit;
+  }
+}

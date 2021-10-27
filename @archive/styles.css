@@ -1,0 +1,550 @@
+body {
+    background-color: #fcf6ee;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5rem;
+    margin:0;
+    color:#716c67
+}
+
+header figure {
+    position:fixed;
+    z-index:2;
+    top:0
+}
+
+h2 {
+    color:#e48337;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2rem;
+    line-height: 2.2rem;
+}
+
+h3 {
+    color:#a8a199;
+    font-weight:600;
+    font-size: 1.3rem;
+}
+
+section {
+    clear: left;
+    clear: right;
+}
+
+/* Section introduction */
+
+section#introduction {
+    text-align: center;
+    background: url('styles/Background_1850x1040.svg') center 0 no-repeat fixed;
+    background-size: cover;
+}
+
+section#introduction h2 {
+    color:white;
+    font-size: 3rem;
+    font-weight: 200;
+    line-height: 3rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+section#introduction p {
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    color: white
+}
+section#introduction .content {    
+    padding-top:150px;
+    max-width: inherit;
+}
+
+section#introduction .btn {    
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+/* Section instructions */
+section#instructions {    
+    background-color: #f7ede1;
+    background-size: cover;
+    position:relative;
+    height:550px;
+    overflow: hidden;
+    transition: 0.2s cubic-bezier(.3,0,0,1);
+}
+
+section#instructions.small {    
+    height:400px;
+}
+
+section#instructions .home h2 {
+    font-size:3rem;
+}
+
+section#instructions h3 {
+    color:white;
+}
+
+section#instructions .content {
+    padding-left:0;
+    padding-right:0;
+    position:absolute;
+    width:310vw;
+    overflow: hidden;
+    top:0;
+    left:-100vw;
+    max-width:inherit;
+    margin:0;
+    transition: 0.5s cubic-bezier(.3,0,0,1);
+}
+
+section#instructions .content.slide-left {
+    left:-0vw;
+}
+
+section#instructions .content.slide-rigth {
+    left:-200vw;
+}
+
+
+section#instructions .slide {  
+    position:relative; 
+    float: left;
+    width:100vw;
+    text-align:center;
+}
+
+section#instructions .slide p{  
+    width:80vw;
+    margin:0 auto
+}
+
+section#instructions .slide button {    
+    position:absolute;
+    z-index:1;
+    top:50%;
+    right:100px;
+    border:none;
+    height:50px;
+    width:50px;
+    border-radius:50%;
+    text-indent:-999px;
+    background-color: transparent;
+    background-image: url('styles/ico/skip-next-circle-outline.png');
+    overflow:hidden;
+    cursor: pointer;
+}
+
+section#instructions .slide button.btn-left {   
+    background-image: url('styles/ico/skip-previous-circle-outline.png'); 
+    left:100px;
+}
+
+/* Section comment */
+section#comment .content {    
+    display:flex;
+    align-items: flex-end;
+}
+
+section#comment .content .img{    
+    padding-left:50px;
+}
+
+/* Section present */
+section#present {
+    background: url('img/case-ton-pote-couche-soleil.jpg') center 0 no-repeat fixed;
+    background-size: cover;
+    color:white;
+}
+
+section#present .content{
+    text-align:center;
+}
+
+section#present .btn{
+    display: inline-block;
+    margin:50px 0;
+}
+
+section#present h2{
+    display: inline-block;
+    color:white;
+    margin-bottom:50px;
+}
+
+section#present p{
+    text-align:left;
+}
+
+section#present h2 span{
+    font-size:0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    float:right;
+}
+
+/* Section follow */
+section#follow {
+    background-color:#f7ede1;
+    display:flex;
+}
+
+section#follow .content{
+    display:flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    transform: translateX(25px);
+}
+
+section#follow .img{
+    transform: translateX(-50px);
+}
+
+section#follow .img img{
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.10); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.10);
+}
+
+/* Section events */
+section#events {
+text-align: center;
+}
+
+/* footer */
+footer{
+    text-align:center;
+
+}
+
+footer .content{
+    display:flex;
+    justify-content:center;
+    color:#ccc4bc;
+    align-items: center;
+    border-top:1px solid #eee4d9;
+    width:50%;
+    margin:0 auto;
+    padding-top:25px!important;
+}
+
+/* Global classes */
+
+section .content, footer .content {
+    padding:50px;
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.btn {
+    display:inline-block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color:white;
+    padding:5px 20px;
+    background-color: #6b64bc;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.1s ease-in;
+}
+
+.btn:hover {
+    background-color: #7a7add;
+}
+
+.box-list {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    display:block;
+    padding:10px 20px;
+    max-width: 300px;
+    margin:20px;
+    border-radius: 10px;
+    background-color: #e48337;
+    background-image: url('styles/Background_1850x1040.svg');
+    background-size: 100%;
+    color:white;
+    cursor: pointer;
+    transition: .3s ease-in-out!important
+}
+
+.box p {
+    width: auto!important;
+    margin:0!important;
+    padding:10px;
+}
+
+.box:hover {
+    opacity:.7;
+}
+
+.card {
+    background-color: white;
+    border-radius:10px;
+    padding: 20px 50px;
+    padding-right:100px;
+    max-width:500px;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.10); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.10);
+}
+
+.card-event-list {
+    display:flex;
+    justify-content: center;
+    margin-top:20px;
+    list-style-type: none;   
+}
+
+.card-event-item {
+    max-width:350px;
+    margin:20px;
+}
+
+
+.card-event-item h4{
+    margin-bottom:0
+}
+
+.card-event-item h4 span{
+    font-size: 0.8rem;
+    font-weight: 400;    
+    color:#e48337;
+}
+
+.card-event-item img{
+    border-radius: 10px 10px 0px 0px;
+}
+
+.icon-list {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding:20px 0;
+}
+
+.icon-list-item {
+    background: white;
+    padding:20px;
+    width:200px;
+    min-width:200px;
+    margin: 10px;
+    border-radius:10px;
+    text-align: center;
+    font-size:0.9rem;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.10); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.10);
+    transform: translateY(0px);
+    transition: transform .2s ease-in-out;
+}
+
+.icon-list-item:hover {
+    transform: translateY(-10px);
+}
+
+.icon-list-item img{
+    display: block;
+    width:75px;
+    margin:10px auto;
+    margin-top:0;
+
+}
+
+.follow-list {
+    display:flex;
+    list-style-type: none;
+    justify-content: center;
+    padding:10px 0;
+}
+
+.follow-list-item {
+    margin:0 10px;
+    vertical-align: middle;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
+}
+
+.follow-list-item:hover {
+    opacity:.5;
+}
+
+.follow-list-item img {
+    display: inline-block;
+}
+
+.seo-list {
+    margin:0 10px;
+    list-style-type: none;
+    padding-left:20px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.seo-list-item {
+    display:inline-block;
+    background-color: #ccc4bc;
+    border-radius:50%;
+    margin-right:10px;
+    text-align:center;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
+}
+
+.seo-list-item:hover {
+   opacity:.5;
+}
+
+.seo-list-item a {
+   display:block;
+   line-height:20px;
+   height:20px;
+   width:20px;
+   padding:7px;
+   margin:0 auto;
+}
+
+.reveal-loaded .reveal [class*="reveal-"] {
+    opacity:0!important;
+    transform: translateY(50px)!important;
+    transition: 0s!important
+}
+
+.reveal-loaded [class*="reveal-"]{
+    transition: 1s cubic-bezier(.5,0,0,1);
+}
+
+.reveal-loaded .reveal-2 {
+    transition-delay: .1s;
+}
+
+.reveal-loaded .reveal-3 {
+    transition-delay: .2s;
+}
+
+.reveal-loaded .reveal-4 {
+    transition-delay: .3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal [class*="reveal-"] {
+        opacity:1!important;
+        transform: translateY(0px)!important
+    }
+    [class*="reveal-"]{
+        transition-duration: 0s!important;
+        transition-delay: 0s!important;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    section#comment .content {    
+        flex-direction: column;
+    }
+
+    section#comment .img {    
+        padding:0;
+        margin:0;
+        margin-top:50px;
+        align-self: center;
+    }
+
+    section#instructions .slide button {    
+        top:15px;
+    }
+
+    section#instructions.small {    
+        height:600px;
+    }
+    
+    section#instructions {    
+        height:800px;
+    }
+
+    section#instructions .slide p{    
+        text-align: left!important;
+    }
+
+    section#instructions .box p{    
+        text-align: center!important;
+    }
+
+    section#follow .content{
+        flex-direction: column;
+        transform:translateX(0)
+    }
+
+    section#follow .content .card{
+        margin:0;
+        margin-bottom:50px;
+    }
+
+    section#follow .content .img{
+        transform: translateX(0px);
+    }
+
+    section#follow .content .img img{
+        width:100%;
+        height: auto;
+    }
+
+    section#events .reveal-1, section#events .reveal-2, section#events .reveal-3{
+        opacity: 1!important;
+        transform: translateY(0);
+    }
+
+    .card-event-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-event-item {
+        margin-top:50px;
+    }
+
+    .box-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .content{
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width: 800px){
+    header figure{
+        position:absolute;
+        width:100%;
+        margin:0;
+        padding:0;
+        padding-top:50px;
+        text-align: center;
+    }
+
+    section#instructions.small {    
+        height:600px;
+    }
+    
+    section#instructions {    
+        height:1300px;
+    }
+
+    section#instructions .slide button {    
+        right:50px;
+    }
+    
+    section#instructions .slide button.btn-left {   
+        left:50px;
+    }
+
+    .card-event-item {
+        text-align: center;
+    }
+
+    section#present {
+        background-size:auto;
+    }
+}
