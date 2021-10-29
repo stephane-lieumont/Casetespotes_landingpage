@@ -28,7 +28,7 @@
           <div class="row align-items-center">
             <h3 class="col-12 mt-3 mb-3">Participe au prochain évènement Case Ton Pote !</h3>
             <p>
-            En attendant l'arrivée de notre appli, nous organisons un jeu le <strong>mercredi 10 novembre prochain</strong> à Toulouse, dont le principe est un speed dating revisité !
+            En attendant l'arrivée de notre appli, nous organisons un jeu le <strong>jeudi 11 novembre prochain</strong> à Toulouse, dont le principe est un speed dating revisité !
             </p>
             <div class="col-12">
               <a href="./inscription_evenement.php" class="btn btn-primary my-3" role="button">Je participe au jeu Case Ton Pote</a>

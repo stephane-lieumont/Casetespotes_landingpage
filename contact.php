@@ -19,7 +19,7 @@
         <section class="col-lg-7 col-md-12">
           <h2>Nous contacter</h2>
           <ul>
-            <li><h4 class="row align-items-center"><span class="material-icons col-auto">local_phone</span><span class="col-auto">06.37.35.35.79</span></h4></li>
+            <li><h4 class="row align-items-center"><span class="material-icons col-auto">local_phone</span><span class="col-auto">06.51.28.51.20</span></h4></li>
             <li><h4 class="row align-items-center"><span class="material-icons col-auto">mail</span><span class="col-auto">contact@casetonpote.com</span></h4></li>
           </ul>
           <h3>Où sommes nous ?</h3>
