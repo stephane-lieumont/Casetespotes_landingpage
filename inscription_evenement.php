@@ -17,7 +17,7 @@
     <div class="body-content row container-lg justify-content-center align-items-start mx-auto">
     <main class="col-12 mb-5 row">
         <section class="col-lg-7 col-md-12">
-          <h2>Evenement du 11 Novembre 2021</h2>
+          <h2>Evènement du 11 Novembre 2021</h2>
           <p> 
             D'un côté un speed-dating entre "Caseurs" / "Caseuses" qui doivent mettre en avant le·la célibataire qu'ils·elles représentent. De l'autre, un speed-dating classique entre célibataires.
           </p>

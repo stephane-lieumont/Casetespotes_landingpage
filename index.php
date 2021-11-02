@@ -17,27 +17,28 @@
     <div class="body-content row container-lg justify-content-center align-items-start mx-auto">
       <main class="col-12 mb-5 row">
         <section class="col-lg-7 col-md-12">
-          <h2>Notre Appli mobile arrive bientôt !</h2>
-          <p class="pe-5">
-            Le principe ? Mettre en relation les meilleur·es ami·es de célibataires, appelé·es "Caseurs" et "Caseuses", pour qu'ils·elles les aident dans leur quête de l'amour.
-            Accompagné·es par notre team, les "Caseurs" et "Caseuses" s'occupent de tout.<br />
-          </p>
-          <div class="col-12">
-              <a href="./informations.php" class="btn btn-primary my-3" role="button">En savoir plus</a>
-          </div>
           <div class="row align-items-center">
-            <h3 class="col-12 mt-3 mb-3">Participe au prochain évènement Case Ton Pote !</h3>
+            <h2 class="col-12 mt-3 mb-3 text-center">Participe au prochain évènement<br /> Case Ton Pote !</h2>
             <p>
-            En attendant l'arrivée de notre appli, nous organisons un jeu le <strong>jeudi 11 novembre prochain</strong> à Toulouse, dont le principe est un speed dating revisité !
+              <strong class="primary-color">Case Ton Pote organise</strong> son jeu inédit dont le principe est un <strong class="primary-color">speed dating revisité</strong> ! Notre évènement vous promet un moment fun et de belles rencontres
+              le <strong class="primary-color">jeudi 11 novembre prochain à 19h30 au Dooble à Toulouse – 2B Rue du May.</strong>
             </p>
-            <div class="col-12">
-              <a href="./inscription_evenement.php" class="btn btn-primary my-3" role="button">Je participe au jeu Case Ton Pote</a>
+            <p> 
+              En quoi consiste notre jeu ? D'un côté un speed-dating entre "Caseurs" / "Caseuses" qui doivent mettre en avant le·la célibataire qu'ils·elles représentent.
+              De l'autre, un speed-dating classique entre célibataires.
+            </p>
+            <p> 
+              A l'issue de ces 2 speed-datings, les "Caseurs" / "Caseuses" votent pour les célibataires qui pourraient correspondre à leur meilleur·e ami·e et les célibataires
+              votent pour ceux avec qui ça a fait tilt pendant leur échange.
+            </p>
+            <p>
+              Case Ton Pote compare ensuite les résultats des votes de part et d'autre et vérifie s'il y a "match" pour certains célibataires. Et comme on aime gâter notre communauté, 
+              <strong class="primary-color">Case Ton Pote réserve une surprise aux célibataires pour lesquels il y aura eu "match" ! Cerise sur le gâteau, notre évènement est gratuit et on vous offre un verre</strong> &#128521;
+            </p>
+            <p><strong><i>Attention : nombre de place limité : premier·ères arrivé·es, premier·ères servi·es !</i></strong></p>
+            <div class="col-12 text-center">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZWgPOyVK2OpS0G827vPRkNSojKookzntXXPrfNUs3SR3qrw/viewform?usp=sf_link" class="btn btn-primary my-3" role="button">Je remplis le formulaire</a>
             </div>
-            <h3 class="col-12 mt-3 mb-3">Suis-nous</h3>
-            <ul class="row justify-content-start">
-              <li class="col-auto pe-1"><a href="https://www.instagram.com/case_ton_pote/"><img height="35" src="./images/follow-instagram.jpg" alt="Google Play" /></a></li>
-              <li class="col-auto pe-1"><a href="https://www.facebook.com/CaseTonPote"><img height="35" src="./images/follow-facebook.jpg" alt="Google Play" /></a></li>
-            </ul>
           </div>          
         </section>
         <div class="app-mobile-img col-lg-auto col-md-12 mx-auto mt-3 text-center">
