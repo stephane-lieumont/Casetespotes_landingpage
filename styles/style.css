@@ -141,7 +141,7 @@ nav .material-icons {
 }
 
 .social-nav {
-  display: block;
+  display: none;
   height: 45px;
   width: 68px;
   overflow:hidden;
@@ -299,6 +299,10 @@ nav .material-icons {
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 25px;
+  }
+
+  .social-nav {
+    display: block;
   }
 
   nav {

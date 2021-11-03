@@ -30,7 +30,7 @@
           </div>          
         </section>
         <div class="app-mobile-img col-lg-auto col-md-12 mx-auto mt-3 text-center">
-          <img src="./images/app-casetonpote-mobile.png" alt="CaseTonPote - application mobile" />
+          <img width="315" src="./images/app-casetonpote-mobile.png" alt="CaseTonPote - application mobile" />
         </div>
       </main>
       <?php require './layout/footer.php'; ?>

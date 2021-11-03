@@ -30,8 +30,8 @@
             Accompagné·es par notre team, les "Caseurs" et "Caseuses" s'occupent de tout.<br />
           </p>
         </section>
-        <div class="app-mobile-img col-lg-auto col-md-12 mx-auto mt-5 mb-5 text-center">
-          <img src="./images/app-casetonpote-mobile.png" alt="CaseTonPote - application mobile" />
+        <div class="app-mobile-img col-lg-auto col-md-12 mx-auto mt-3 text-center">
+          <img width="315" src="./images/app-casetonpote-mobile.png" alt="CaseTonPote - application mobile" />
         </div>
       </main>
       <?php require './layout/footer.php'; ?>
