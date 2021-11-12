@@ -23,7 +23,7 @@
             <h2 class="col-12 mt-3 mb-3 text-center">Participe au prochain évènement<br /> Case Ton Pote !</h2>
             <p>
               <strong class="primary-color">Case Ton Pote organise</strong> son jeu inédit dont le principe est un <strong class="primary-color">speed dating revisité</strong> ! Notre évènement vous promet un moment fun et de belles rencontres
-              le <strong class="primary-color">jeudi 11 novembre prochain à 19h30 au Dooble à Toulouse – 2B Rue du May.</strong>
+              le <strong class="primary-color">jeudi 09 décembre prochain à 19h30 au Dooble à Toulouse – 2B Rue du May.</strong>
             </p>
             <p> 
               En quoi consiste notre jeu ? D'un côté un speed-dating entre "Caseurs" / "Caseuses" qui doivent mettre en avant le·la célibataire qu'ils·elles représentent.
