@@ -1,0 +1,166 @@
+#cta {
+  min-height: calc(100vh - 150px);
+  margin-top:150px;
+
+  &__desc, h1 {
+    color:white;
+    p {
+      text-indent: inherit;
+    }
+  }
+
+  &__picture, h4 {
+    text-align: center;
+    margin:0
+  }
+}
+
+#event {
+  &__picture {
+    min-width:50%;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+    flex: 1 1 auto;
+
+    ul {
+      white-space: nowrap;
+    }
+  }
+}
+
+#about {
+  background-color: $bg-bluelight;
+  &__values {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: calc($space-multiplier*2) 0;
+
+    li {
+      text-align: center;
+      white-space: nowrap;
+    }
+  }
+}
+
+#staff {
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin:calc($space-multiplier*2) auto;
+    gap: 20px;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0;
+    width: 90%;
+
+    li {
+      position:relative;
+    }
+
+    &__picture {
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: $space-multiplier;
+
+      img {
+        display: block;
+        height: 100%;
+        min-width: 120px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+#contact {
+  background-color: $bg-bluelight;
+
+  &__details {
+    font-size: 0.8rem;;
+    list-style: none;
+    margin:0;
+    padding:0;
+
+    i {
+      margin-right:20px;
+    }
+
+    li {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+  }
+
+  &__map {
+    width: 100%;
+    margin-bottom:calc($space-multiplier*2);
+    border-radius:$space-multiplier;
+    border:3px solid white;
+    overflow:hidden;
+
+    iframe {
+      min-height: 400px;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__form {
+    margin-top:calc($space-multiplier*2);
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: $md-screen-width) { 
+  #cta {
+    min-height: calc(100vh - 120px);
+    margin-top:120px;
+
+    &__desc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__picture img {
+      width: 100%;
+      max-width: 380px;
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: $sm-screen-width) { 
+  #about {
+    ul {
+      gap: calc($space-multiplier * 2);
+    } 
+
+    li {
+      width: 100%;
+    }
+  }
+
+  #event { 
+      ul {
+        white-space: inherit;
+      }
+    }
+}

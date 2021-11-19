@@ -1,0 +1,21 @@
+.container {
+  max-width: $lg-screen-width;
+  width: 100%;
+  padding: $space-multiplier calc($space-multiplier * 3);
+}
+
+.content {
+  &__col2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: calc($space-multiplier *2);
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: $md-screen-width) { 
+  .content__col2 {
+    flex-direction: column;
+  }
+}

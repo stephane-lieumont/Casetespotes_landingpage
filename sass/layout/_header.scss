@@ -1,0 +1,140 @@
+header#header-page {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: $space-multiplier calc($space-multiplier * 3);
+
+  margin-left: 5%;
+  margin-right: 5%;
+
+  .main-logo {
+    min-width: 150px;
+    max-width: 250px;
+    width: 20%;
+    max-height: 180px;
+    svg {
+      width: 100%;
+      height: auto;
+      fill: white;
+    }
+  }
+  nav {
+    ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      padding-left: 0;
+      list-style: none;
+      gap: calc($space-multiplier*2);
+      a {
+        display: block;
+        height: 30px;
+        position: relative;
+        color: white;
+        font-size: 1rem;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color .2s ease-in-out;
+      }
+      a:hover {
+        color: $primary;
+      }
+      a.active {
+        color: $primary;
+        font-weight: 600;
+        &:before {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          content: "";
+          height: 3px;
+          width: 80%;
+          background-color: $primary;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: $sm-screen-width) {
+  header {
+    nav {
+      position: relative;
+
+      ul {
+        position: fixed;
+        margin: 0;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 100vh;
+        gap: calc($space-multiplier*2);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: calc($space-multiplier*3) calc($space-multiplier*3);
+        background-color: rgba(0,0,0, 0.8);
+        z-index: 2;
+      }
+  
+      li a{
+        font-size: 5vh;
+        height: 6vh;
+        line-height: 4vh;
+        font-weight: 300;
+      }
+    }
+
+    .main-logo {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+  }
+
+  .hamburger {
+    display: block!important;
+    position: absolute;
+    top:50%;
+    right:$space-multiplier;
+    z-index: 3;
+    transform: translateY(-50%);
+
+    + ul {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &.is-active + ul {      
+      animation: hamburger .3s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes hamburger {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }  
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: $md-screen-width) { 
+  header#header-page {
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+}
+

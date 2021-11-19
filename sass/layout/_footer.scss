@@ -1,0 +1,39 @@
+footer {
+  background-color: $bg-bluelight;
+  font-size: 0.7rem;
+  color: $darkblue;
+  padding-left:calc($space-multiplier*4);
+  padding-right:calc($space-multiplier*4);
+  padding-top: $space-multiplier;
+
+  a {
+    color:$darkblue;
+    text-decoration: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    padding:0;
+    padding-top: 5px;
+    padding-bottom: $space-multiplier;
+    flex-wrap: nowrap;
+    margin:0 auto;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid darken($bg-bluelight, 5%);
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: $sm-screen-width) { 
+
+  footer {
+    padding-left: $space-multiplier;
+    padding-right: $space-multiplier;
+
+    .container {
+      flex-direction: column-reverse;
+    }
+  }
+}

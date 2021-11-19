@@ -1,0 +1,113 @@
+.form {
+  font-size: 0.9rem;
+  max-width: 700px;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: calc($space-multiplier*1.3);
+  align-items: center;
+
+  &__textfield {
+    position: relative;
+    width: 100%;
+    background: white;
+    border:1px solid darken($bg-bluelight,5%);
+    border-radius: 10px;
+    padding:5px;
+
+    &--required {
+      &::before {
+        position: absolute;
+        left:0;
+        top:0;
+        content:"*";
+        color:$primary;
+        transform: translateY(-1.3rem);
+      }
+    }
+
+    > label {
+      position: absolute;
+      top:0.3rem;
+      left:10px;
+      font-weight: 500;
+      pointer-events: none;
+      transition: transform .15s ease-out;
+    }
+
+    > input, textarea{
+      display: block;
+      border:none;
+      height: 27px;
+      background-color: transparent;
+      width: 98%!important;
+      margin: auto;
+      resize: vertical;     
+
+      &:focus {
+        outline:none!important;
+      }
+    }
+
+    textarea {
+      padding-top:10px;
+      min-height: 300px;
+    }
+
+    button {
+      display: inline-block;
+    }
+
+    input:focus + label, textarea:focus + label, input:valid + label, textarea:valid + label{
+      opacity: .5;
+      transform: translate(-5px, -28px) scale(0.8);
+    }
+  }
+
+  &__submit {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-size: 0.7rem;
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      text-align: left;
+      color:$primary;
+      transform:translateY(-20px);
+    }
+  }
+
+  &__col2 {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width:100%;
+    gap: $space-multiplier;
+  }
+
+  .error {
+    border-color:$error!important;
+    color:$error!important;
+    background: lighten($error, 45%);
+  }
+
+  .success {
+    border-color:$success!important;
+    color:$success!important;
+    background: lighten($success, 41%);
+  }
+
+  &.valid {
+    input, textarea {
+      pointer-events: none;
+      color:lighten($secondary, 20%)
+    }
+  }
+}
