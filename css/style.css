@@ -113,6 +113,7 @@ article {
   position: relative;
   display: inline-block;
   margin: 15px 0;
+  line-height: 1.3rem;
   padding: 7.5px 15px;
 }
 .box__infos::before {
@@ -188,11 +189,27 @@ header#header-page nav ul a.active:before {
   transform: translateX(-50%);
 }
 
+@keyframes hamburger {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@media (max-width: 991.8px) {
+  header#header-page {
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+}
 @media (max-width: 767.8px) {
-  header nav {
+  header#header-page nav {
     position: relative;
   }
-  header nav ul {
+  header#header-page nav ul {
     position: fixed;
     margin: 0;
     top: 0;
@@ -207,13 +224,13 @@ header#header-page nav ul a.active:before {
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 2;
   }
-  header nav li a {
+  header#header-page nav li a {
     font-size: 5vh;
     height: 6vh;
     line-height: 4vh;
     font-weight: 300;
   }
-  header .main-logo {
+  header#header-page .main-logo {
     display: flex;
     justify-content: flex-start;
   }
@@ -232,22 +249,6 @@ header#header-page nav ul a.active:before {
   }
   .hamburger.is-active + ul {
     animation: hamburger 0.3s ease-in-out forwards;
-  }
-}
-@keyframes hamburger {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-@media (max-width: 991.8px) {
-  header#header-page {
-    width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
   }
 }
 main {
@@ -291,6 +292,7 @@ footer .container {
 /* import pages SCSS */
 #cta {
   min-height: calc(100vh - 150px);
+  height: 875px;
   margin-top: 150px;
 }
 #cta__desc, #cta h1 {
@@ -401,7 +403,7 @@ footer .container {
 
 @media (max-width: 991.8px) {
   #cta {
-    min-height: calc(100vh - 120px);
+    height: 100%;
     margin-top: 120px;
   }
   #cta__desc {
@@ -470,6 +472,11 @@ footer .container {
   transform: scaleY(0.85);
 }
 
+@media (max-width: 991.8px) {
+  #cta {
+    height: 100%;
+  }
+}
 .container {
   max-width: 1200px;
   width: 100%;

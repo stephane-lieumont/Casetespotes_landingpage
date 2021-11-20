@@ -44,3 +44,10 @@
     }
   }
 }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: $md-screen-width) { 
+  #cta {
+    height: 100%;
+  }
+}

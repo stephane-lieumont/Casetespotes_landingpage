@@ -123,6 +123,7 @@ article {
     position: relative;
     display: inline-block;
     margin:$space-multiplier 0;
+    line-height: 1.3rem;
     padding:calc($space-multiplier/2) $space-multiplier;
 
     &::before {

@@ -1,5 +1,6 @@
 #cta {
   min-height: calc(100vh - 150px);
+  height: 875px;
   margin-top:150px;
 
   &__desc, h1 {
@@ -130,7 +131,7 @@
 // Medium devices (tablets, less than 992px)
 @media (max-width: $md-screen-width) { 
   #cta {
-    min-height: calc(100vh - 120px);
+    height: 100%;
     margin-top:120px;
 
     &__desc {
