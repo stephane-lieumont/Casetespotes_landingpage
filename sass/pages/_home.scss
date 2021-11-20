@@ -114,14 +114,13 @@
 
   &__map {
     width: 100%;
-    margin-bottom:calc($space-multiplier*2);
     border-radius:$space-multiplier;
     border:3px solid white;
     overflow:hidden;
 
     iframe {
-      min-height: 400px;
-      height: 100%;
+      display: block;
+      height: 400px;
       width: 100%;
     }
   }

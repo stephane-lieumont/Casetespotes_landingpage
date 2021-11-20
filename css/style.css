@@ -401,14 +401,13 @@ footer .container {
 }
 #contact__map {
   width: 100%;
-  margin-bottom: 30px;
   border-radius: 15px;
   border: 3px solid white;
   overflow: hidden;
 }
 #contact__map iframe {
-  min-height: 400px;
-  height: 100%;
+  display: block;
+  height: 400px;
   width: 100%;
 }
 #contact__form {
