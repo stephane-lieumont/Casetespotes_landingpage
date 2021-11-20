@@ -263,6 +263,16 @@ footer {
   padding-right: 60px;
   padding-top: 15px;
 }
+footer .follow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer .follow h4 {
+  margin: 0;
+  padding: 0;
+}
 footer a {
   color: #00587A;
   text-decoration: none;
