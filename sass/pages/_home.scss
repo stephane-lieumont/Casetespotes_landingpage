@@ -1,4 +1,5 @@
 #cta {
+  padding: 0;
   min-height: calc(100vh - 150px);
   height: 875px;
   margin-top:150px;
@@ -17,6 +18,8 @@
 }
 
 #event {
+  padding-top: 0;
+
   &__picture {
     min-width:50%;
 

@@ -79,7 +79,7 @@ button {
 }
 
 section {
-  padding: $space-multiplier 0;
+  padding: calc($space-multiplier*4) 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
