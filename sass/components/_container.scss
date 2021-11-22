@@ -15,6 +15,9 @@
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: $md-screen-width) { 
+  .container {
+    padding: $space-multiplier calc($space-multiplier * 2);
+  }
   .content__col2 {
     flex-direction: column;
   }

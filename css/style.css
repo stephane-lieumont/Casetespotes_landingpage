@@ -508,6 +508,10 @@ footer .container {
 }
 
 @media (max-width: 991.8px) {
+  .container {
+    padding: 15px 30px;
+  }
+
   .content__col2 {
     flex-direction: column;
   }
@@ -552,6 +556,7 @@ footer .container {
   background: inherit;
   border: none;
   z-index: 1;
+  text-align: center;
 }
 .btn::before {
   content: "";
