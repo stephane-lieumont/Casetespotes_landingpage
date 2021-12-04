@@ -324,6 +324,57 @@ footer .container {
 #event {
   padding-top: 0;
 }
+#event .aside {
+  display: block;
+  margin-bottom: 50px;
+  width: 100%;
+}
+#event .aside h3 {
+  text-align: center;
+}
+#event .aside h3 img {
+  width: 250px;
+  height: 73px;
+  max-width: 250px;
+}
+#event .aside__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 370px;
+}
+#event .aside #menu-dooble {
+  height: 100%;
+  min-width: 370px;
+}
+#event .aside #menu-dooble img {
+  object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+}
+#event .aside #present-dooble {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+#event .aside #present-dooble img {
+  object-fit: cover;
+  width: 100%;
+}
+#event .aside #present-dooble .aside__picture {
+  flex-grow: 1;
+}
+#event .aside #present-dooble .aside__picture img {
+  height: 100%;
+  object-fit: cover;
+}
+#event .aside__picture {
+  overflow: hidden;
+  height: 400px;
+}
 #event__picture {
   min-width: 50%;
 }
@@ -431,6 +482,25 @@ footer .container {
   #cta__picture img {
     width: 100%;
     max-width: 380px;
+  }
+
+  #event ul {
+    white-space: inherit;
+  }
+  #event .aside__content {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: inherit;
+  }
+  #event .aside #menu-dooble img {
+    width: 100%;
+    max-width: 600px;
+  }
+  #event .aside #present-dooble {
+    width: 100%;
+    max-width: 600px;
   }
 }
 @media (max-width: 767.8px) {

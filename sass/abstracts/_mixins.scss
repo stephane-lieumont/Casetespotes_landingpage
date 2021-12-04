@@ -1,5 +1,5 @@
 @mixin rotated-text($num-letters: 100, $angle-span: 180deg, $angle-offset: 0deg) {
-  $angle-per-char: $angle-span / $num-letters;
+  $angle-per-char: calc( $angle-span / $num-letters);
   @for $i from 0 through $num-letters {
     .warped__w#{$i} {
       transform: translateY(-1.5rem) (rotate($angle-offset + $angle-per-char * $i));
