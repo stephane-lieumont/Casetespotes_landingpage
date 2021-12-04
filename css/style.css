@@ -326,7 +326,7 @@ footer .container {
 }
 #event .aside {
   display: block;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   width: 100%;
 }
 #event .aside h3 {
@@ -488,7 +488,7 @@ footer .container {
     white-space: inherit;
   }
   #event .aside__content {
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;

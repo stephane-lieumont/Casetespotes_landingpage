@@ -22,7 +22,7 @@
 
   .aside {
       display: block;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
       width: 100%;
     h3 {
       text-align: center;
@@ -215,7 +215,7 @@
 
     .aside {
       &__content {
-        flex-direction: column-reverse;        
+        flex-direction: column;        
         justify-content: center;
         align-items: center;
         gap:20px;
