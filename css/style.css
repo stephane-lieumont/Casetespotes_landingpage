@@ -381,7 +381,6 @@ footer .container {
   height: 400px;
 }
 #event__picture {
-  min-width: 50%;
   max-width: 500px;
   margin: 0 auto;
 }
@@ -510,13 +509,18 @@ footer .container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     height: inherit;
     max-width: 500px;
     margin: 0 auto;
   }
+  #event .aside #menu-dooble {
+    width: 100%;
+    min-width: auto;
+  }
   #event .aside #menu-dooble img {
     width: 100%;
+    height: auto;
     max-width: 600px;
   }
   #event .aside #present-dooble {
