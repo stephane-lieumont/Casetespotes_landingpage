@@ -415,7 +415,7 @@ footer .container {
   white-space: nowrap;
 }
 
-#staff__list {
+.staff-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -428,15 +428,15 @@ footer .container {
   padding: 0;
   width: 90%;
 }
-#staff__list li {
+.staff-list li {
   position: relative;
 }
-#staff__list__picture {
+.staff-list__picture {
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 15px;
 }
-#staff__list__picture img {
+.staff-list__picture img {
   display: block;
   height: 100%;
   min-width: 120px;
@@ -470,6 +470,7 @@ footer .container {
   display: block;
   height: 400px;
   width: 100%;
+  border: none;
 }
 #contact__form {
   margin-top: 30px;
