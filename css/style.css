@@ -328,6 +328,7 @@ footer .container {
   display: block;
   margin-bottom: 20px;
   width: 100%;
+  margin-top: 10px;
 }
 #event .aside h3 {
   text-align: center;
@@ -360,6 +361,10 @@ footer .container {
   justify-content: space-between;
   height: 100%;
 }
+#event .aside #present-dooble h3 {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
 #event .aside #present-dooble img {
   object-fit: cover;
   width: 100%;
@@ -377,6 +382,8 @@ footer .container {
 }
 #event__picture {
   min-width: 50%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 #event__picture img {
   width: 100%;
@@ -469,6 +476,18 @@ footer .container {
   margin-top: 30px;
 }
 
+@media (max-width: 767.8px) {
+  #about ul {
+    gap: 30px;
+  }
+  #about li {
+    width: 100%;
+  }
+
+  #event ul {
+    white-space: inherit;
+  }
+}
 @media (max-width: 991.8px) {
   #cta {
     height: 100%;
@@ -493,6 +512,8 @@ footer .container {
     align-items: center;
     gap: 20px;
     height: inherit;
+    max-width: 500px;
+    margin: 0 auto;
   }
   #event .aside #menu-dooble img {
     width: 100%;
@@ -501,18 +522,6 @@ footer .container {
   #event .aside #present-dooble {
     width: 100%;
     max-width: 600px;
-  }
-}
-@media (max-width: 767.8px) {
-  #about ul {
-    gap: 30px;
-  }
-  #about li {
-    width: 100%;
-  }
-
-  #event ul {
-    white-space: inherit;
   }
 }
 /* import Components SCSS */

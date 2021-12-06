@@ -24,6 +24,7 @@
       display: block;
       margin-bottom: 20px;
       width: 100%;
+      margin-top: 10px;
     h3 {
       text-align: center;
 
@@ -59,6 +60,11 @@
       justify-content: space-between;
       height: 100%;
 
+      h3 {
+        margin-top:30px;
+        margin-bottom: 0;
+      }
+
       img {
         object-fit: cover;
         width: 100%;
@@ -82,6 +88,8 @@
 
   &__picture {
     min-width:50%;
+    max-width: 500px;
+    margin:0 auto;
 
     img {
       width: 100%;
@@ -190,6 +198,25 @@
   }
 }
 
+// Small devices (landscape phones, less than 768px)
+@media (max-width: $sm-screen-width) { 
+  #about {
+    ul {
+      gap: calc($space-multiplier * 2);
+    } 
+
+    li {
+      width: 100%;
+    }
+  }
+
+  #event { 
+    ul {
+      white-space: inherit;
+    }
+  }
+}
+
 // Medium devices (tablets, less than 992px)
 @media (max-width: $md-screen-width) { 
   #cta {
@@ -214,12 +241,14 @@
     }
 
     .aside {
-      &__content {
+      &__content {               
         flex-direction: column;        
         justify-content: center;
         align-items: center;
         gap:20px;
         height: inherit;
+        max-width: 500px;
+        margin:0 auto;
       }
 
       #menu-dooble {
@@ -237,21 +266,3 @@
   }
 }
 
-// Small devices (landscape phones, less than 768px)
-@media (max-width: $sm-screen-width) { 
-  #about {
-    ul {
-      gap: calc($space-multiplier * 2);
-    } 
-
-    li {
-      width: 100%;
-    }
-  }
-
-  #event { 
-    ul {
-      white-space: inherit;
-    }
-  }
-}
