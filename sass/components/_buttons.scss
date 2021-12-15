@@ -8,6 +8,7 @@
   border:none;
   z-index: 1;
   text-align: center;
+  transition: padding .3s ease-in-out;
 
   &::before {
     content:"";
@@ -19,6 +20,11 @@
     width: 100%;    
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     z-index: -1;
+    transition: opacity .3s ease-in-out;
+  }
+
+  &--inactive {
+    display:none;
   }
 
   &--type1 {
@@ -92,23 +98,95 @@
       }   
     }
   }
+
+  &[data-status = "load"] {
+    padding-left:40px;
+    pointer-events: none;
+
+    &::before {
+      opacity: .5;
+    }
+
+    > span::before {
+      position:absolute;
+      top:0;
+      left: 10px;
+      font-family: 'Material Icons';
+      content:"\e863"!important;
+      font-size: 25px;
+      line-height: 41px;
+      animation: rotate 1.2s linear infinite;
+    }
+  }
+
+  &[data-status = "send"] {
+    padding-left:40px;
+    pointer-events: none;
+
+    &::before {
+      opacity: .5;
+      background: $success;
+    }
+
+    > span::before {
+      position:absolute;
+      top:0;
+      left: 10px;
+      font-family: 'Material Icons';
+      content:"\e86c"!important;
+      font-size: 25px;
+      line-height: 41px;
+    }
+  }
+
+  &[data-status = "error"] {
+    padding-left:40px;
+
+    &::before {
+      background: $error;
+    }
+
+    > span::before {
+      position:absolute;
+      top:0;
+      left: 10px;
+      font-family: 'Material Icons';
+      content:"\e000"!important;
+      font-size: 25px;
+      line-height: 41px;
+    }
+  }
 }
 
 .hamburger {
   display:none;
-  width: 24px;
-  height: 24px;
+  position:relative;
 
   > .line {
+    display: inline-block;
+    margin: 5px auto;
     pointer-events: none;
-    width: 100%;
+    width: 25px;
     height: 2px;
     background-color: white;
     display: block;
-    margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+  }
+
+  &::before {
+    content:"";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: $primary;
+    opacity: .5;
+    z-index: -1;
+    transform: translate(-50%, -50%);
   }
 
   &.is-active {
@@ -125,5 +203,15 @@
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

@@ -1,113 +1,147 @@
 .form {
+  display: block;
+  position: relative;
   font-size: 0.9rem;
   max-width: 700px;
-  margin:0 auto;
+  margin: 0 auto;
+  padding: $space-multiplier 0;
   display: flex;
   flex-direction: column;
   gap: calc($space-multiplier*1.3);
   align-items: center;
-
+  transition: padding .3s ease-in-out;
+  &--disabled {
+    pointer-events: none;
+    .form__textfield {
+      background-color: lighten($secondary, 63%)!important;
+    }
+    input,
+    textarea,
+    input:-webkit-autofill,
+    input:-webkit-autofill:focus {
+      color: lighten($secondary, 40%)!important;
+      -webkit-text-fill-color: lighten($secondary, 40%)!important;
+    }
+  }
   &__textfield {
     position: relative;
     width: 100%;
     background: white;
-    border:1px solid darken($bg-bluelight,5%);
+    border: 1px solid darken($bg-bluelight, 5%);
     border-radius: 10px;
-    padding:5px;
-
+    padding: 5px;
+    margin-bottom: 15px;
     &--required {
       &::before {
         position: absolute;
-        left:0;
-        top:0;
-        content:"*";
-        color:$primary;
+        left: 0;
+        top: 0;
+        content: "*";
+        color: $primary;
         transform: translateY(-1.3rem);
       }
     }
-
-    > label {
+    >label {
       position: absolute;
-      top:0.3rem;
-      left:10px;
-      font-weight: 500;
+      top: 0.3rem;
+      left: 10px;
+      color: lighten($secondary, 40%);
       pointer-events: none;
       transition: transform .15s ease-out;
     }
-
-    > input, textarea{
+    >input,
+    textarea {
       display: block;
-      border:none;
+      border: none;
       height: 27px;
       background-color: transparent;
       width: 98%!important;
       margin: auto;
-      resize: vertical;     
-
+      resize: vertical;
       &:focus {
-        outline:none!important;
+        outline: none!important;
       }
     }
-
     textarea {
-      padding-top:10px;
+      padding-top: 10px;
       min-height: 300px;
     }
-
     button {
       display: inline-block;
     }
-
-    input:focus + label, textarea:focus + label, input:valid + label, textarea:valid + label{
+    input:focus+label,
+    textarea:focus+label,
+    input:not(:placeholder-shown)+label,
+    textarea:not(:placeholder-shown)+label {
       opacity: .5;
       transform: translate(-5px, -28px) scale(0.8);
     }
   }
-
+  &__textfield[data-error-visible="true"] {
+    border-color: $error;
+    transition: border-color .3s ease-in-out;
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translate(0, 23px);
+      color: $error;
+      font-size: 0.8rem;
+      content: attr(data-error);
+      opacity: 1;
+      animation: error-input .2s ease-out both;
+    }
+  }
   &__submit {
     position: relative;
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
-
     p {
       font-size: 0.7rem;
       position: absolute;
-      top:0;
-      left:0;
+      top: 0;
+      left: 0;
       width: 100%;
       text-align: left;
-      color:$primary;
-      transform:translateY(-20px);
+      color: $primary;
+      transform: translateY(-20px);
     }
   }
-
   &__col2 {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
-    width:100%;
+    width: 100%;
     gap: $space-multiplier;
   }
-
-  .error {
-    border-color:$error!important;
-    color:$error!important;
-    background: lighten($error, 45%);
-  }
-
-  .success {
-    border-color:$success!important;
-    color:$success!important;
-    background: lighten($success, 41%);
-  }
-
   &.valid {
-    input, textarea {
+    input,
+    textarea {
       pointer-events: none;
-      color:lighten($secondary, 20%)
+      color: lighten($secondary, 20%)
     }
+  }
+}
+
+
+@keyframes error-input {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 23px);
+  }
+}
+
+.grecaptcha-badge {
+  bottom:100px !important;
+
+  &--disappear {
+    right: -500px!important;
   }
 }

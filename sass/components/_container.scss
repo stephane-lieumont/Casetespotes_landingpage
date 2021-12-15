@@ -10,6 +10,10 @@
     flex-direction: row;
     flex-wrap: nowrap;
     gap: calc($space-multiplier *2);
+
+    p{
+      max-width: 900px;
+    }    
   }
 }
 

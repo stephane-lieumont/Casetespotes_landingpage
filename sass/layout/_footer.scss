@@ -37,18 +37,8 @@ footer {
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid darken($bg-bluelight, 5%);
+    height:80px;
+    overflow: hidden;
   }
 }
 
-// Small devices (landscape phones, less than 768px)
-@media (max-width: $sm-screen-width) { 
-
-  footer {
-    padding-left: $space-multiplier;
-    padding-right: $space-multiplier;
-
-    .container {
-      flex-direction: column-reverse;
-    }
-  }
-}

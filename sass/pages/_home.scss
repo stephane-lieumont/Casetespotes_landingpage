@@ -13,13 +13,15 @@
 
   &__picture, h4 {
     text-align: center;
-    margin:0
+    margin:0;
+
+    img {
+      height: auto;
+    }
   }
 }
 
 #event {
-  padding-top: 0;
-
   .aside {
       display: block;
       margin-bottom: 20px;
@@ -82,7 +84,7 @@
 
     &__picture {
       overflow: hidden;
-      height: 400px;
+      max-height: 400px;
     }
   }
 
@@ -92,6 +94,7 @@
 
     img {
       width: 100%;
+      height: auto;
       object-fit: cover;
     }
   }
@@ -160,110 +163,57 @@
 #contact {
   background-color: $bg-bluelight;
 
-  &__details {
-    font-size: 0.8rem;;
-    list-style: none;
-    margin:0;
-    padding:0;
-
-    i {
-      margin-right:20px;
+  &__localisation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    
+    &__details {
+      font-size: 0.8rem;;
+      list-style: none;
+      margin:0 auto;
+      padding:0;
+      max-width: 700px;
+  
+      i {
+        margin-right:20px;
+      }
+  
+      li {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        list-style: none;
+      }
     }
-
-    li {
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
+  
+    &__map {
+      flex-grow: 1;
+      width: 100%;
+      max-width: 400px;
+      height: 350px;
+      border-radius:$space-multiplier;
+      border:3px solid white;
+      overflow:hidden;
+  
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
     }
   }
 
-  &__map {
-    width: 100%;
-    border-radius:$space-multiplier;
-    border:3px solid white;
-    overflow:hidden;
-
-    iframe {
-      display: block;
-      height: 400px;
-      width: 100%;
-      border:none;
-    }
+  &__description {
+    text-indent: 0;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: $space-multiplier;
   }
 
   &__form {
     margin-top:calc($space-multiplier*2);
   }
 }
-
-// Small devices (landscape phones, less than 768px)
-@media (max-width: $sm-screen-width) { 
-  #about {
-    ul {
-      gap: calc($space-multiplier * 2);
-    } 
-
-    li {
-      width: 100%;
-    }
-  }
-
-  #event { 
-    ul {
-      white-space: inherit;
-    }
-  }
-}
-
-// Medium devices (tablets, less than 992px)
-@media (max-width: $md-screen-width) { 
-  #cta {
-    height: 100%;
-    margin-top:120px;
-
-    &__desc {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    &__picture img {
-      width: 100%;
-      max-width: 380px;
-    }
-  }
-
-  #event { 
-    ul {
-      white-space: inherit;
-    }
-
-    .aside {
-      &__content {               
-        flex-direction: column;        
-        justify-content: center;
-        align-items: center;
-        gap:10px;
-        height: inherit;
-        max-width: 500px;
-        margin:0 auto;
-      }
-
-      #menu-dooble {
-        width: 100%;
-        min-width: auto;
-        img {
-          width: 100%;
-          height: auto;
-          max-width: 600px;
-        }
-      }
-
-      #present-dooble {
-        width: 100%;
-        max-width: 600px;
-      }
-    }
-  }
-}
-
