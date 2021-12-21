@@ -299,7 +299,7 @@
       <p class="reveal-4">© casetespotes.com - Tous droits réservés</p>
     </div>
   </footer>
-  <script src="js/utils/functions.js?v=1.0.5"></script>
+  <script src="js/utils/functions.js?v=1.0.6"></script>
   <script src="js/modules/observerReveal.js?v=1.0.5"></script>
   <script src="js/modules/parallax.js?v=1.0.5"></script>
   <script src="js/models/form.js?v=1.0.5"></script>

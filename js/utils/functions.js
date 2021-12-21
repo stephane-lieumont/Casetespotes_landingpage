@@ -10,6 +10,7 @@ function animateMenu () {
     t.addEventListener('click', () => {
       navItems.forEach(a => {
         a.classList.remove('is-active')
+        hamburger.classList.remove('is-active')
       })
       t.classList.add('is-active')
     })
