@@ -84,13 +84,13 @@
         <div id="cta__desc">
           <h1 class="reveal-1">Participe au prochain évènement Case Tes Potes !</h1>
           <p class="reveal-2">
-            Case Tes Potes organise son jeu inédit dont le principe est un speed dating revisité réunissant Caseurs.euses et Célibataires ! Notre évènement vous promet un moment fun et de belles rencontres au Dooble à Toulouse
-            – 2B Rue du May.<br/>
+            Case Tes Potes organise son jeu inédit dont le principe est un speed dating revisité réunissant Caseurs.euses et Célibataires ! Notre évènement vous promet un moment fun et de belles rencontres : <br />
+            Le jeudi 10 et le jeudi 24 février à 19h30 au Dooble à Toulouse – 2B Rue du May.<br/>
             <span class="box__infos text__color--yellow text__size--md"><b>Entrée :</b> 20€ par duo (un caseur.euse + son.sa célibataire) + 1 Punch offert par personne.</span><br />
             <b>Attention : Inscription obligatoire dans la limite des places disponibles ! Premier.ères arrivé.es, premier.ères servi.es !</b>
           </p>
           <div class="reveal-3">
-            <a href="https://www.instagram.com/case_tes_potes/" class="btn btn--type1">Suis-nous pour être informé du prochain évènement</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZWgPOyVK2OpS0G827vPRkNSojKookzntXXPrfNUs3SR3qrw/viewform?usp=sf_link" class="btn btn--type1">Je m'inscris à l'un des évènements</a>
           </div>          
         </div>
         <div id="cta__picture" class="reveal-5">
@@ -112,9 +112,10 @@
               vite car le nombre de places est limité !
             </p>
             <ul class="reveal-3">
-              <li><b>Jeudi 9 décembre 2021</b> à 19h30 au Dooble - Toulouse |<strong>Términé</strong></li>
+              <li><b>Jeudi 10 février 2022</b> à 19h30 au Dooble - Toulouse</li>
+              <li><b>Jeudi 24 février 2022</b> à 19h30 au Dooble - Toulouse</li>
             </ul>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZWgPOyVK2OpS0G827vPRkNSojKookzntXXPrfNUs3SR3qrw/viewform?usp=sf_link" class="btn btn--type2 btn--inactive">Je m'inscris à l'un de ces évènements</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZWgPOyVK2OpS0G827vPRkNSojKookzntXXPrfNUs3SR3qrw/viewform?usp=sf_link" class="btn btn--type2">Je m'inscris à l'un de ces évènements</a>
           </div>
           <div id="event__picture"  class="reveal-4">
             <img width="500" height="500" src="./images/large/Event-Speed-Dating-Dooble---Décembre-2021.jpg" alt="evenement casetespotes dooble" />
