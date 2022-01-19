@@ -86,7 +86,7 @@
           <p class="reveal-2">
             Case Tes Potes organise son jeu inédit dont le principe est un speed dating revisité réunissant Caseurs.euses et Célibataires ! Notre évènement vous promet un moment fun et de belles rencontres : <br />
             Le jeudi 10 et le jeudi 24 février à 19h30 au Dooble à Toulouse – 2B Rue du May.<br/>
-            <span class="box__infos text__color--yellow text__size--md"><b>Entrée :</b> 20€ par duo (un caseur.euse + son.sa célibataire) + 1 Punch offert par personne.</span><br />
+            <span class="box__infos text__color--yellow text__size--md"><b>Entrée gratuite + 1 Cocktail Case Tes Potes offert<br>Vous aurez la possibilité de faire un don à Case Tes Potes sur place si vous le souhaitez 😉</span><br />
             <b>Attention : Inscription obligatoire dans la limite des places disponibles ! Premier.ères arrivé.es, premier.ères servi.es !</b>
           </p>
           <div class="reveal-3">
