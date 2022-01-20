@@ -118,7 +118,7 @@
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZWgPOyVK2OpS0G827vPRkNSojKookzntXXPrfNUs3SR3qrw/viewform?usp=sf_link" class="btn btn--type2">Je m'inscris à l'un de ces évènements</a>
           </div>
           <div id="event__picture"  class="reveal-4">
-            <img width="500" height="500" src="./images/large/Event-Speed-Dating-Dooble---Décembre-2021.jpg" alt="evenement casetespotes dooble" />
+            <img width="500" height="500" src="./images/large/Event-Speed-Dating-Dooble-10-02-22.jpg" alt="evenement casetespotes dooble" />
           </div>
         </div>
         <aside class="aside reveal-5">          
