@@ -142,12 +142,17 @@
   padding: 0;
   width: 90%;
 
+  h4 {
+    max-width: 140px;
+  }
+
   li {
     position:relative;
   }
 
   &__picture {
     border-radius: 50%;
+    max-width: 140px;
     overflow: hidden;
     margin-bottom: $space-multiplier;
 
@@ -176,7 +181,7 @@
       list-style: none;
       margin:0 auto;
       padding:0;
-      max-width: 700px;
+      max-width: 280px;
   
       i {
         margin-right:20px;
@@ -188,6 +193,21 @@
         align-items: center;
         list-style: none;
       }
+    }
+
+    .press {
+      max-width: 200px;
+      h5, p {
+        margin:0;
+        text-indent: 0;
+      }
+
+      h5 {
+        font-size: 0.8rem;;
+      }
+
+      margin: 10px;
+      display: block;
     }
   
     &__map {
