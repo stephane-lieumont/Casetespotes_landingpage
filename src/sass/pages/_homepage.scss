@@ -1,0 +1,25 @@
+#homepage {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap:50px;
+  height: 100%;
+  z-index: 1;
+
+  &__intro {
+    padding-right: 20px;
+  }
+
+  &__content {
+    position: relative;
+    width: 70%;
+  }
+
+  .bubble {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(90%, -40%);
+  }
+}

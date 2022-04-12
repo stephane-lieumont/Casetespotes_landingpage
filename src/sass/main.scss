@@ -1,2 +1,13 @@
-@import './base/reset.scss';
-@import './base/reset.scss';
+@import './abstracts/variables';
+@import './themes/colors';
+
+@import './base/reset';
+@import './base/base';
+
+@import './layout/header';
+@import './layout/main';
+@import './layout/footer';
+
+@import './pages/homepage';
+
+@import './components/input';

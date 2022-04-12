@@ -1,17 +1,18 @@
 import { FunctionComponent } from "react"
 import { Link } from "react-router-dom";
+import Logo from '../assets/logo.svg'
 
 const Header: FunctionComponent = () => {
   return (
     <header>
-      <Link to="/" className="logo">Test
+      <Link to="/" className="logo">
+        <svg><use xlinkHref={Logo + '#logo'}></use></svg>
       </Link>
       <nav>
         <ul>          
-          <li>Acceuil</li>
-          <li>Profil</li>
-          <li>Réglage</li>
-          <li>Communauté</li>
+          <li>A propos</li>
+          <li>Contact</li>
+          <li>Pré-inscription</li>
         </ul>
       </nav>
     </header>

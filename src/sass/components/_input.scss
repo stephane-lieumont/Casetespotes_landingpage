@@ -1,0 +1,78 @@
+.input {
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+
+  label, input {
+    padding: 5px 0;
+    width: 100%;
+  }
+
+  input {
+    margin-bottom: 20px;
+    position: relative;
+    background: none;
+    border: none;    
+    border-bottom: 2px  solid white;
+    outline: none;
+    caret-color: $blue;
+    color: white;
+    font-size: 1rem;
+    transition: border .3s ease-in-out;
+    z-index: 2;
+
+    &:focus {
+      border-bottom: 2px  solid $blue;
+    }
+  }
+
+  label {
+    position: absolute;
+    top:0;
+    left: 0;
+    transform-origin: center left;
+    transition: transform .15s ease-in-out;
+  }
+
+  &__error-message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(20px);
+    color: lighten($pink, 30%)
+  }
+
+  &--focus {
+    label {      
+      transform: translateY(-1.4rem) scale(0.8);
+      color: $blue;
+    }
+  }
+
+  &--error {
+    label, input {      
+      color: $pink!important;
+    }
+
+    label {
+      animation: error-animation .15s ease-in-out both;
+    }
+
+    input {
+      border-bottom: 2px  solid $pink!important;
+    }
+  }
+}
+
+@keyframes error-animation {
+  0% {
+    transform: translateY(-1.4rem) scale(0.8) translateX(-5px);
+  }
+  70% {
+    transform: translateY(-1.4rem) scale(0.8) translateX(5px);
+  }
+
+  100% {
+    transform: translateY(-1.4rem) scale(0.8) translateX(0);
+  }
+}

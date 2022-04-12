@@ -5,7 +5,7 @@ import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import Footer from './Layout/Footer';
 import Header from './Layout/Header';
 
-import HomePage from './pages/HomePage';
+import Homepage from './pages/Homepage';
 
 import './sass/main.scss'
 
@@ -17,7 +17,7 @@ root.render(
     <Header/>
     <main>
       <Routes>
-        <Route path="/" element={<HomePage />} ></Route> 
+        <Route path="/" element={<Homepage />} ></Route> 
       </Routes>
     </main>
     <Footer/>
