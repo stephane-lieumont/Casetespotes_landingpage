@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react"
-import { Link } from "react-router-dom";
 import Logo from '../assets/logo.svg'
+import { NavLink, Link } from 'react-router-dom'
 
 const Header: FunctionComponent = () => {
   return (
@@ -10,9 +10,9 @@ const Header: FunctionComponent = () => {
       </Link>
       <nav>
         <ul>          
-          <li>A propos</li>
-          <li>Contact</li>
-          <li>Pré-inscription</li>
+          <li><NavLink className={({ isActive }) => (isActive ? 'active' : '')} to="/a-propos">A propos</NavLink></li>
+          <li><NavLink className={({ isActive }) => (isActive ? 'active' : '')} to="/contact">Contact</NavLink></li>
+          <li><NavLink className={({ isActive }) => (isActive ? 'active' : '')} to="/">Pré-inscription</NavLink></li>
         </ul>
       </nav>
     </header>

@@ -26,6 +26,19 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap:50px;
+    gap:20px;
+
+    a {
+      color: white;
+      text-decoration: none;
+      padding:5px 15px;
+      border-radius: 30px;
+      font-weight: 600;
+
+      &.active {
+        color:$pink;
+        background-color: white;
+      }
+    }
   }
 }

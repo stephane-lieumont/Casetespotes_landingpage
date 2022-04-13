@@ -1,6 +1,7 @@
 .input {
   position: relative;
   margin-top: 30px;
+  margin-bottom: 15px;
   width: 100%;
 
   label, input {
@@ -54,25 +55,8 @@
       color: $pink!important;
     }
 
-    label {
-      animation: error-animation .15s ease-in-out both;
-    }
-
     input {
       border-bottom: 2px  solid $pink!important;
     }
-  }
-}
-
-@keyframes error-animation {
-  0% {
-    transform: translateY(-1.4rem) scale(0.8) translateX(-5px);
-  }
-  70% {
-    transform: translateY(-1.4rem) scale(0.8) translateX(5px);
-  }
-
-  100% {
-    transform: translateY(-1.4rem) scale(0.8) translateX(0);
   }
 }

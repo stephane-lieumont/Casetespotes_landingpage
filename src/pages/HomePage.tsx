@@ -1,7 +1,7 @@
-import { Fragment, FunctionComponent } from "react"
+import { Fragment, FunctionComponent} from "react"
 import background from './../assets/pictures/background-landing-page.jpg'
 import smartphone from './../assets/pictures/smartphone_splashscreen.png'
-import Input from "../components/Input"
+import FormPreRegistration from "../components/FormPreRegistration"
 
 const Homepage: FunctionComponent = () => {
   return (
@@ -12,16 +12,7 @@ const Homepage: FunctionComponent = () => {
           <p id="homepage__intro">
             Découvrez bientôt en version Vêta-Test notre nouvelle application de rencontre mettant l'amitié au coeur de l'amour pour faciliter les rencontres et accompagner les célibataires.
           </p> 
-          <form className="form">
-            <div className="row">
-              <Input label={'Nom'} name={'lastname'} errorMessage={'Veuillez saisir votre Nom'} />
-              <Input label={'Prénom'} name={'firstname'} errorMessage={'Veuillez saisir votre Prénom'}/>
-            </div>
-            <div className="row">
-              <Input label={'Email'} name={'email'} errorMessage={'Veuillez saisir une adresse mail valide'}/>
-              <Input label={'Téléphone'}  name={'phone'}  errorMessage={'Veuillez saisir votre numéro de téléphone'}/>
-            </div>
-          </form>
+          <FormPreRegistration />
           <div id="homepage__footer">
             <p className="text--caption">
               Les informations recueillies sur ce formulaire sont enregistrées par Case Tes pootes pour permettre de vous adresser des contenus adaptés à votre profile. 

@@ -1,13 +1,7 @@
 import { FunctionComponent, useState, ChangeEvent, useEffect } from "react"
+import { InputProps } from "../types/InterfaceForms"
 
-type InputProps = {
-  label?: string,
-  name?: string,
-  errorMessage?: string,
-  error?: boolean
-}
-
-const Input: FunctionComponent<InputProps> = ({label = 'Label', name = 'inputName', errorMessage = "Erreur message", error = true} : InputProps) => {
+const Input: FunctionComponent<InputProps> = ({label = 'Label', name = 'inputName', errorMessage = "Erreur message", error = false, onChange} : InputProps) => {
 
   const [onFocus, setOnFocus] = useState<boolean>(false)
   const [valueIsEmpty, setValueIsEmpty] = useState<boolean>(true)
@@ -23,7 +17,7 @@ const Input: FunctionComponent<InputProps> = ({label = 'Label', name = 'inputNam
     } else {
       setValueIsEmpty(true)
     }
-    console.log(event.target.value)
+    onChange!(event.target.value)
   }
 
   const handleOnFocus = () => {
@@ -43,7 +37,7 @@ const Input: FunctionComponent<InputProps> = ({label = 'Label', name = 'inputNam
   return (
     <div className={`input ${ onFocus ? 'input--focus' : ''} ${ errorStatus ?  'input--error' : ''}`}>
       <label htmlFor={name}>{label}</label>
-      <input name={name} onFocus={handleOnFocus} onBlur={handleOnBlur} onChange={handleChange} />
+      <input type="text" name={name} onFocus={handleOnFocus} onBlur={handleOnBlur} onChange={handleChange} />
       {errorStatus && (
       <p className="input__error-message text--caption text--pink">{errorMessage}</p>
       )}

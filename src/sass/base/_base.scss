@@ -154,4 +154,8 @@ p {
   justify-content: center;
   align-items: center;
   gap: 30px;
+
+  &--start {
+    justify-content: flex-start;
+  }
 }

@@ -1,0 +1,68 @@
+.button {
+  display: inline-block;
+  position: relative;
+  font-size: 1rem!important;
+  line-height: 1rem;
+  background-color: transparent;  
+  border-radius: 20px;
+  overflow: hidden;
+  color:$pink;
+  background-color: $yellow;
+  cursor: pointer;
+
+  &--outlined {
+    background-color: transparent;
+    border: 2px solid $yellow;
+    color: $yellow!important;
+
+    button, a {
+      color: $yellow!important;
+    }
+
+    &::before {
+      display:none!important;
+    }
+
+    &:hover {
+      border-color: $pink;
+      button, a {
+        color:$pink!important;
+      }
+    }
+  }
+
+  button, a {
+    position: relative;
+    display:block;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    background-color: transparent;
+    color:white;
+    font-size: 1rem!important;
+    line-height: 1rem;
+    z-index: 1;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  &::before {
+    position: absolute;
+    top:0%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    background-color: $pink;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+    transform: translateX(-50%);
+    content: '';
+    z-index: 0;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+}

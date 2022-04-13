@@ -1,0 +1,71 @@
+.selectbox {
+  margin-bottom: 30px;
+  max-width: 50%;
+  padding-right: 15px;
+  gap:10px;
+
+  label {
+    flex-grow: 1;
+    white-space: nowrap;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      right:0;
+      font-family: 'Material Icons';
+      content: '\e5cf';
+      font-size: 24px;
+      height: 24px;
+      width: 24px;
+      transform: translateY(-50%);
+    }
+
+    &__error-message {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateY(20px);
+    }
+  }
+
+  &--error {
+    color:$pink!important;
+
+    select {
+      color:$pink!important;
+      border-color: $pink!important;
+    }
+  }
+
+  select {
+    border: none;
+    outline: none;
+    background: transparent;
+    appearance: none;
+    border-radius: 0;
+    border-bottom: 2px solid white;
+    margin: 0;
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding-bottom: 10px;
+    padding-top: 10px; 
+    line-height: normal;
+    color: white;
+    text-indent: 5px;
+
+    .option-label{
+      display: none;
+    }
+
+    .option {
+      color: $blue;
+      font-size: 0.8rem;
+    }
+  }
+}
