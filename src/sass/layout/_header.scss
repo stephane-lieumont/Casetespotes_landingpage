@@ -34,6 +34,12 @@ header {
       padding:5px 15px;
       border-radius: 30px;
       font-weight: 600;
+      white-space: nowrap;
+      transition: color .15s ease-in-out;
+
+      &:hover {
+        color:$pink;
+      }
 
       &.active {
         color:$pink;

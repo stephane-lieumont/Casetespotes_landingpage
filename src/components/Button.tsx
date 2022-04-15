@@ -1,12 +1,5 @@
-import { FunctionComponent, MouseEventHandler } from "react"
-
-type ButtonProps = {
-  label?: string,
-  outlined?: boolean,
-  buttonLink?: boolean,
-  navigate?: string,
-  callback?: MouseEventHandler<HTMLButtonElement>
-}
+import { FunctionComponent } from "react"
+import { ButtonProps } from "../types/InterfaceForms";
 
 const Button: FunctionComponent<ButtonProps> = ({label = "button", outlined = false, buttonLink = false, navigate = '/', callback}) => {
   if(buttonLink) {

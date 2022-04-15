@@ -1,18 +1,23 @@
-import { FunctionComponent, useState } from "react"
+import { FunctionComponent, useState, useEffect } from "react"
 import { InputProps } from "../types/InterfaceForms"
 
-const Checkbox: FunctionComponent<InputProps> = ({label = "checkbox", name="checkbox", value = false, onChange}) => {
-  const [checked, setChecked] = useState<boolean | string>(value); 
+const Checkbox: FunctionComponent<InputProps> = ({label = "checkbox", name="checkbox", checked = false, error = false, onChange}) => {
+  const [checkedInput, setCheckedInput] = useState<boolean>(checked); 
+  const [errorStatus, setErrorStatus] = useState<boolean>(error)
   
+  useEffect(() => {
+    setErrorStatus(error)
+  }, [error])
+
   const handleChange = () => {
-    setChecked(!checked); 
-    onChange!(!checked)
+    setCheckedInput(!checkedInput); 
+    onChange!(!checkedInput)
   }
 
   return (
-    <div className={`checkbox row row--start`}>      
-      <input id="checkbox" onChange={handleChange} name={name} checked={checked === true ? true : false} type="checkbox" />
-      <label htmlFor="checkbox" className="text--caption">{label}</label>
+    <div className={`checkbox ${errorStatus ? 'checkbox--error' : ''} row row--start`}>      
+      <input id="checkbox" onChange={handleChange} name={name} checked={checkedInput} type="checkbox" />
+      <label htmlFor="checkbox" className={`text--caption ${errorStatus ? 'text--pink' : ''}`}>{label}</label>
     </div>    
   );
 }

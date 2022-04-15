@@ -1,0 +1,65 @@
+.popup-dial {
+  position:absolute;
+  top:0;
+  left: 50%;
+  display: inline-block;
+  padding: 5px;
+  background-color: rgba(white, 0.8);
+  border-radius:15px;
+  opacity: 0;
+  transform: translateY(-70px) translateX(-50%);
+  animation: popup-animation .3s ease-in-out 0.3s both;
+
+  &::before {
+    position: absolute;
+    top:5px;
+    left:5px;
+    font-family: 'Material Icons';
+    margin-right: 10px;
+    font-size: 22px;
+    content: '\e000';
+  }
+
+  p {
+    margin:0;
+    margin-left: 30px;
+    padding-right: 15px;
+    white-space: nowrap;
+  }
+
+  &--alert {
+    background-color: rgba($pink, 0.8);
+
+    &::before {
+      content: '\e000';
+    }
+  }
+
+  &--warning {
+    background-color: rgba($yellow, 0.8);
+
+    &::before {
+      content: '\e160';
+    }
+  }
+
+  &--success {
+    background-color: rgba($green, 0.8);
+
+    &::before {
+      content: '\e86c';
+    }
+  }
+}
+
+@keyframes popup-animation {
+  0% {
+    transform: translateY(-50px) translateX(-50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(-70px) translateX(-50%);
+    opacity: 1;
+  }
+}

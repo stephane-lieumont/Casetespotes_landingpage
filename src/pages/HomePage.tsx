@@ -1,7 +1,7 @@
 import { Fragment, FunctionComponent} from "react"
 import background from './../assets/pictures/background-landing-page.jpg'
 import smartphone from './../assets/pictures/smartphone_splashscreen.png'
-import FormPreRegistration from "../components/FormPreRegistration"
+import FormPreRegistration from "../forms/FormPreRegistration"
 
 const Homepage: FunctionComponent = () => {
   return (

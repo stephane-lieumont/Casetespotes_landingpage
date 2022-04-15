@@ -8,7 +8,7 @@ const Input: FunctionComponent<InputProps> = ({label = 'Label', name = 'inputNam
   const [errorStatus, setErrorStatus] = useState<boolean>(error)
 
   useEffect(() => {
-    error ? setErrorStatus(true) : setErrorStatus(false)
+    setErrorStatus(error)
   }, [error])
 
   const handleChange = (event : ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +22,6 @@ const Input: FunctionComponent<InputProps> = ({label = 'Label', name = 'inputNam
 
   const handleOnFocus = () => {
     setOnFocus(true)
-    setErrorStatus(false)
   }
 
   const handleOnBlur = (event : ChangeEvent<HTMLInputElement>) => {

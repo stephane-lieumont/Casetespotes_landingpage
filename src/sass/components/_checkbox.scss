@@ -31,4 +31,10 @@
       }
     }
   }
+
+  &--error{
+    input {
+      border-color: $pink;
+    }
+  }
 }

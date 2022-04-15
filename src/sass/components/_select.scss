@@ -1,45 +1,47 @@
 .selectbox {
+  position: relative;
   margin-bottom: 30px;
   max-width: 50%;
+  align-items: end;
   padding-right: 15px;
-  gap:10px;
+  gap:20px;
 
-  label {
+  &__title {
     flex-grow: 1;
     white-space: nowrap;
+    padding-bottom: 4px;
   }
 
   &__container {
     position: relative;
     width: 100%;
 
-    &::before {
-      position: absolute;
-      top: 50%;
-      right:0;
-      font-family: 'Material Icons';
-      content: '\e5cf';
-      font-size: 24px;
-      height: 24px;
-      width: 24px;
-      transform: translateY(-50%);
-    }
-
     &__error-message {
       position: absolute;
       bottom: 0;
       left: 0;
       transform: translateY(20px);
+      color: lighten($pink, 30%)
     }
   }
 
   &--error {
     color:$pink!important;
 
-    select {
-      color:$pink!important;
-      border-color: $pink!important;
-    }
+    .MuiFormControl-root {
+      label {
+        color:$pink!important;
+      }    
+      .MuiInput-root {
+        color:$pink!important;
+        &::before {
+          border-color: $pink!important;
+        }
+      }    
+      svg {
+        fill: $pink;
+      }
+    }    
   }
 
   select {
@@ -67,5 +69,31 @@
       color: $blue;
       font-size: 0.8rem;
     }
+  }
+}
+
+// Custom MUI Colors 
+
+.MuiFormControl-root {
+  label {
+    color:white!important;
+    font-size: 0.9rem;
+    &.Mui-focused{
+      color: $blue!important;
+    }
+  }
+
+  .MuiInput-root {
+    color:white!important;
+    &::before {
+      border-color: white!important;
+    }
+    &::after {
+      border-color: $blue!important;
+    }
+  }
+
+  svg {
+    fill: white;
   }
 }

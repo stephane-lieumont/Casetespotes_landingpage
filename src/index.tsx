@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 
-import Footer from './Layout/Footer';
-import Header from './Layout/Header';
+import Footer from './layout/Footer';
+import Header from './layout/Header';
 
 import Homepage from './pages/Homepage';
 

@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react"
+
 export type InputProps = {
   label?: string,
   name?: string,
@@ -5,6 +7,15 @@ export type InputProps = {
   errorMessage?: string,
   error?: boolean,
   onChange?: CallableFunction
-  value?: string | boolean,
+  value?: string,
   choices?: string[]
+  checked?: boolean
+}
+
+export type ButtonProps = {
+  label?: string,
+  outlined?: boolean,
+  buttonLink?: boolean,
+  navigate?: string,
+  callback?: MouseEventHandler<HTMLButtonElement>
 }
