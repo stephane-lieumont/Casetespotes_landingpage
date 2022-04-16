@@ -1,6 +1,7 @@
 main {
-  padding: 30px;
+  position: absolute;
+  left: 0;
+  top:0;
   width: 100%;
-  flex-grow: 1;
-  max-width: $max-width-xl;
+  height: 100%;
 }

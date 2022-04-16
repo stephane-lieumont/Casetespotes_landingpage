@@ -19,13 +19,13 @@ a {
 }
 
 #root {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-  width: 100vw;
-  position: relative;
+  width: 100vw;  
   overflow: hidden;
 }
 
@@ -158,4 +158,15 @@ p {
   &--start {
     justify-content: flex-start;
   }
+}
+
+.page {
+  position: absolute;
+  top:170px;
+  left: 0;
+  padding: 30px;
+  max-width: $max-width-xl;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
 }

@@ -1,16 +1,14 @@
 import { Fragment, FunctionComponent} from "react"
-import background from './../assets/pictures/background-landing-page.jpg'
-import smartphone from './../assets/pictures/smartphone_splashscreen.png'
 import FormPreRegistration from "../forms/FormPreRegistration"
 
 const Homepage: FunctionComponent = () => {
   return (
     <Fragment>
-      <section id ="homepage">
+      <section id ="homepage"  className="page">
         <div id="homepage__content">
           <h1 className="text--yellow text--center">Avant-première</h1>
           <p id="homepage__intro">
-            Découvrez bientôt en version Vêta-Test notre nouvelle application de rencontre mettant l'amitié au coeur de l'amour pour faciliter les rencontres et accompagner les célibataires.
+            Découvrez bientôt en version Bêta-Test notre nouvelle application de rencontre mettant l'amitié au coeur de l'amour pour faciliter les rencontres et accompagner les célibataires.
           </p> 
           <FormPreRegistration />
           <div id="homepage__footer">
@@ -23,13 +21,7 @@ const Homepage: FunctionComponent = () => {
             <h2 className="bubble__content">Application gratuite pendant 1 an pour toute préinscription</h2>
           </aside>
         </div>
-      </section>   
-      <div className="smartphone">
-          <img width="200" src={smartphone} alt="case tes potes home screen"/>
-      </div>
-      <div className="bg-full-width">
-        <img width="500" src={background} alt="case tes potes lancement application"/>
-      </div>
+      </section>
     </Fragment>
   );
 }

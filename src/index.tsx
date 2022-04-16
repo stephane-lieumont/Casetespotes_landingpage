@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 
-import Footer from './layout/Footer';
-import Header from './layout/Header';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import Homepage from './pages/Homepage';
-import About from './pages/About';
+import App from './app'
 
 import './sass/main.scss'
 
@@ -15,13 +12,8 @@ const root = ReactDOM.createRoot(container!);
 
 root.render(
   <Router basename={process.env.PUBLIC_URL}>
-    <Header/>
-    <main>
-      <Routes>
-        <Route path="/" element={<Homepage />} ></Route> 
-        <Route path="/a-propos" element={<About />} ></Route> 
-      </Routes>
-    </main>
-    <Footer/>
+    <App />
   </Router>
 )
+
+
