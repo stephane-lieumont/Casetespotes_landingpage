@@ -1,45 +1,51 @@
-import { InputProps } from "../types/InterfaceForms"
-
 import { FunctionComponent, useEffect, useState } from "react"
-import Input from "../components/Input"
-import Button from "../components/Button"
-import SelectBox from "../components/SelectBox"
-import Checkbox from "../components/Checkbox"
+import { InputProps } from "../types/InterfaceForms"
+import Input from "../components/Forms/Input"
+import Button from "../components/Forms/Button"
+import SelectBox from "../components/Forms/SelectBox"
+import Checkbox from "../components/Forms/Checkbox"
 import PopupDial, { PopupAlert } from "../components/PopupDial"
 import { IpreRegisterUser } from "../types/InterfacesStorageAPI"
 import API from "../services/Api"
 import { Validator } from "../utils/formValidator"
-import { inputAdornmentClasses } from "@mui/material"
 
 const FormPreRegistration: FunctionComponent = () => {
+  const [showPopup, setShowPopup] = useState<boolean>(false)
+  const [hidePopup, setHidePopup] = useState<boolean>(false)
+  const [formDisabled, setFormDisabled] =  useState<boolean>(false)
+
   // Form Controllers
   const [formInputLastname, setFormInputLastname] = useState<InputProps>({
     label: 'Nom',
     name: 'lastname',
     error: false,
     errorMessage: 'Veuillez saisir votre Nom',
-    value: ''
+    value: '',
+    disabled: formDisabled,
   })
   const [formInputFirstname, setFormInputFirstname] = useState<InputProps>({
     label: 'Prénom',
     name: 'firstname',
     error: false,
     errorMessage: 'Veuillez saisir votre Prénom',
-    value: ''
+    value: '',
+    disabled: formDisabled,
   })
   const [formInputEmail, setFormInputEmail] = useState<InputProps>({
     label: 'Email',
     name: 'email',
     error: false,
     errorMessage: 'Veuillez saisir une adresse mail valide',
-    value: ''
+    value: '',
+    disabled: formDisabled,
   })
   const [formInputPhone, setFormInputPhone] = useState<InputProps>({
     label: 'Téléphone',
     name: 'phone',
     error: false,
-    errorMessage: 'Veuillez saisir votre numéro de téléphone',
-    value: ''
+    errorMessage: 'Saisir un numéro à 10 chiffres',
+    value: '',
+    disabled: formDisabled,
   })
   const [formInputChoice, setFormInputChoice] = useState<InputProps>({
     label: 'Je souhaites...' ,
@@ -48,53 +54,75 @@ const FormPreRegistration: FunctionComponent = () => {
     error: false,
     errorMessage: 'Veuillez choisir une option',
     choices: ['Caser un.e am.ie célibataire', 'Trouver l\'amour'],
-    value: ''
+    value: '',
+    disabled: formDisabled,
   })
   const [formInputCheckbox, setFormInputCheckbox] = useState<InputProps>({
     label: 'J\'accèpte de recevoir des informations de la part de Case Tes Potes.',
     name: 'subscribe',
     error: false,
     errorMessage: 'Veuillez accepter de recevoir les informations',
-    checked: false
+    checked: false,
+    disabled: formDisabled,
   })
 
-  const [showPopup, setShowPopup] = useState<boolean>(false)
+
 
   const [displayPopup, setDisplayPopup] = useState({
     type: PopupAlert.alert,
-    message: 'dqssqd'
+    message: ''
   })
 
-  const validateForm = () => {
-    let validForm : boolean
-    let userDataStorage : IpreRegisterUser
+  // Let show popup daley to desappear
+  useEffect(() => {
+    const delay: number = 5000
 
-    const listInputs: InputProps[] = [
-      formInputLastname,
-      formInputFirstname,
-      formInputEmail,
-      formInputPhone,
-      formInputChoice,
-      formInputCheckbox
-    ]
+    if(showPopup) {
+      const timer = setTimeout(() => {
+        setHidePopup(true)
+        clearTimeout(timer)
+      }, delay)
+
+      const timer2 = setTimeout(() => {
+        setShowPopup(false)
+        setHidePopup(false)
+        clearTimeout(timer2)
+      }, delay + 500)
+    }
+  }, [showPopup])
+
+  /**
+   * Validate form with JS
+   * @returns {boolean}
+   */
+  const validForm = ():boolean => {
+    // Validator Rules
+    const checkLastname : boolean = !Validator.checkMinLength(formInputLastname.value ?? '', 3)
+    const checkFirstname : boolean = !Validator.checkMinLength(formInputFirstname.value ?? '', 3)
+    const checkEmail : boolean = !Validator.checkEmail(formInputEmail.value ?? '')
+    const checkPhone : boolean = !Validator.checkPhoneNumber(formInputPhone.value ?? '')
+    const checkChoice : boolean = formInputChoice.value === ''
+    const checkCheckbox: boolean = !formInputCheckbox.checked
 
     // Set State with validator
-    setFormInputLastname({...formInputLastname, error: !Validator.checkMinLength(formInputLastname.value ?? '', 3)})
-    setFormInputFirstname({...formInputFirstname, error: !Validator.checkMinLength(formInputFirstname.value ?? '', 3)})
-    setFormInputEmail({...formInputEmail, error: !Validator.checkEmail(formInputEmail.value ?? '')})
-    setFormInputPhone({...formInputPhone, error: !Validator.checkPhoneNumber(formInputPhone.value ?? '')})
-    setFormInputChoice({...formInputChoice, error: formInputChoice.value === ''})
-    setFormInputCheckbox({...formInputCheckbox, error: !formInputCheckbox.checked})
+    checkLastname && setFormInputLastname({...formInputLastname, error: true})
+    checkFirstname && setFormInputFirstname({...formInputFirstname, error: true})
+    checkEmail && setFormInputEmail({...formInputEmail, error: true})
+    checkPhone && setFormInputPhone({...formInputPhone, error: true})
+    checkChoice && setFormInputChoice({...formInputChoice, error: true})
+    checkCheckbox && setFormInputCheckbox({...formInputCheckbox, error: true })
 
-    // Check errors on Inputs
-    validForm = true
-    listInputs.forEach( input => {
-      if(input.error) {
-        validForm = false
-        return
-      }
-    })
+    // Return result check Validator
+    return checkLastname || checkFirstname || checkEmail || checkPhone || checkChoice || checkCheckbox ? false : true
+  }
 
+  /**
+   * Create Object User with formData
+   * @returns {IpreRegisterUser}
+   */
+  const getObjectFormData = (): IpreRegisterUser => {
+    let userDataStorage : IpreRegisterUser
+    
     // Create Object data storage
     userDataStorage = {
       firstname : formInputFirstname.value,
@@ -103,14 +131,16 @@ const FormPreRegistration: FunctionComponent = () => {
       phone: formInputPhone.value,
       intention: formInputChoice.value
     }
-
-    return {
-      valid: validForm,
-      data: userDataStorage
-    }
+    
+    return userDataStorage    
   }
 
-  const storeData = async (userDate : IpreRegisterUser, validForm : boolean) => {
+  /**
+   * Data Storage with call API
+   * @param {IpreRegisterUser} userDate 
+   * @param {boolean} validForm 
+   */
+  const storeData = async (userDate : IpreRegisterUser, validForm : boolean) => {  
     if(validForm) {
       await API.postPreRegisterUserData(userDate)
         .then((resp) => {
@@ -118,6 +148,7 @@ const FormPreRegistration: FunctionComponent = () => {
             type: PopupAlert.success,
             message: `Félicitation ${resp.firstname}, tu fais partie des futures testeurs de l'application case tes potes`
           })
+          setFormDisabled(true)
         })
         .catch((e:any) => {
           if(e.status === 409) {
@@ -143,7 +174,7 @@ const FormPreRegistration: FunctionComponent = () => {
   return (
     <form className="form">
       {showPopup ? (
-        <PopupDial type={displayPopup.type} message={displayPopup.message} />
+        <PopupDial type={displayPopup.type} message={displayPopup.message} fadeout={hidePopup} />
       ) : null}
       <div className="row">
         <Input 
@@ -151,7 +182,8 @@ const FormPreRegistration: FunctionComponent = () => {
           name={formInputLastname.name}
           errorMessage={formInputLastname.errorMessage}
           error={formInputLastname.error}
-          onChange={(inputValue : string) => setFormInputLastname( {...formInputLastname, value: inputValue, error: false } )}
+          onChange={(inputValue : string) => setFormInputLastname( {...formInputLastname, value: inputValue, error: false } )} 
+          disabled={formDisabled}
         />
         <Input 
           label={formInputFirstname.label}
@@ -159,6 +191,7 @@ const FormPreRegistration: FunctionComponent = () => {
           errorMessage={formInputFirstname.errorMessage}
           error={formInputFirstname.error}
           onChange={(inputValue : string) => setFormInputFirstname( {...formInputFirstname, value: inputValue, error: false } )}
+          disabled={formDisabled}
         />
       </div>
       <div className="row">
@@ -168,6 +201,7 @@ const FormPreRegistration: FunctionComponent = () => {
           errorMessage={formInputEmail.errorMessage}
           error={formInputEmail.error}
           onChange={(inputValue : string) => setFormInputEmail( {...formInputEmail, value: inputValue, error: false } )}
+          disabled={formDisabled}
         />
         <Input
           label={formInputPhone.label}
@@ -175,6 +209,7 @@ const FormPreRegistration: FunctionComponent = () => {
           errorMessage={formInputPhone.errorMessage}
           error={formInputPhone.error}
           onChange={(inputValue : string) => setFormInputPhone( {...formInputPhone, value: inputValue, error: false } )}
+          disabled={formDisabled}
         />
       </div>
       <SelectBox 
@@ -185,6 +220,7 @@ const FormPreRegistration: FunctionComponent = () => {
         errorMessage={formInputChoice.errorMessage}
         error={formInputChoice.error}
         onChange={(inputValue: string) => setFormInputChoice( {...formInputChoice, value: inputValue, error: false } )}
+        disabled={formDisabled}
       />
       <Checkbox 
         label={formInputCheckbox.label}
@@ -193,13 +229,17 @@ const FormPreRegistration: FunctionComponent = () => {
         onChange={(checked : boolean) => {
           setFormInputCheckbox({...formInputCheckbox, checked: checked, error: false })}
         }
+        disabled={formDisabled}
       />
       <div className="row">
         <Button
           label="Je me pré-inscris"
+          disabled={formDisabled}
           callback={ async () => {
-            const objectFormData = validateForm()                        
-            storeData(objectFormData.data, objectFormData.valid)
+            const valid = validForm()
+            const objectFormData = getObjectFormData()   
+
+            storeData(objectFormData, valid)
             setShowPopup(true)
           }}
         />

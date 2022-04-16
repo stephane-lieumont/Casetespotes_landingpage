@@ -8,7 +8,12 @@
   border-radius:15px;
   opacity: 0;
   transform: translateY(-70px) translateX(-50%);
-  animation: popup-animation .3s ease-in-out 0.3s both;
+  animation: popup-animation .3s ease-in-out 0.3s forwards;
+
+  &--hide {
+    opacity: 1;
+    animation: popup-animation-reverse .3s ease-in-out forwards;
+  }
 
   &::before {
     position: absolute;
@@ -59,6 +64,18 @@
   }
 
   100% {
+    transform: translateY(-70px) translateX(-50%);
+    opacity: 1;
+  }
+}
+
+@keyframes popup-animation-reverse {
+  100% {
+    transform: translateY(-50px) translateX(-50%);
+    opacity: 0;
+  }
+
+  0% {
     transform: translateY(-70px) translateX(-50%);
     opacity: 1;
   }

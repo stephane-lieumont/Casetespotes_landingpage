@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react"
-import { ButtonProps } from "../types/InterfaceForms";
+import { ButtonProps } from "../../types/InterfaceForms";
 
-const Button: FunctionComponent<ButtonProps> = ({label = "button", outlined = false, buttonLink = false, navigate = '/', callback}) => {
+const Button: FunctionComponent<ButtonProps> = ({label = "button", outlined = false, buttonLink = false, disabled = false, navigate = '/', callback}) => {
   if(buttonLink) {
     return (
       <div className={`button ${ outlined && 'button--outlined'}`}>
@@ -11,7 +11,7 @@ const Button: FunctionComponent<ButtonProps> = ({label = "button", outlined = fa
   }
   
   return (
-    <div className={`button ${ outlined && 'button--outlined'}`}>
+    <div className={`button ${ outlined ? 'button--outlined' : ''} ${ disabled ? 'button--disabled' : ''}`}>
       <button type="button" onClick={callback}>{label}</button>
     </div>    
   );

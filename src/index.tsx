@@ -6,6 +6,7 @@ import Footer from './layout/Footer';
 import Header from './layout/Header';
 
 import Homepage from './pages/Homepage';
+import About from './pages/About';
 
 import './sass/main.scss'
 
@@ -18,6 +19,7 @@ root.render(
     <main>
       <Routes>
         <Route path="/" element={<Homepage />} ></Route> 
+        <Route path="/a-propos" element={<About />} ></Route> 
       </Routes>
     </main>
     <Footer/>

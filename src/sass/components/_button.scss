@@ -14,8 +14,10 @@
     background-color: transparent;
     border: 2px solid $yellow;
     color: $yellow!important;
+    transition: border-color .15s ease-in-out  ;
 
     button, a {
+      transition: color .15s ease-in-out  ;
       color: $yellow!important;
     }
 
@@ -29,6 +31,13 @@
         color:$pink!important;
       }
     }
+  }
+
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.4;
+    background-color: gray;
+    cursor:auto;
   }
 
   button, a {

@@ -6,10 +6,11 @@ export type InputProps = {
   placeholder?: string,
   errorMessage?: string,
   error?: boolean,
-  onChange?: CallableFunction
+  onChange?: CallableFunction,
   value?: string,
-  choices?: string[]
-  checked?: boolean
+  choices?: string[],
+  checked?: boolean,
+  disabled?: boolean,
 }
 
 export type ButtonProps = {
@@ -17,5 +18,6 @@ export type ButtonProps = {
   outlined?: boolean,
   buttonLink?: boolean,
   navigate?: string,
-  callback?: MouseEventHandler<HTMLButtonElement>
+  disabled?: boolean,
+  callback?: MouseEventHandler<HTMLButtonElement>,
 }
