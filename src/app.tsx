@@ -35,7 +35,6 @@ const App: FunctionComponent = () => {
             <img width="500" src={background} alt="case tes potes lancement application"/>
           </div>
       </main>
-
       <Footer/>  
     </Fragment>
   );

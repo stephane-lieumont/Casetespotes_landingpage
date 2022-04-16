@@ -53,7 +53,7 @@ a {
   left: 50%;
   overflow: hidden;
   width: 100%;
-  max-width: $max-width-xl;
+  max-width: 1200px;
   z-index: 10;
   transform: translate(-50%, 15%);
   pointer-events: none;
@@ -158,15 +158,4 @@ p {
   &--start {
     justify-content: flex-start;
   }
-}
-
-.page {
-  position: absolute;
-  top:170px;
-  left: 0;
-  padding: 30px;
-  max-width: $max-width-xl;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
 }

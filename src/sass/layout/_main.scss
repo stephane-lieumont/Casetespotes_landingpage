@@ -5,3 +5,18 @@ main {
   width: 100%;
   height: 100%;
 }
+
+.page {
+  position: absolute;
+  top:120px;
+  left: 50%;
+  padding: 30px;
+  padding-top:100px;
+  max-width: $max-width-xl;
+  max-height: calc(100vh - 200px);
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden ;
+  z-index: 1;
+  transform: translateX(-50%);
+}
