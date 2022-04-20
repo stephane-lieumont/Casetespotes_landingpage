@@ -1,0 +1,33 @@
+.text {
+  &--center {
+    text-align: center!important;
+  }
+  &--yellow {
+    color: $yellow!important;
+  }
+  &--pink {
+    color: $pink!important;
+  }
+  &--blue {
+    color: $blue!important;
+  }
+
+  &--white {
+    color: white!important;
+  }
+  &--caption {
+    font-size: 0.7rem!important;
+  }
+}
+
+.background {
+  &--yellow {
+    background-color: $yellow
+  }
+  &--pink {
+    background-color: $pink;
+  }
+  &--blue {
+    background-color: $blue;
+  }
+}

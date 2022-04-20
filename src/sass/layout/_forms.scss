@@ -1,0 +1,31 @@
+.form {
+  position: relative;
+  padding: 15px 0;
+  &__row {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap:30px;
+  }
+
+  &__popup {
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: $screen-sm) {
+  .form {
+    &__row {
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap:0;
+      flex-grow: 1;
+    }
+  }
+}

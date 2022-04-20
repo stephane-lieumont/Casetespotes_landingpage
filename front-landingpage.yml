@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  api-preregistration:
+    container_name: "front-landingpage"
+    image: "public-market-api"
+    ports:
+      - 80:80
+    env_file:
+      - front-landingpage.env

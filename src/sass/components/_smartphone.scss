@@ -1,0 +1,71 @@
+.smartphone {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  bottom: 0;
+  left: 50%;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1000px;
+  z-index: 10;
+  pointer-events: none;
+
+  img {
+    object-fit: cover;
+    width: 250px;
+    margin:30px 2%;
+  }
+
+  &--show {
+    opacity: 0;
+    animation: show-phone .4s ease-in-out .3s both;
+  }
+
+  &--hide {
+    opacity: 1;
+    animation: hide-phone .3s ease-in-out both;
+  }
+}
+
+@keyframes show-phone {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 25%);
+  }
+
+  60% {
+    transform: translate(-50%, 10%);
+  }
+
+  90% {
+    transform: translate(-50%, 16%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 15%);
+  }
+}
+
+@keyframes hide-phone {
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 25%);
+  }
+
+  20% {
+    transform: translate(-50%, 10%);
+  }
+
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 15%);
+  }
+}
+
+@media (max-width: $screen-md) {
+  .smartphone {
+    opacity: 0!important;
+  }
+}
+

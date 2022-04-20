@@ -1,26 +1,25 @@
 .popup-dial {
-  position:absolute;
-  top:0;
-  left: 50%;
+  height: 26px;
   display: inline-block;
   padding: 5px;
   background-color: rgba(white, 0.8);
   border-radius:15px;
   opacity: 0;
-  transform: translateY(-70px) translateX(-50%);
-  animation: popup-animation .3s ease-in-out 0.3s forwards;
+  transform: translateY(0px);
+  animation: popup-animation .15s ease-in-out 0.3s forwards;
 
   &--hide {
     opacity: 1;
-    animation: popup-animation-reverse .3s ease-in-out forwards;
+    animation: popup-animation-reverse .15s ease-in-out forwards;
   }
 
   &::before {
     position: absolute;
-    top:5px;
-    left:5px;
+    top:2px;
+    left:2px;
     font-family: 'Material Icons';
     margin-right: 10px;
+    height: 22px;
     font-size: 22px;
     content: '\e000';
   }
@@ -59,24 +58,24 @@
 
 @keyframes popup-animation {
   0% {
-    transform: translateY(-50px) translateX(-50%);
+    transform: translateY(30px);
     opacity: 0;
   }
 
   100% {
-    transform: translateY(-70px) translateX(-50%);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
 
 @keyframes popup-animation-reverse {
   100% {
-    transform: translateY(-50px) translateX(-50%);
+    transform: translateY(30px);
     opacity: 0;
   }
 
   0% {
-    transform: translateY(-70px) translateX(-50%);
+    transform: translateY(0px);
     opacity: 1;
   }
 }

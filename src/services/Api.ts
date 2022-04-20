@@ -8,7 +8,8 @@ const postPreRegisterUserData = async (data: IpreRegisterUser): Promise<IpreRegi
       return res.data     
     })
     .catch((err) => {
-      throw err.response
+      throw err.respone ?? new Error('error server')
+      
     })
 };
 

@@ -1,6 +1,9 @@
 .checkbox {
   margin-bottom: 30px;
   gap: 10px;
+  display:flex;
+  align-items: center;
+  
 
   input {
     position:relative;
@@ -10,6 +13,7 @@
     border-radius: 50%;
     border: 2px solid white;
     cursor: pointer;
+    flex-shrink: 0;
 
     &:disabled {
       pointer-events: none;

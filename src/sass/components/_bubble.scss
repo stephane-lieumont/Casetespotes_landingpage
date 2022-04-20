@@ -1,0 +1,42 @@
+.bubble {
+  font-family: 'Square Peg', cursive;
+  font-weight: bolder;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &__content {    
+    width: 80%;
+    z-index: 2;
+    color:$pink;
+    background-image: url('./../../assets/underline.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    padding-bottom: 15px;
+  }
+
+  &::before{
+    position: absolute;
+    top:0;
+    left: 0;
+    content: '';
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: $yellow;
+    z-index: 1;
+  }
+}
+
+
+@media (max-width: $screen-md) {
+  .bubble {
+    opacity: 0!important;
+  }
+}

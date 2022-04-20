@@ -1,13 +1,18 @@
 header {
+  position: fixed;
+  top:0;
+  left:50%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  gap:30px;
   padding: 30px;
   width: 100%;
   max-width: $max-width-xl;
   margin-bottom: 30px;
+  transform: translateX(-50%);
   z-index: 10;
 
   .logo {

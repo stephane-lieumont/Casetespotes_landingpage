@@ -15,7 +15,7 @@ const Checkbox: FunctionComponent<InputProps> = ({label = "checkbox", name="chec
   }
 
   return (
-    <div className={`checkbox ${errorStatus ? 'checkbox--error' : ''} row row--start`}>      
+    <div className={`checkbox ${errorStatus ? 'checkbox--error' : ''}`}>      
       <input id="checkbox" onChange={handleChange} name={name} checked={checkedInput} type="checkbox" disabled={disabled} />
       <label htmlFor="checkbox" className={`text--caption ${errorStatus ? 'text--pink' : ''}`}>{label}</label>
     </div>    

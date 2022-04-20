@@ -1,0 +1,23 @@
+.background-app {
+  transition: color .3s ease-in-out;
+
+  h1, h2 {
+    transition: color .3s ease-in-out;
+  }
+
+  &--light {
+    h2 {
+      color: $pink;
+    }
+
+    .bg-full-width::after {
+      opacity: 0.55!important;
+    }
+  }
+
+  &--dark {
+    .bg-full-width::after {
+      opacity: 0!important;
+    }
+  }
+}

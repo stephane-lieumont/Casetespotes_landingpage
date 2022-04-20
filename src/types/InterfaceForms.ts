@@ -19,5 +19,6 @@ export type ButtonProps = {
   buttonLink?: boolean,
   navigate?: string,
   disabled?: boolean,
+  loading?: boolean,
   callback?: MouseEventHandler<HTMLButtonElement>,
 }

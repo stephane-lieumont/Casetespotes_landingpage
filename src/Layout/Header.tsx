@@ -10,8 +10,8 @@ const Header: FunctionComponent = () => {
       </Link>
       <nav>
         <ul>          
-          <li><NavLink className={({ isActive }) => (isActive ? 'active' : '')} to="/a-propos">A propos</NavLink></li>
-          <li><NavLink className={({ isActive }) => (isActive ? 'active' : '')} to="/contact">Contact</NavLink></li>
+          {/* <li><NavLink className={({ isActive }) => (isActive ? 'active' : '')} to="/a-propos">A propos</NavLink></li> */}
+          {/* <li><NavLink className={({ isActive }) => (isActive ? 'active' : '')} to="/contact">Contact</NavLink></li> */}
           <li><NavLink className={({ isActive }) => (isActive ? 'active' : '')} to="/">Pré-inscription</NavLink></li>
         </ul>
       </nav>

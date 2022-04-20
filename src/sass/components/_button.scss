@@ -33,11 +33,41 @@
     }
   }
 
+  &__loader {
+    position:absolute;
+    top:6px;
+    left: 45%;
+    transform: translateX(2px, 2px);
+    padding: 5%;
+    border: 3px solid white;
+    border-bottom-color: transparent;
+    border-radius: 22px;
+    animation: rotate 0.7s infinite linear;
+    height: 0px;
+    width: 0px;
+  }
+
+  &--isloading {    
+    &::before {
+      background-color: transparent!important;
+    }
+    button, a  {
+      opacity: 0;
+    }
+
+    button, a {
+      cursor:default!important;
+    }
+    
+  }
+
   &--disabled {
     pointer-events: none;
     opacity: 0.4;
     background-color: gray;
-    cursor:auto;
+    button, a {
+      cursor:default!important;
+    }
   }
 
   button, a {

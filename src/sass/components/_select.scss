@@ -1,7 +1,10 @@
 .selectbox {
   position: relative;
-  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   max-width: 50%;
+  margin-bottom: 30px;
   align-items: end;
   padding-right: 15px;
   gap:20px;
@@ -87,6 +90,7 @@
     color:white!important;
     &::before {
       border-color: white!important;
+      border-width: 2px;
     }
     &::after {
       border-color: $blue!important;
@@ -101,5 +105,12 @@
     opacity: 0.4;
     color: white!important;
     -webkit-text-fill-color:white!important
+  }
+}
+
+@media (max-width: $screen-md) {    
+  .selectbox {
+    max-width: 100%;
+    padding-right: 0;
   }
 }

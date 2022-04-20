@@ -21,7 +21,7 @@ const SelectBox: FunctionComponent<InputProps> = ({label = "Label", placeholder=
   }
   
   return (
-    <div className={`selectbox row row--start ${ errorInput ? 'selectbox--error' : ''}`}>
+    <div className={`selectbox ${ errorInput ? 'selectbox--error' : ''}`}>
     <div className="selectbox__title">{label}</div>
     <FormControl variant="standard" fullWidth className="selectbox__container" disabled={disabled}>
       <InputLabel>{placeholder}</InputLabel>

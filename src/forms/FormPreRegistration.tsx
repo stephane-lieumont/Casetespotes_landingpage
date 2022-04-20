@@ -66,7 +66,7 @@ const FormPreRegistration: FunctionComponent = () => {
     disabled: formDisabled,
   })
 
-
+  const [formIsLoading, setFormIsLoading] = useState<boolean>(false)
 
   const [displayPopup, setDisplayPopup] = useState({
     type: PopupAlert.alert,
@@ -141,6 +141,12 @@ const FormPreRegistration: FunctionComponent = () => {
    * @param {boolean} validForm 
    */
   const storeData = async (userDate : IpreRegisterUser, validForm : boolean) => {  
+    setShowPopup(false)
+    setDisplayPopup({
+      type: PopupAlert.alert,
+      message: ''
+    })
+
     if(validForm) {
       await API.postPreRegisterUserData(userDate)
         .then((resp) => {
@@ -151,7 +157,7 @@ const FormPreRegistration: FunctionComponent = () => {
           setFormDisabled(true)
         })
         .catch((e:any) => {
-          if(e.status === 409) {
+          if(e.status === 400) {
             setDisplayPopup({
               type: PopupAlert.alert,
               message: `Tu es déja inscris en tant que testeur de l'application case tes potes`
@@ -163,20 +169,28 @@ const FormPreRegistration: FunctionComponent = () => {
             })
           }
         })
+        .finally(() => {
+          setShowPopup(true);
+          setFormIsLoading(false)
+        })
     } else {
       setDisplayPopup({
         type: PopupAlert.alert,
         message: `Certains champs comportent des erreurs dans le formulaire`
       })
+      setShowPopup(true);
+      setFormIsLoading(false)
     }
   }
 
   return (
     <form className="form">
       {showPopup ? (
-        <PopupDial type={displayPopup.type} message={displayPopup.message} fadeout={hidePopup} />
+        <div className="form__popup">
+          <PopupDial type={displayPopup.type} message={displayPopup.message} fadeout={hidePopup} />
+        </div>        
       ) : null}
-      <div className="row">
+      <div className="form__row">
         <Input 
           label={formInputLastname.label}
           name={formInputLastname.name}
@@ -194,7 +208,7 @@ const FormPreRegistration: FunctionComponent = () => {
           disabled={formDisabled}
         />
       </div>
-      <div className="row">
+      <div className="form__row">
         <Input
           label={formInputEmail.label}
           name={formInputEmail.name}
@@ -231,24 +245,26 @@ const FormPreRegistration: FunctionComponent = () => {
         }
         disabled={formDisabled}
       />
-      <div className="row">
+      <div className="form__row">
         <Button
           label="Je me pré-inscris"
           disabled={formDisabled}
-          callback={ async () => {
+          loading= {formIsLoading}
+          callback={ () => {
+            setFormIsLoading(true)
             const valid = validForm()
-            const objectFormData = getObjectFormData()   
-
+            const objectFormData = getObjectFormData() 
             storeData(objectFormData, valid)
-            setShowPopup(true)
           }}
         />
+        {/*
         <Button 
           label="En savoir plus"
           buttonLink
           outlined
-          navigate="/"
+          navigate="/a-propos"
         />
+        */}
       </div>
     </form>
   );
