@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import { ButtonProps } from "../../types/InterfaceForms";
+import { ButtonProps } from "../types/InterfaceForms";
 import { NavLink } from "react-router-dom";
 
 const Button: FunctionComponent<ButtonProps> = ({label = "button", outlined = false, buttonLink = false, loading = false, disabled = false, navigate = '/', callback}) => {

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { IpreRegisterUser } from "../types/InterfacesStorageAPI";
 import { Config } from "../config";
 
@@ -7,9 +7,8 @@ const postPreRegisterUserData = async (data: IpreRegisterUser): Promise<IpreRegi
     .then(res => {  
       return res.data     
     })
-    .catch((err) => {
-      throw err.respone ?? new Error('error server')
-      
+    .catch((err: AxiosError) => {
+      throw err  
     })
 };
 

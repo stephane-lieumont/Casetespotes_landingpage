@@ -3,9 +3,7 @@ version: "3.9"
 services:
   api-preregistration:
     container_name: "front-landingpage"
-    image: "image-landingpage"
+    image: "97dc592b9d52"
     ports:
       - 80:80
-    env_file:
-      - front-landingpage.env
     stdin_open: true

@@ -1,13 +1,14 @@
 import { FunctionComponent, useEffect, useState } from "react"
 import { InputProps } from "../types/InterfaceForms"
 import Input from "../components/Forms/Input"
-import Button from "../components/Forms/Button"
+import Button from "../components/Button"
 import SelectBox from "../components/Forms/SelectBox"
 import Checkbox from "../components/Forms/Checkbox"
 import PopupDial, { PopupAlert } from "../components/PopupDial"
 import { IpreRegisterUser } from "../types/InterfacesStorageAPI"
 import API from "../services/Api"
 import { Validator } from "../utils/formValidator"
+import { AxiosError } from "axios"
 
 const FormPreRegistration: FunctionComponent = () => {
   const [showPopup, setShowPopup] = useState<boolean>(false)
@@ -156,8 +157,8 @@ const FormPreRegistration: FunctionComponent = () => {
           })
           setFormDisabled(true)
         })
-        .catch((e:any) => {
-          if(e.status === 400) {
+        .catch((e: AxiosError) => {
+          if(e.response?.status === 400) {
             setDisplayPopup({
               type: PopupAlert.alert,
               message: `Tu es déja inscris en tant que testeur de l'application case tes potes`
