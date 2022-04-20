@@ -1,9 +1,10 @@
 version: "3.9"
 
 services:
-  api-preregistration:
+  landingpage:
     container_name: "front-landingpage"
-    image: "97dc592b9d52"
+    image: "landingpage:latest"
     ports:
-      - 80:80
+      - 8080:80
+      - 8443:443
     stdin_open: true
