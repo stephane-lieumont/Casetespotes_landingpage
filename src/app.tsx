@@ -9,7 +9,7 @@ import Header from './layout/Header';
 
 import Homepage from './pages/Homepage';
 import Error404 from './pages/Error404';
-// import About from './pages/About';
+import About from './pages/About';
 
 import './sass/main.scss'
 
@@ -34,7 +34,7 @@ const App: FunctionComponent = () => {
         <CSSTransition key={location.key} timeout={300} classNames="fade">
           <Routes location={location}>
             <Route path="/" element={<Homepage />} ></Route> 
-            {/*<Route path="/a-propos" element={<About />} ></Route>*/}
+            <Route path="/a-propos" element={<About />} ></Route>
             <Route path="*" element={<Error404 />} ></Route> 
           </Routes>
         </CSSTransition>
