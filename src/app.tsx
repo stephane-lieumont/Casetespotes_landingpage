@@ -16,6 +16,7 @@ import './sass/main.scss'
 const App: FunctionComponent = () => {
   const location = useLocation()
   const limitScrollMinifyHeader = 100
+  const scrollPage = React.useRef<HTMLDivElement>(null)
   const [hidePhone, setHidePhone] = useState<boolean>(true)
   const [bgLight, seBgLight] = useState<boolean>(false)
   const [minifyHeader, setMinifyHeader] = useState<boolean>(false)
@@ -24,15 +25,20 @@ const App: FunctionComponent = () => {
   useEffect(() => {
     const locationHome = location.pathname !== '/'
     seBgLight(locationHome)
+    checkMinifyHeader(scrollPage.current!.scrollTop)
     const timer = setTimeout(() => {
       setHidePhone(locationHome)
       clearTimeout(timer)
-    }, 700);    
+    }, 700);
   }, [location])
 
   // onScroll Calculate scroll Position
   const handleScroll = (e: UIEvent) => {
-    if(e.currentTarget.scrollTop >= limitScrollMinifyHeader) {
+    checkMinifyHeader(e.currentTarget.scrollTop)
+  }
+
+  const checkMinifyHeader = (scrollTop: number) => {
+    if(scrollTop >= limitScrollMinifyHeader) {
       setMinifyHeader(true)
     } else {
       setMinifyHeader(false)
@@ -43,8 +49,8 @@ const App: FunctionComponent = () => {
     <div className={`background-app ${bgLight ? 'background-app--light' : 'background-app--dark'}`}>
       <Header minifyHeader={minifyHeader} />      
       <TransitionGroup>
-        <CSSTransition key={location.key} timeout={300} classNames="fade">
-          <div className="page" onScroll={handleScroll}>
+        <CSSTransition key={location.key} timeout={200} classNames="fade">
+          <div ref={scrollPage} className={`page ${bgLight ? 'page--light' : '' }`} onScroll={handleScroll}>
             <Routes location={location}>
               <Route path="/" element={<Homepage />} ></Route> 
               <Route path="/a-propos" element={<About />} ></Route>
@@ -54,7 +60,7 @@ const App: FunctionComponent = () => {
         </CSSTransition>
       </TransitionGroup>
       {!hidePhone && (
-        <div className={`smartphone ${location.pathname === '/' ? 'smartphone--show' : 'smartphone--hide'}`}>
+        <div className={`smartphone ${!bgLight ? 'smartphone--show' : 'smartphone--hide'}`}>
           <img width="200" src={smartphone} alt="case tes potes home screen"/>
         </div>
       )}

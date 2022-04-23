@@ -22,7 +22,7 @@ header {
     content: '';
     width: 100%;
     height: 100%;
-    background-color: #111a45;
+    background-color: $background-darkblue;
     opacity: 0;
     z-index: -1;
   }
@@ -43,6 +43,7 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    margin-right: 30px;
     gap:20px;
 
     a {
@@ -70,7 +71,8 @@ header {
 
 
     &::before {
-      opacity: 0.9;
+      opacity: 0.95;
+      transition: all .3s ease-in-out!important;
     }
 
     .logo{
@@ -81,6 +83,6 @@ header {
 }
 
 // Minify animation
-header, header .logo, header::before {
+header, header .logo {
   transition: all .3s ease-in-out!important;
 }
