@@ -1,4 +1,5 @@
 #homepage {
+  position: relative;
   &__intro {
     margin: 0;
   }
@@ -13,13 +14,14 @@
   }
 
   .form__popup {
-    transform: translateY(-180px) translateX(-50%);
+    left: 50%;
+    transform: translate(-50%, -40px);
   }
 
   .bubble {
     position: absolute;
     top: 0;
-    right: 15%;
+    right: 11%;
     z-index: 999;
 
     &__content {

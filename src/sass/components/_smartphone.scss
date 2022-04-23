@@ -9,6 +9,8 @@
   max-width: 1000px;
   z-index: 10;
   pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 25%);
 
   img {
     object-fit: cover;
@@ -17,12 +19,10 @@
   }
 
   &--show {
-    opacity: 0;
     animation: show-phone .4s ease-in-out .3s both;
   }
 
   &--hide {
-    opacity: 1;
     animation: hide-phone .3s ease-in-out both;
   }
 }
@@ -66,6 +66,7 @@
 @media (max-width: $screen-md) {
   .smartphone {
     opacity: 0!important;
+    animation: none!important;
   }
 }
 
