@@ -24,23 +24,45 @@ h1 {
   letter-spacing: 2px;
   font-size: 3rem;
   text-transform: uppercase;
-  margin-bottom:30px;
+  margin-bottom:50px;
   color: $yellow;
 }
 
 h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
+  position: relative;
+  font-size: 1.6rem;
+  font-weight: 700;
   color:$yellow;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  padding-bottom: 15px;
   margin-top: 50px;
   margin-bottom:30px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;    
+    height: 3px;
+    width: 70%;
+    max-width: 100px;
+    background-color: $pink;
+  }
 }
 
-h3 {
-  color:lighten($blue, 10%);
+h3, h4 {
+  font-family: 'Staatliches', cursive;
+  font-size: 1.5rem;
+  color:$pink;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom:15px;
+}
+
+h4 {
+  color:$bluedark;
+  font-size: 1.3rem;
 }
 
 p {
