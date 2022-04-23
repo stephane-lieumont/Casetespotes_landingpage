@@ -9,8 +9,9 @@ import { IpreRegisterUser } from "../types/InterfacesStorageAPI"
 import API from "../services/Api"
 import { Validator } from "../utils/formValidator"
 import { AxiosError } from "axios"
+import { FormComponent } from "../types/InterfaceForms"
 
-const FormPreRegistration: FunctionComponent = () => {
+const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null}) => {
   const [showPopup, setShowPopup] = useState<boolean>(false)
   const [hidePopup, setHidePopup] = useState<boolean>(false)
   const [formDisabled, setFormDisabled] =  useState<boolean>(false)
@@ -185,89 +186,94 @@ const FormPreRegistration: FunctionComponent = () => {
   }
 
   return (
-    <form className="form">
+    <div className="wrapper-form">
       {showPopup ? (
         <div className="form__popup">
           <PopupDial type={displayPopup.type} message={displayPopup.message} fadeout={hidePopup} />
         </div>        
       ) : null}
-      <div className="form__row">
-        <Input 
-          label={formInputLastname.label}
-          name={formInputLastname.name}
-          errorMessage={formInputLastname.errorMessage}
-          error={formInputLastname.error}
-          onChange={(inputValue : string) => setFormInputLastname( {...formInputLastname, value: inputValue, error: false } )} 
+      {childHeader ?? null}
+      <form className="form">
+
+        <div className="form__row">
+          <Input 
+            label={formInputLastname.label}
+            name={formInputLastname.name}
+            errorMessage={formInputLastname.errorMessage}
+            error={formInputLastname.error}
+            onChange={(inputValue : string) => setFormInputLastname( {...formInputLastname, value: inputValue, error: false } )} 
+            disabled={formDisabled}
+          />
+          <Input 
+            label={formInputFirstname.label}
+            name={formInputFirstname.name}
+            errorMessage={formInputFirstname.errorMessage}
+            error={formInputFirstname.error}
+            onChange={(inputValue : string) => setFormInputFirstname( {...formInputFirstname, value: inputValue, error: false } )}
+            disabled={formDisabled}
+          />
+        </div>
+        <div className="form__row">
+          <Input
+            label={formInputEmail.label}
+            name={formInputEmail.name}
+            errorMessage={formInputEmail.errorMessage}
+            error={formInputEmail.error}
+            onChange={(inputValue : string) => setFormInputEmail( {...formInputEmail, value: inputValue, error: false } )}
+            disabled={formDisabled}
+          />
+          <Input
+            label={formInputPhone.label}
+            name={formInputPhone.name}
+            errorMessage={formInputPhone.errorMessage}
+            error={formInputPhone.error}
+            onChange={(inputValue : string) => setFormInputPhone( {...formInputPhone, value: inputValue, error: false } )}
+            disabled={formDisabled}
+          />
+        </div>
+        <SelectBox 
+          label={formInputChoice.label} 
+          name={formInputChoice.name} 
+          placeholder={formInputChoice.placeholder}
+          choices={formInputChoice.choices}
+          errorMessage={formInputChoice.errorMessage}
+          error={formInputChoice.error}
+          onChange={(inputValue: string) => setFormInputChoice( {...formInputChoice, value: inputValue, error: false } )}
           disabled={formDisabled}
         />
-        <Input 
-          label={formInputFirstname.label}
-          name={formInputFirstname.name}
-          errorMessage={formInputFirstname.errorMessage}
-          error={formInputFirstname.error}
-          onChange={(inputValue : string) => setFormInputFirstname( {...formInputFirstname, value: inputValue, error: false } )}
+        <Checkbox 
+          label={formInputCheckbox.label}
+          name={formInputCheckbox.name}
+          error={formInputCheckbox.error}
+          onChange={(checked : boolean) => {
+            setFormInputCheckbox({...formInputCheckbox, checked: checked, error: false })}
+          }
           disabled={formDisabled}
         />
-      </div>
-      <div className="form__row">
-        <Input
-          label={formInputEmail.label}
-          name={formInputEmail.name}
-          errorMessage={formInputEmail.errorMessage}
-          error={formInputEmail.error}
-          onChange={(inputValue : string) => setFormInputEmail( {...formInputEmail, value: inputValue, error: false } )}
-          disabled={formDisabled}
-        />
-        <Input
-          label={formInputPhone.label}
-          name={formInputPhone.name}
-          errorMessage={formInputPhone.errorMessage}
-          error={formInputPhone.error}
-          onChange={(inputValue : string) => setFormInputPhone( {...formInputPhone, value: inputValue, error: false } )}
-          disabled={formDisabled}
-        />
-      </div>
-      <SelectBox 
-        label={formInputChoice.label} 
-        name={formInputChoice.name} 
-        placeholder={formInputChoice.placeholder}
-        choices={formInputChoice.choices}
-        errorMessage={formInputChoice.errorMessage}
-        error={formInputChoice.error}
-        onChange={(inputValue: string) => setFormInputChoice( {...formInputChoice, value: inputValue, error: false } )}
-        disabled={formDisabled}
-      />
-      <Checkbox 
-        label={formInputCheckbox.label}
-        name={formInputCheckbox.name}
-        error={formInputCheckbox.error}
-        onChange={(checked : boolean) => {
-          setFormInputCheckbox({...formInputCheckbox, checked: checked, error: false })}
-        }
-        disabled={formDisabled}
-      />
-      <div className="form__row">
-        <Button
-          label="Je me pré-inscris"
-          disabled={formDisabled}
-          loading= {formIsLoading}
-          callback={ () => {
-            setFormIsLoading(true)
-            const valid = validForm()
-            const objectFormData = getObjectFormData() 
-            storeData(objectFormData, valid)
-          }}
-        />
-        {/*
-        <Button 
-          label="En savoir plus"
-          buttonLink
-          outlined
-          navigate="/a-propos"
-        />
-        */}
-      </div>
-    </form>
+        <div className="form__row">
+          <Button
+            label="Je me pré-inscris"
+            disabled={formDisabled}
+            loading= {formIsLoading}
+            callback={ () => {
+              setFormIsLoading(true)
+              const valid = validForm()
+              const objectFormData = getObjectFormData() 
+              storeData(objectFormData, valid)
+            }}
+          />
+          {/*
+          <Button 
+            label="En savoir plus"
+            buttonLink
+            outlined
+            navigate="/a-propos"
+          />
+          */}
+        </div>
+      </form>
+      {childFooter ?? null}
+    </div>
   );
 }
 

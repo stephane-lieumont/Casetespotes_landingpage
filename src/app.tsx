@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState, UIEvent } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -15,28 +15,42 @@ import './sass/main.scss'
 
 const App: FunctionComponent = () => {
   const location = useLocation()
+  const limitScrollMinifyHeader = 100
+  const [hidePhone, setHidePhone] = useState<boolean>(true)
+  const [bgLight, seBgLight] = useState<boolean>(false)
+  const [minifyHeader, setMinifyHeader] = useState<boolean>(false)
 
-  const [hidePhone, setHidePhone] = useState<boolean>(location.pathname !== '/')
-  const [bgLight, seBgLight] = useState<boolean>(location.pathname !== '/')
-
+  // onChange location route to transition CSS
   useEffect(() => {
-    seBgLight(location.pathname !== '/')
+    const locationHome = location.pathname !== '/'
+    seBgLight(locationHome)
     const timer = setTimeout(() => {
-      setHidePhone(location.pathname !== '/')
+      setHidePhone(locationHome)
       clearTimeout(timer)
-    }, 500);    
+    }, 700);    
   }, [location])
+
+  // onScroll Calculate scroll Position
+  const handleScroll = (e: UIEvent) => {
+    if(e.currentTarget.scrollTop >= limitScrollMinifyHeader) {
+      setMinifyHeader(true)
+    } else {
+      setMinifyHeader(false)
+    }
+  }
 
   return (
     <div className={`background-app ${bgLight ? 'background-app--light' : 'background-app--dark'}`}>
-      <Header/>      
+      <Header minifyHeader={minifyHeader} />      
       <TransitionGroup>
         <CSSTransition key={location.key} timeout={300} classNames="fade">
-          <Routes location={location}>
-            <Route path="/" element={<Homepage />} ></Route> 
-            {/*<Route path="/a-propos" element={<About />} ></Route>*/}
-            <Route path="*" element={<Error404 />} ></Route> 
-          </Routes>
+          <div className="page" onScroll={handleScroll}>
+            <Routes location={location}>
+              <Route path="/" element={<Homepage />} ></Route> 
+              {/*<Route path="/a-propos" element={<About />} ></Route>*/}
+              <Route path="*" element={<Error404 />} ></Route> 
+            </Routes>
+          </div>
         </CSSTransition>
       </TransitionGroup>
       {!hidePhone && (

@@ -17,6 +17,10 @@
   }
 }
 
+.wrapper-form {
+  position: relative;
+}
+
 @media (max-width: $screen-sm) {
   .form {
     &__row {

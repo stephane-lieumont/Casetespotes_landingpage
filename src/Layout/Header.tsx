@@ -1,10 +1,20 @@
-import { FunctionComponent } from "react"
+import { FunctionComponent, useState, useEffect } from "react"
 import Logo from '../assets/logo.svg'
 import { NavLink, Link } from 'react-router-dom'
 
-const Header: FunctionComponent = () => {
+type HeaderProps = {
+  minifyHeader?:boolean
+}
+
+const Header: FunctionComponent<HeaderProps> = ({minifyHeader = false}) => {
+  const [minify, setMinify] = useState<boolean>(minifyHeader)
+
+  useEffect(() => {
+    setMinify(minifyHeader)
+  }, [minifyHeader])
+
   return (
-    <header>
+    <header className={minify ? 'header-minimizer' : ''}>
       <Link to="/" className="logo">
         <svg><use xlinkHref={Logo + '#logo'}></use></svg>
       </Link>

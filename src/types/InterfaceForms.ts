@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react"
+import { MouseEventHandler, ReactNode } from "react"
 
 export type InputProps = {
   label?: string,
@@ -21,4 +21,9 @@ export type ButtonProps = {
   disabled?: boolean,
   loading?: boolean,
   callback?: MouseEventHandler<HTMLButtonElement>,
+}
+
+export type FormComponent = {
+  childHeader?: ReactNode,
+  childFooter?: ReactNode,
 }
