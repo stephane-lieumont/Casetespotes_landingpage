@@ -7,9 +7,9 @@ import smartphone from './assets/pictures/smartphone_splashscreen.png'
 
 import Header from './layout/Header';
 
-import Homepage from './pages/Homepage';
 import Error404 from './pages/Error404';
 // import About from './pages/About';
+import Homepage from './pages/Home_Page';
 
 import './sass/main.scss'
 
