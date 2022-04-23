@@ -9,7 +9,7 @@ import Header from './layout/Header';
 
 import Error404 from './pages/Error404';
 // import About from './pages/About';
-import Homepage from './pages/Home_Page';
+import Homepage from './pages/HomePage';
 
 import './sass/main.scss'
 
