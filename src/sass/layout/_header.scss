@@ -8,7 +8,7 @@ header {
   justify-content: space-between;
   align-items: center;
   gap:30px;
-  padding: 30px;
+  padding: 30px 60px;
   height: 160px;
   width: 100%;
   margin-bottom: 30px;
@@ -43,7 +43,6 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    margin-right: 30px;
     gap:20px;
 
     a {

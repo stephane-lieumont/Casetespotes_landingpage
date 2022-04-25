@@ -5,3 +5,11 @@ export interface IpreRegisterUser {
   phone?: string,
   intention?: string,
 }
+
+export interface IContactMessage {
+  firstname?: string,
+  lastname?: string,
+  email?: string,
+  subject?: string,
+  message?: string,
+}

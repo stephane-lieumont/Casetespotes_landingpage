@@ -6,6 +6,7 @@
   padding:30px 60px;
   padding-top: 200px;
   min-height: 100vh;
+  padding-bottom: 10px;
   z-index: 1;
   transform: translateX(-50%);
 
@@ -38,6 +39,21 @@
 
     h2 {
       color: black!important;
+    }
+
+    .form__popup {
+      color:white!important;
+    }    
+  }
+}
+
+@media (max-width: $screen-md) {
+  .page--light {
+    padding-left:0;
+    padding-right: 0;
+
+    main {
+      border-radius: 20px 20px 0 0;
     }
   }
 }

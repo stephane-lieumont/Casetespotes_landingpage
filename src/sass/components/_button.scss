@@ -35,16 +35,24 @@
 
   &__loader {
     position:absolute;
-    top:6px;
-    left: 45%;
-    transform: translateX(2px, 2px);
-    padding: 5%;
-    border: 3px solid white;
-    border-bottom-color: transparent;
-    border-radius: 22px;
-    animation: rotate 0.7s infinite linear;
-    height: 0px;
-    width: 0px;
+    top:50%;
+    left: 50%;
+    height: 20px;
+    width: 20px;
+    transform: translate(-50%, -50%);
+
+    &::before {
+      content: '';
+      position:absolute;
+      top:0;
+      left:0;
+      height: 16px;
+      width: 16px;
+      border: 3px solid white;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: rotate 0.7s infinite linear;
+    }
   }
 
   &--isloading {    

@@ -1,32 +1,36 @@
-.input {
+.textarea {
   position: relative;
-  margin-top: 15px;
+  margin-top: 30px;
   margin-bottom: 10px;
   width: 100%;
 
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
-  input:-webkit-autofill:active{
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover, 
+  textarea:-webkit-autofill:focus, 
+  textarea:-webkit-autofill:active{
     background-clip: text !important;
     -webkit-text-fill-color: white !important;
   }
 
-  label, input {
+  label, textarea {
     padding: 5px 0;
     width: 100%;
   }
 
-  input {
+  textarea {
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: 20px;
     position: relative;
     background: none;
-    border: none;    
-    border-bottom: 2px  solid white;
+    border: none;
+    border-radius: 10px;
+    border: 2px  solid white;
     outline: none;
+    min-height: 250px;
     caret-color: $blue;
     color: white;
     font-size: 1rem;
+    padding:10px 15px;
     transition: border .3s ease-in-out;
     z-index: 2;
 
@@ -35,14 +39,14 @@
     }
 
     &:focus {
-      border-bottom: 2px  solid $blue;
+      border: 2px  solid $blue;
     }
   }
 
   label {
     position: absolute;
-    top:0;
-    left: 0;
+    top:10px;
+    left: 15px;
     transform-origin: center left;
     transition: transform .15s ease-in-out;
   }
@@ -57,7 +61,7 @@
 
   &--focus, &--active {
     label {      
-      transform: translateY(-1.4rem) scale(0.8);
+      transform: translate(-10px, -2.4rem) scale(0.8);
       color: white;
     }
   }
@@ -69,26 +73,26 @@
   }
 
   &--error {
-    label, input {      
+    label, textarea {      
       color: $pink!important;
     }
 
-    input {
-      border-bottom: 2px  solid $pink!important;
+    textarea {
+      border: 2px  solid $pink!important;
     }
   }
 }
 
 .form--light {
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
-  input:-webkit-autofill:active{
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover, 
+  textarea:-webkit-autofill:focus, 
+  textarea:-webkit-autofill:active{
     -webkit-text-fill-color: $secondary !important;
   }
 
-  input {   
-    border-bottom: 2px  solid lighten($secondary, 50%); 
+  textarea {   
+    border: 2px  solid lighten($secondary, 50%); 
     color: $secondary;
   }
 
@@ -96,7 +100,7 @@
     color: lighten($secondary, 30%);
   }
 
-  .input--focus, .input--active {
+  .textarea--focus, .textarea--active {
     label {      
       color: $blue;
     }
