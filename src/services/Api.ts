@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { IpreRegisterUser } from "../types/InterfacesStorageAPI";
+import { IContactMessage, IpreRegisterUser } from "../types/InterfacesStorageAPI";
 import { Config } from "../config";
 
 const postPreRegisterUserData = async (data: IpreRegisterUser): Promise<IpreRegisterUser> => {
@@ -12,11 +12,22 @@ const postPreRegisterUserData = async (data: IpreRegisterUser): Promise<IpreRegi
     })
 };
 
+const sendEmailContact = async (data: IContactMessage): Promise<IContactMessage> => {
+  return axios.post(`${Config.addressApi}/send-email/contact`, data)
+    .then(resp => {
+      return resp.data
+    })
+    .catch((err: AxiosError) => {
+      throw err
+    })
+}
+
 /**
  * Object to call functions for API data
  */
 const API = {
   postPreRegisterUserData,
+  sendEmailContact
 };
 
 export default API;

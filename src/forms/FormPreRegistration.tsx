@@ -50,7 +50,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     disabled: formDisabled,
   })
   const [formInputChoice, setFormInputChoice] = useState<InputProps>({
-    label: 'Je souhaites...' ,
+    label: 'Je souhaite...' ,
     name: 'wish',
     placeholder: 'Selectionnez un choix',
     error: false,

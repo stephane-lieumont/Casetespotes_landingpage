@@ -7,6 +7,8 @@ import { Validator } from "../utils/formValidator"
 import { FormComponent } from "../types/InterfaceForms"
 import TextArea from "../components/Forms/Textarea"
 import { IContactMessage } from "../types/InterfacesStorageAPI"
+import API from "../services/Api"
+import { AxiosError } from "axios"
 
 const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null}) => {
   const [showPopup, setShowPopup] = useState<boolean>(false)
@@ -118,8 +120,11 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
       lastname: formInputLastname.value,
       email: formInputEmail.value,
       subject: formInputSubject.value,
-      message: formInputMessage.value
+      // format HTML
+      message: `<p>${formInputMessage.value!.replace( /\n/g, '<br />' )}</p>`
     }
+
+    console.log(userDataStorage)
     
     return userDataStorage     
   }
@@ -129,7 +134,7 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
    * @param {IpreRegisterUser} userData 
    * @param {boolean} validForm 
    */
-  const storeData = async (userData : IContactMessage, validForm : boolean) => {  
+  const storeData = async (data : IContactMessage, validForm : boolean) => {  
     setShowPopup(false)
     setDisplayPopup({
       type: PopupAlert.alert,
@@ -137,46 +142,20 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
     })
 
     if(validForm) {
-      setDisplayPopup({
-        type: PopupAlert.success,
-        message: `Votre message a bien été envoyé`
-      })
-      setFormDisabled(true)
-      setShowPopup(true);
-      setFormIsLoading(false)
-      console.log(userData)
-    } else {
-      setDisplayPopup({
-        type: PopupAlert.alert,
-        message: `Certains champs comportent des erreurs dans le formulaire`
-      })
-      setShowPopup(true);
-      setFormIsLoading(false)
-    }
-
-    /*
-
-    if(validForm) {
-      await API.postPreRegisterUserData(userData)
-        .then((resp) => {
+      await API.sendEmailContact(data)
+        .then((res) => {
           setDisplayPopup({
             type: PopupAlert.success,
-            message: `Félicitation ${resp.firstname}, tu fais partie des futures testeurs de l'application case tes potes`
+            message: `Votre message a bien été envoyé`
           })
           setFormDisabled(true)
         })
-        .catch((e: AxiosError) => {
-          if(e.response?.status === 400) {
-            setDisplayPopup({
-              type: PopupAlert.alert,
-              message: `Tu es déja inscris en tant que testeur de l'application case tes potes`
-            })
-          } else {
-            setDisplayPopup({
-              type: PopupAlert.alert,
-              message: `Une erreur c'est produite lors de l'inscription, veuillez contacter l'administrateur`
-            })
-          }
+        .catch((err: AxiosError) => {
+          console.log(err)
+          setDisplayPopup({
+            type: PopupAlert.alert,
+            message: `Une erreur c'est produite lors de l'inscription, veuillez contacter l'administrateur`
+          })
         })
         .finally(() => {
           setShowPopup(true);
@@ -190,7 +169,6 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
       setShowPopup(true);
       setFormIsLoading(false)
     }
-    */
   }
 
   return (
