@@ -1,0 +1,42 @@
+#contact {
+  &__map {
+    margin-top:20px;
+    overflow: hidden;
+    width: 50%;
+    max-width: 500px;
+    min-width: 300px;
+    max-height: 300px;
+    border-radius: 20px;
+    border: 2px solid white;
+    flex-grow: 1;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__infos {
+    margin-top:20px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.8rem;;
+  }
+
+  &__presse {
+    margin-top: 20px;
+  }
+
+  .form {
+    max-width: 500px;    
+    margin:0 auto;
+    margin-top:50px;
+  }
+
+  .form__popup {
+    transform: translate(-50%, -30px);
+  }
+}

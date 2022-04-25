@@ -1,5 +1,6 @@
 .form {
   padding: 15px 0;
+  font-size: 0.9rem;
   &__row {
     display:flex;
     flex-direction: row;
@@ -19,6 +20,10 @@
 
 .wrapper-form {
   position: relative;
+}
+
+input, textarea, .MuiInput-input {
+  font-size: 0.9rem!important;
 }
 
 @media (max-width: $screen-sm) {

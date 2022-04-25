@@ -10,6 +10,7 @@ import Header from './layout/Header';
 import Error404 from './pages/Error404';
 import Homepage from './pages/HomePage';
 import About from './pages/About';
+import Contact from './pages/Contact';
 
 import './sass/main.scss'
 
@@ -53,6 +54,7 @@ const App: FunctionComponent = () => {
           <div ref={scrollPage} className={`page ${bgLight ? 'page--light' : '' }`} onScroll={handleScroll}>
             <Routes location={location}>
               <Route path="/" element={<Homepage />} ></Route> 
+              <Route path="/contact" element={<Contact />} ></Route> 
               <Route path="/a-propos" element={<About />} ></Route>
               <Route path="*" element={<Error404 />} ></Route> 
             </Routes>

@@ -2,16 +2,13 @@ import { FunctionComponent, useEffect, useState } from "react"
 import { InputProps } from "../types/InterfaceForms"
 import Input from "../components/Forms/Input"
 import Button from "../components/Button"
-import SelectBox from "../components/Forms/SelectBox"
-import Checkbox from "../components/Forms/Checkbox"
 import PopupDial, { PopupAlert } from "../components/PopupDial"
-import { IpreRegisterUser } from "../types/InterfacesStorageAPI"
-import API from "../services/Api"
 import { Validator } from "../utils/formValidator"
-import { AxiosError } from "axios"
 import { FormComponent } from "../types/InterfaceForms"
+import TextArea from "../components/Forms/Textarea"
+import { IContactMessage } from "../types/InterfacesStorageAPI"
 
-const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null}) => {
+const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null}) => {
   const [showPopup, setShowPopup] = useState<boolean>(false)
   const [hidePopup, setHidePopup] = useState<boolean>(false)
   const [formDisabled, setFormDisabled] =  useState<boolean>(false)
@@ -41,30 +38,21 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     value: '',
     disabled: formDisabled,
   })
-  const [formInputPhone, setFormInputPhone] = useState<InputProps>({
-    label: 'Téléphone',
-    name: 'phone',
+  const [formInputSubject, setFormInputSubject] = useState<InputProps>({
+    label: 'Sujet',
+    name: 'subject',
     error: false,
-    errorMessage: 'Saisir un numéro à 10 chiffres',
+    errorMessage: 'Veuillez indiquer l\'objet de votre demande',
     value: '',
     disabled: formDisabled,
   })
-  const [formInputChoice, setFormInputChoice] = useState<InputProps>({
-    label: 'Je souhaites...' ,
-    name: 'wish',
-    placeholder: 'Selectionnez un choix',
+
+  const [formInputMessage, setFormInputMessage] = useState<InputProps>({
+    label: 'Message',
+    name: 'message',
     error: false,
-    errorMessage: 'Veuillez choisir une option',
-    choices: ['Caser un.e am.ie célibataire', 'Trouver l\'amour'],
+    errorMessage: 'Veuillez saisir votre message : minimun 15 charactères',
     value: '',
-    disabled: formDisabled,
-  })
-  const [formInputCheckbox, setFormInputCheckbox] = useState<InputProps>({
-    label: 'J\'accèpte de recevoir des informations de la part de Case Tes Potes.',
-    name: 'subscribe',
-    error: false,
-    errorMessage: 'Veuillez accepter de recevoir les informations',
-    checked: false,
     disabled: formDisabled,
   })
 
@@ -102,39 +90,38 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     const checkLastname : boolean = !Validator.checkMinLength(formInputLastname.value ?? '', 3)
     const checkFirstname : boolean = !Validator.checkMinLength(formInputFirstname.value ?? '', 3)
     const checkEmail : boolean = !Validator.checkEmail(formInputEmail.value ?? '')
-    const checkPhone : boolean = !Validator.checkPhoneNumber(formInputPhone.value ?? '')
-    const checkChoice : boolean = formInputChoice.value === ''
-    const checkCheckbox: boolean = !formInputCheckbox.checked
+    const checkSubject : boolean = !Validator.checkMinLength(formInputSubject.value ?? '', 3)
+    const checkMessage : boolean = !Validator.checkMinLength(formInputMessage.value ?? '', 15)
 
     // Set State with validator
     checkLastname && setFormInputLastname({...formInputLastname, error: true})
     checkFirstname && setFormInputFirstname({...formInputFirstname, error: true})
     checkEmail && setFormInputEmail({...formInputEmail, error: true})
-    checkPhone && setFormInputPhone({...formInputPhone, error: true})
-    checkChoice && setFormInputChoice({...formInputChoice, error: true})
-    checkCheckbox && setFormInputCheckbox({...formInputCheckbox, error: true })
+    checkSubject && setFormInputSubject({...formInputSubject, error: true})
+    checkMessage && setFormInputMessage({...formInputMessage, error: true})
 
     // Return result check Validator
-    return checkLastname || checkFirstname || checkEmail || checkPhone || checkChoice || checkCheckbox ? false : true
+    return checkLastname || checkFirstname || checkEmail || checkSubject || checkMessage ? false : true
   }
 
   /**
    * Create Object User with formData
-   * @returns {IpreRegisterUser}
+   * @returns {IContactMessage}
    */
-  const getObjectFormData = (): IpreRegisterUser => {
-    let userDataStorage : IpreRegisterUser
+  const getObjectFormData = (): IContactMessage => {
+    
+    let userDataStorage : IContactMessage
     
     // Create Object data storage
     userDataStorage = {
       firstname : formInputFirstname.value,
       lastname: formInputLastname.value,
       email: formInputEmail.value,
-      phone: formInputPhone.value,
-      intention: formInputChoice.value
+      subject: formInputSubject.value,
+      message: formInputMessage.value
     }
     
-    return userDataStorage    
+    return userDataStorage     
   }
 
   /**
@@ -142,12 +129,32 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
    * @param {IpreRegisterUser} userData 
    * @param {boolean} validForm 
    */
-  const storeData = async (userData : IpreRegisterUser, validForm : boolean) => {  
+  const storeData = async (userData : IContactMessage, validForm : boolean) => {  
     setShowPopup(false)
     setDisplayPopup({
       type: PopupAlert.alert,
       message: ''
     })
+
+    if(validForm) {
+      setDisplayPopup({
+        type: PopupAlert.success,
+        message: `Votre message a bien été envoyé`
+      })
+      setFormDisabled(true)
+      setShowPopup(true);
+      setFormIsLoading(false)
+      console.log(userData)
+    } else {
+      setDisplayPopup({
+        type: PopupAlert.alert,
+        message: `Certains champs comportent des erreurs dans le formulaire`
+      })
+      setShowPopup(true);
+      setFormIsLoading(false)
+    }
+
+    /*
 
     if(validForm) {
       await API.postPreRegisterUserData(userData)
@@ -183,6 +190,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
       setShowPopup(true);
       setFormIsLoading(false)
     }
+    */
   }
 
   return (
@@ -193,8 +201,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
         </div>        
       ) : null}
       {childHeader ?? null}
-      <form className="form">
-
+      <form className="form form--light">
         <div className="form__row">
           <Input 
             label={formInputLastname.label}
@@ -213,46 +220,33 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
             disabled={formDisabled}
           />
         </div>
-        <div className="form__row">
-          <Input
-            label={formInputEmail.label}
-            name={formInputEmail.name}
-            errorMessage={formInputEmail.errorMessage}
-            error={formInputEmail.error}
-            onChange={(inputValue : string) => setFormInputEmail( {...formInputEmail, value: inputValue, error: false } )}
-            disabled={formDisabled}
-          />
-          <Input
-            label={formInputPhone.label}
-            name={formInputPhone.name}
-            errorMessage={formInputPhone.errorMessage}
-            error={formInputPhone.error}
-            onChange={(inputValue : string) => setFormInputPhone( {...formInputPhone, value: inputValue, error: false } )}
-            disabled={formDisabled}
-          />
-        </div>
-        <SelectBox 
-          label={formInputChoice.label} 
-          name={formInputChoice.name} 
-          placeholder={formInputChoice.placeholder}
-          choices={formInputChoice.choices}
-          errorMessage={formInputChoice.errorMessage}
-          error={formInputChoice.error}
-          onChange={(inputValue: string) => setFormInputChoice( {...formInputChoice, value: inputValue, error: false } )}
+        <Input
+          label={formInputEmail.label}
+          name={formInputEmail.name}
+          errorMessage={formInputEmail.errorMessage}
+          error={formInputEmail.error}
+          onChange={(inputValue : string) => setFormInputEmail( {...formInputEmail, value: inputValue, error: false } )}
           disabled={formDisabled}
         />
-        <Checkbox 
-          label={formInputCheckbox.label}
-          name={formInputCheckbox.name}
-          error={formInputCheckbox.error}
-          onChange={(checked : boolean) => {
-            setFormInputCheckbox({...formInputCheckbox, checked: checked, error: false })}
-          }
+        <Input
+          label={formInputSubject.label}
+          name={formInputSubject.name}
+          errorMessage={formInputSubject.errorMessage}
+          error={formInputSubject.error}
+          onChange={(inputValue : string) => setFormInputSubject( {...formInputSubject, value: inputValue, error: false } )}
+          disabled={formDisabled}
+        />
+        <TextArea 
+          label={formInputMessage.label}
+          name={formInputMessage.name}
+          errorMessage={formInputMessage.errorMessage}
+          error={formInputMessage.error}
+          onChange={(inputValue : string) => setFormInputMessage( {...formInputMessage, value: inputValue, error: false } )}
           disabled={formDisabled}
         />
         <div className="form__row">
           <Button
-            label="Je me pré-inscris"
+            label="Envoyer"
             disabled={formDisabled}
             loading= {formIsLoading}
             callback={ () => {
@@ -262,14 +256,6 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
               storeData(objectFormData, valid)
             }}
           />
-          {/*
-          <Button 
-            label="En savoir plus"
-            buttonLink
-            outlined
-            navigate="/a-propos"
-          />
-          */}
         </div>
       </form>
       {childFooter ?? null}
@@ -277,4 +263,4 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
   );
 }
 
-export default FormPreRegistration
+export default FormContact

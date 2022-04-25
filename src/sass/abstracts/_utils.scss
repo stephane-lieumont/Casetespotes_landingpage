@@ -28,6 +28,81 @@
   }
 }
 
+.flex-row {
+  display:flex;
+  flex-direction:row;
+  gap:30px;
+
+  &--wrap {
+    flex-wrap: wrap;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--start {
+    justify-content: flex-start;
+  }
+
+  &--rigth {
+    justify-content: flex-end;
+  }
+
+  &--vcenter {
+    align-items: center;
+  }
+
+  &--vstart {
+    align-items: flex-start;
+  }
+
+  &--vend {
+    align-items: flex-end;
+  }
+}
+
+.prepend-icon {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding-left: 55px;
+  height: 40px;
+
+  &::before{
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0;
+    left: 0;
+    content: "\e0be";
+    color: white;
+    height: 100%;
+    width: 40px;
+    border-radius: 10px;
+    background-color: $bluedark;
+  }
+
+
+  &--pin::before {
+    content: "\e0c8"!important;
+  }
+  &--phone::before {
+    content: "\e0b0"!important;
+  }
+  &--mail::before {
+    content: "\e0be"!important;
+  }
+}
+
 .background {
   &--yellow {
     background-color: $yellow
