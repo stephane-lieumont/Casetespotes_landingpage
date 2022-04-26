@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { IContactMessage, IpreRegisterUser } from "../types/InterfacesStorageAPI";
+import { IContactMessage, IpreRegisterUser } from "../types/StorageAPI.intf";
 import { Config } from "../config";
 
 const postPreRegisterUserData = async (data: IpreRegisterUser): Promise<IpreRegisterUser> => {

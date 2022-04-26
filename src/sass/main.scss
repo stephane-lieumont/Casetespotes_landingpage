@@ -5,9 +5,10 @@
 @import './abstracts/variables';
 @import './abstracts/utils';
 
-@import './base/transitions';
+
 @import './base/reset';
 @import './base/base';
+@import './base/transitions';
 
 @import './layout/header';
 @import './layout/main';

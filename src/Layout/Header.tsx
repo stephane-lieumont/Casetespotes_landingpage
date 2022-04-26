@@ -1,7 +1,8 @@
 import { FunctionComponent, useState, useEffect } from "react"
 import Logo from '../assets/logo.svg'
 import { NavLink, Link } from 'react-router-dom'
-import { HeaderProps } from "../types/interfaceComponents"
+import { HeaderProps } from "../types/Components.intf"
+import RoutesLD from "../routes/Routes"
 
 const Header: FunctionComponent<HeaderProps> = ({minifyHeader = false}) => {
   const [minify, setMinify] = useState<boolean>(minifyHeader)
@@ -22,10 +23,12 @@ const Header: FunctionComponent<HeaderProps> = ({minifyHeader = false}) => {
           <span className="line"></span>
           <span className="line"></span>
         </div>
-        <ul>          
-          <li><NavLink onClick={() => setShowMenu(false)} className={({ isActive }) => (isActive ? 'active' : '')} to="/a-propos">A propos</NavLink></li>
-          <li><NavLink onClick={() => setShowMenu(false)} className={({ isActive }) => (isActive ? 'active' : '')} to="/contact">Contact</NavLink></li>
-          <li><NavLink onClick={() => setShowMenu(false)} className={({ isActive }) => (isActive ? 'active' : '')} to="/">Pré-inscription</NavLink></li>
+        <ul>
+          { RoutesLD.map(({path, label}) => (
+            label ? (
+              <li key={path}><NavLink onClick={() => setShowMenu(false)} className={({ isActive }) => (isActive ? 'active' : '')} to={path}>{label}</NavLink></li>
+            ): null
+          ))}
         </ul>
       </nav>
     </header>

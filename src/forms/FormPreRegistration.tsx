@@ -1,15 +1,15 @@
 import { FunctionComponent, useEffect, useState } from "react"
-import { InputProps } from "../types/InterfaceForms"
+import { InputProps } from "../types/Forms.intf"
 import Input from "../components/Forms/Input"
 import Button from "../components/Button"
 import SelectBox from "../components/Forms/SelectBox"
 import Checkbox from "../components/Forms/Checkbox"
 import PopupDial, { PopupAlert } from "../components/PopupDial"
-import { IpreRegisterUser } from "../types/InterfacesStorageAPI"
+import { IpreRegisterUser } from "../types/StorageAPI.intf"
 import API from "../services/Api"
 import { Validator } from "../utils/formValidator"
 import { AxiosError } from "axios"
-import { FormComponent } from "../types/InterfaceForms"
+import { FormComponent } from "../types/Forms.intf"
 
 const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null}) => {
   const [showPopup, setShowPopup] = useState<boolean>(false)
