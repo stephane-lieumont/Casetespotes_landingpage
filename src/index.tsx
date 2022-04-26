@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {StrictMode} from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -11,9 +11,9 @@ const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container!);
 
 root.render(
-  <Router basename={process.env.PUBLIC_URL}>
-    <App />
-  </Router>
+  <StrictMode>
+    <Router basename={process.env.PUBLIC_URL}>
+      <App />
+    </Router>
+  </StrictMode>
 )
-
-

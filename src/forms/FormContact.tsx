@@ -123,8 +123,6 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
       // format HTML
       message: `<p>${formInputMessage.value!.replace( /\n/g, '<br />' )}</p>`
     }
-
-    console.log(userDataStorage)
     
     return userDataStorage     
   }
@@ -151,7 +149,6 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
           setFormDisabled(true)
         })
         .catch((err: AxiosError) => {
-          console.log(err)
           setDisplayPopup({
             type: PopupAlert.alert,
             message: `Une erreur c'est produite lors de l'inscription, veuillez contacter l'administrateur`
