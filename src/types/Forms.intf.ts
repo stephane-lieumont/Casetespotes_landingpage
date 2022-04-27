@@ -26,4 +26,5 @@ export type ButtonProps = {
 export type FormComponent = {
   childHeader?: ReactNode,
   childFooter?: ReactNode,
+  className?: string
 }

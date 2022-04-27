@@ -11,7 +11,7 @@ import { Validator } from "../utils/formValidator"
 import { AxiosError } from "axios"
 import { FormComponent } from "../types/Forms.intf"
 
-const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null}) => {
+const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null, className = ''}) => {
   const [showPopup, setShowPopup] = useState<boolean>(false)
   const [hidePopup, setHidePopup] = useState<boolean>(false)
   const [formDisabled, setFormDisabled] =  useState<boolean>(false)
@@ -186,7 +186,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
   }
 
   return (
-    <div className="wrapper-form">
+    <div className={"wrapper-form " + className}>
       {showPopup ? (
         <div className="form__popup">
           <PopupDial type={displayPopup.type} message={displayPopup.message} fadeout={hidePopup} />
