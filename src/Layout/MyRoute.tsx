@@ -1,4 +1,4 @@
-import React, { UIEvent } from 'react';
+import React, { UIEvent,  useRef} from 'react';
 import { useResolvedPath, useMatch } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { MyRouteProps } from '../types/Components.intf';
@@ -8,7 +8,7 @@ import { MyRouteProps } from '../types/Components.intf';
 const MyRoute: React.FunctionComponent<MyRouteProps> = ({path, element, themeLight = false, callbackScroll}) => {
   const resolvedPath = useResolvedPath(path!)
   const match = useMatch(resolvedPath.pathname)
-  const scrollPage = React.useRef<HTMLDivElement>(null)
+  const scrollPage = useRef<HTMLDivElement>(null)
 
   const handleScroll = (e: UIEvent) => {
     return callbackScroll ? callbackScroll(e.currentTarget.scrollTop) : null
@@ -22,9 +22,9 @@ const MyRoute: React.FunctionComponent<MyRouteProps> = ({path, element, themeLig
         unmountOnExit
       >
         <div>
-        <div ref={scrollPage} onScroll={handleScroll} className={ `page ${themeLight ? 'theme-light' : ''}`}>
-          {element}
-        </div>
+          <div ref={scrollPage} onScroll={handleScroll} className={ `page ${themeLight ? 'theme-light' : ''}`}>
+            {element}
+          </div>
         </div>
     </CSSTransition>
   )

@@ -11,9 +11,9 @@ const Header: FunctionComponent<HeaderProps> = ({minifyHeader = false}) => {
   useEffect(() => {
     setMinify(minifyHeader)
   }, [minifyHeader])
-
+  
   return (
-    <header className={minify ? 'header-minimizer' : ''}>
+    <header className={`${minify ? 'header-minimizer' : ''}`}>
       <Link to="/" className="logo">
         <svg><use xlinkHref={Logo + '#logo'}></use></svg>
       </Link>
@@ -24,7 +24,7 @@ const Header: FunctionComponent<HeaderProps> = ({minifyHeader = false}) => {
           <span className="line"></span>
         </div>
         <ul>
-          { RoutesLD.map(({path, label}) => (
+          { RoutesLD.routesLDO.map(({path, label}) => (
             label ? (
               <li key={path}><NavLink onClick={() => setShowMenu(false)} className={({ isActive }) => (isActive ? 'active' : '')} to={path}>{label}</NavLink></li>
             ): null

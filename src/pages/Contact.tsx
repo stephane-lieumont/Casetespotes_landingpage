@@ -1,4 +1,4 @@
-import { Fragment, FunctionComponent} from "react"
+import { Fragment, FunctionComponent, useState} from "react"
 
 import Footer from "../layout/Footer"
 import FormContact from "../forms/FormContact"
@@ -6,6 +6,8 @@ import FormContact from "../forms/FormContact"
 import map from "./../assets/pictures/map-location-casetespotes.jpg"
 
 const Contact: FunctionComponent = () => {
+  const [imgMapLoaded, setImgMapLoaded] = useState<boolean>(false)
+
   return (
     <Fragment>
       <main id="contact">
@@ -13,8 +15,8 @@ const Contact: FunctionComponent = () => {
           <h1 className="text--center">Nous Contacter</h1>
           <p className="text--indent">Vos retours sont précieux, contactez-nous pour en savoir plus et nous aider à améliorer l’expérience Case Tes Potes !</p>
           <div className="flex-row flex-row--wrap flex-row--center">
-            <div id="contact__map" className="flex-row__item">
-              <img width="350" src={map} alt="localisation de la société case tes potes"/>
+            <div id="contact__map" className={`flex-row__item loading ${imgMapLoaded ? 'loaded' : ''}`}>
+              <img onLoad={() => setImgMapLoaded(true)} width="350" src={map} alt="localisation de la société case tes potes"/>
             </div>
             <div className="flex-row__item">
               <ul id="contact__infos">

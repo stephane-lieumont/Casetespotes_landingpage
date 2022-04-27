@@ -23,7 +23,7 @@
   }
 
   &--hide {
-    animation: hide-phone .3s ease-in-out both;
+    animation: hide-phone .3s ease-in-out forwards;
   }
 }
 
@@ -42,22 +42,6 @@
   }
 
   100% {
-    opacity: 1;
-    transform: translate(-50%, 15%);
-  }
-}
-
-@keyframes hide-phone {
-  100% {
-    opacity: 0;
-    transform: translate(-50%, 25%);
-  }
-
-  20% {
-    transform: translate(-50%, 10%);
-  }
-
-  0% {
     opacity: 1;
     transform: translate(-50%, 15%);
   }

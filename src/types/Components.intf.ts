@@ -1,5 +1,6 @@
 export type HeaderProps = {
   minifyHeader?:boolean
+  load?:boolean
 }
 
 export type MyRouteProps = {
