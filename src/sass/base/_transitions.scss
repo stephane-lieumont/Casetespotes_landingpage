@@ -1,17 +1,39 @@
-.fade-appear,
+
 .fade-enter {
   opacity: 0;
-  z-index: 1;
+  transform: scale(1.15);
+
+  .page::-webkit-scrollbar {
+    display: none;
+  }
 }
-.fade-appear-active,
-.fade-enter.fade-enter-active {
+
+.fade-enter-active {
   opacity: 1;
-  transition: opacity 1500ms linear 500ms;
+  transform: scale(1);
+  transition: opacity 300ms, transform 500ms;
+
+  .page::-webkit-scrollbar {
+    display: none;
+  }
 }
+
 .fade-exit {
   opacity: 1;
+  transform: scale(1);
+
+  .page::-webkit-scrollbar {
+    display: none;
+  }
+
 }
-.fade-exit.fade-exit-active {
+
+.fade-exit-active {
   opacity: 0;
-  transition: opacity 200ms linear;
+  transform: scale(0.85);
+  transition: opacity 300ms, transform 500ms;
+
+  .page::-webkit-scrollbar {
+    display: none;
+  }
 }

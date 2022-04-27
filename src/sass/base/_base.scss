@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,600&family=Square+Peg&family=Staatliches&display=swap');
-
 * {
   box-sizing: border-box;
 }
@@ -7,7 +5,7 @@
 body{
   padding:0;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans',  sans-serif;
   font-weight: 400;
   background: $background-darkblue;
   color: white;
@@ -124,32 +122,4 @@ body::-webkit-scrollbar {
   overflow: hidden;
 }
 
-.bg-full-width {
-  position: absolute;
-  top:0;
-  left:0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: -1;
 
-  &::after {
-    content: '';
-    position: absolute;      
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;      
-    background-color: black;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-  }
-
-  img {
-    position: relative;
-    object-fit: cover;
-    width: 100%;
-    height: 100vh;
-    transition: opacity .3s ease-in-out;
-  }
-}

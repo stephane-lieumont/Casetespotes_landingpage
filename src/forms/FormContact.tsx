@@ -1,12 +1,12 @@
 import { FunctionComponent, useEffect, useState } from "react"
-import { InputProps } from "../types/InterfaceForms"
+import { InputProps } from "../types/Forms.intf"
 import Input from "../components/Forms/Input"
 import Button from "../components/Button"
 import PopupDial, { PopupAlert } from "../components/PopupDial"
 import { Validator } from "../utils/formValidator"
-import { FormComponent } from "../types/InterfaceForms"
+import { FormComponent } from "../types/Forms.intf"
 import TextArea from "../components/Forms/Textarea"
-import { IContactMessage } from "../types/InterfacesStorageAPI"
+import { IContactMessage } from "../types/StorageAPI.intf"
 import API from "../services/Api"
 import { AxiosError } from "axios"
 
@@ -123,8 +123,6 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
       // format HTML
       message: `<p>${formInputMessage.value!.replace( /\n/g, '<br />' )}</p>`
     }
-
-    console.log(userDataStorage)
     
     return userDataStorage     
   }
@@ -151,7 +149,6 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
           setFormDisabled(true)
         })
         .catch((err: AxiosError) => {
-          console.log(err)
           setDisplayPopup({
             type: PopupAlert.alert,
             message: `Une erreur c'est produite lors de l'inscription, veuillez contacter l'administrateur`

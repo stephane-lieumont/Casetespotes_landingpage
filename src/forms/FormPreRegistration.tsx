@@ -1,17 +1,17 @@
 import { FunctionComponent, useEffect, useState } from "react"
-import { InputProps } from "../types/InterfaceForms"
+import { InputProps } from "../types/Forms.intf"
 import Input from "../components/Forms/Input"
 import Button from "../components/Button"
 import SelectBox from "../components/Forms/SelectBox"
 import Checkbox from "../components/Forms/Checkbox"
 import PopupDial, { PopupAlert } from "../components/PopupDial"
-import { IpreRegisterUser } from "../types/InterfacesStorageAPI"
+import { IpreRegisterUser } from "../types/StorageAPI.intf"
 import API from "../services/Api"
 import { Validator } from "../utils/formValidator"
 import { AxiosError } from "axios"
-import { FormComponent } from "../types/InterfaceForms"
+import { FormComponent } from "../types/Forms.intf"
 
-const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null}) => {
+const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null, className = ''}) => {
   const [showPopup, setShowPopup] = useState<boolean>(false)
   const [hidePopup, setHidePopup] = useState<boolean>(false)
   const [formDisabled, setFormDisabled] =  useState<boolean>(false)
@@ -186,7 +186,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
   }
 
   return (
-    <div className="wrapper-form">
+    <div className={"wrapper-form " + className}>
       {showPopup ? (
         <div className="form__popup">
           <PopupDial type={displayPopup.type} message={displayPopup.message} fadeout={hidePopup} />

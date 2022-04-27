@@ -5,9 +5,10 @@
 @import './abstracts/variables';
 @import './abstracts/utils';
 
-@import './base/transitions';
+
 @import './base/reset';
 @import './base/base';
+@import './base/transitions';
 
 @import './layout/header';
 @import './layout/main';
@@ -28,3 +29,4 @@
 @import './components/popupDial';
 @import './components/smartphone';
 @import './components/bubble';
+@import './components/reveal';

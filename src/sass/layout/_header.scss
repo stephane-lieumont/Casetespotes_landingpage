@@ -8,7 +8,7 @@ header {
   justify-content: space-between;
   align-items: center;
   gap:30px;
-  padding: 30px 60px;
+  padding: 30px 50px;
   height: 160px;
   width: 100%;
   margin-bottom: 30px;
@@ -39,9 +39,16 @@ header {
 
   }
 
+  nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
   nav ul {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     flex-wrap: nowrap;
     gap:20px;
 
@@ -67,6 +74,8 @@ header {
 
   &.header-minimizer {
     height:60px;
+    padding: 30px;
+    padding-left: 20px;
 
 
     &::before {
@@ -84,4 +93,120 @@ header {
 // Minify animation
 header, header .logo {
   transition: all .3s ease-in-out!important;
+}
+
+// hamberger menu
+.hamburger {
+  display:none;
+  position:relative;
+
+  > .line {
+    display: inline-block;
+    margin: 5px auto;
+    pointer-events: none;
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    display: block;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &::before {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    z-index: -1;
+  }
+
+  &.is-active {
+    .line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .line:nth-child(2) {
+      opacity: 0;
+    }
+    .line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }    
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+
+@media (max-width: $screen-sm) {
+  header {
+
+    .logo {
+      fill:white;
+      height: 50px;
+      width: 100px;
+    }
+    .hamburger {
+      display: block!important;
+      z-index: 3;
+  
+      + ul {
+        position: absolute;
+        top:0;
+        right:0;
+        height: 100vh;
+        width: 101vw;
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 50px;
+        font-size: 1rem;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+
+        li a {
+          padding: 10px 30px;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          background-color: rgba(#000, 0.9);
+          z-index: -1;
+        }
+      }
+  
+      &.is-active + ul {      
+        animation: hamburger .3s ease-in-out forwards;
+      }
+    }
+  }
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hamburger {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }  
 }

@@ -1,5 +1,5 @@
 import { FunctionComponent, useState, useEffect } from "react"
-import { InputProps } from "../../types/InterfaceForms"
+import { InputProps } from "../../types/Forms.intf"
 
 const Checkbox: FunctionComponent<InputProps> = ({label = "checkbox", name="checkbox", checked = false, disabled = false, error = false, onChange}) => {
   const [checkedInput, setCheckedInput] = useState<boolean>(checked); 

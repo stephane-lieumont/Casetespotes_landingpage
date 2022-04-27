@@ -1,5 +1,5 @@
 import { FunctionComponent, useState, ChangeEvent, useEffect } from "react"
-import { InputProps } from "../../types/InterfaceForms"
+import { InputProps } from "../../types/Forms.intf"
 
 const Input: FunctionComponent<InputProps> = ({label = 'Label', name = 'inputName', errorMessage = "Erreur message", error = false, onChange, disabled = false} : InputProps) => {
 

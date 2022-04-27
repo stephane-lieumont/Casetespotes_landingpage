@@ -12,13 +12,15 @@
 
   height: 100vh;
   overflow: auto;
+  animation: hide-scroll 1.2s;
 
   display:flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  &--light {
+
+  &.theme-light {
     background-color: rgba($color: $background-darkblue, $alpha: 0.3);
 
     main {
@@ -48,12 +50,31 @@
 }
 
 @media (max-width: $screen-md) {
-  .page--light {
-    padding-left:0;
-    padding-right: 0;
-
-    main {
-      border-radius: 20px 20px 0 0;
+  .page {
+    &.theme-light {
+      padding-left:0;
+      padding-right: 0;
+  
+      main {
+        border-radius: 20px 20px 0 0;
+      }
     }
+  }
+}
+
+@media (max-width: $screen-sm) {
+  .page { 
+    padding-left: 30px;
+    padding-right: 30px;
+    main {
+      padding: 60px 30px!important;
+    }    
+  }
+}
+
+@keyframes hide-scroll {
+  from,
+  to {
+    overflow: hidden;
   }
 }
