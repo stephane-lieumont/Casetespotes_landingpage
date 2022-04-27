@@ -7,9 +7,10 @@
   overflow: hidden;
   width: 100%;
   max-width: 1000px;
-  z-index: 10;
+  z-index: 0;
   pointer-events: none;
   opacity: 0;
+  visibility: hidden;
   transform: translate(-50%, 25%);
 
   img {
@@ -18,12 +19,16 @@
     margin:30px 2%;
   }
 
-  &--show {
-    animation: show-phone .4s ease-in-out .3s both;
-  }
+  &--loaded {
+    visibility: visible;
 
-  &--hide {
-    animation: hide-phone .3s ease-in-out forwards;
+    &.smartphone--show {
+      animation: show-phone .4s ease-in-out .3s both;
+    }
+
+    &.smartphone--hide {
+      animation: hide-phone .3s ease-in-out forwards;
+    }
   }
 }
 

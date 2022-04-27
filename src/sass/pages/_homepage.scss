@@ -1,5 +1,5 @@
 #homepage {
-  position: relative;
+
   &__intro {
     margin: 0;
   }
@@ -18,17 +18,27 @@
     transform: translate(-50%, -40px);
   }
 
-  .bubble {
+  &__bubble {
     position: absolute;
-    top: 0;
-    right: 11%;
-    z-index: 999;
-
-    &__content {
-      text-transform: none;
-      font-size: 2rem;
-      font-weight: 600;
-      margin: 0;
+    top:0;
+    left:50%;
+    height: 100%;
+    width: 100%;
+    max-width: $max-width-xl;
+    transform: translateX(-50%);
+    .bubble {
+      position: absolute;
+      bottom: 400px;
+      right: 50px;
+      z-index: 1;
+      pointer-events: none;
+  
+      &__content {
+        text-transform: none;
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0;
+      }
     }
   }
 }

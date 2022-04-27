@@ -19,6 +19,8 @@ const App: FunctionComponent = () => {
   const [minifyHeader, setMinifyHeader] = useState<boolean>(false)
   const [locationError, setLocationError] = useState<boolean>(false)
 
+  const [bgLoaded, setBgLoaded] = useState<boolean>(false)
+  
   // onChange location route to transition CSS
   useEffect(() => {
     const locationHome = location.pathname !== '/'
@@ -47,12 +49,9 @@ const App: FunctionComponent = () => {
           ) : null
         )) : <MyRoute path='*' element={<Error404 />} />  
       }
-
-      { !locationError ? (
-        <Smartphone locationPath={location.pathname} locationsAllow={[RoutesLD.getRouteByName('home')!.path]} />
-      ) : null}
-      <div className="bg-full-width">
-        <img width="500" src={background} alt="case tes potes lancement application"/>
+      <Smartphone locationPath={location.pathname} locationsAllow={[RoutesLD.getRouteByName('home')!.path]} />
+      <div className={`bg-full-width ${bgLoaded ? 'bg-full-width--loaded' : ''}`}>
+        <img onLoad={() => setBgLoaded(true)} width="500" src={background} alt="case tes potes lancement application"/>
       </div>      
     </div>
   );
