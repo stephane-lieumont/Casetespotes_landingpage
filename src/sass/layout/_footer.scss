@@ -4,3 +4,9 @@ footer {
   max-width: $max-width-xl;
   z-index: 10;
 }
+
+@media (max-width: $screen-md) {
+  footer {
+    padding: 0 30px;
+  }
+}
