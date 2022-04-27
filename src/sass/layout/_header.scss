@@ -74,6 +74,8 @@ header {
 
   &.header-minimizer {
     height:60px;
+    padding: 30px;
+    padding-left: 20px;
 
 
     &::before {
@@ -143,6 +145,12 @@ header, header .logo {
 
 @media (max-width: $screen-sm) {
   header {
+
+    .logo {
+      fill:white;
+      height: 50px;
+      width: 100px;
+    }
     .hamburger {
       display: block!important;
       z-index: 3;
