@@ -42,3 +42,9 @@
     }
   }
 }
+
+@media (max-width: $screen-sm) {
+  #homepage {
+    padding: 0!important;
+  }  
+}

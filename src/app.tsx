@@ -14,7 +14,7 @@ import Error404 from './pages/Error404';
 
 const App: FunctionComponent = () => {
   const location = useLocation()
-  const limitScrollMinifyHeader = 100
+  const limitScrollMinifyHeader = 30
   const [bgLight, seBgLight] = useState<boolean>(false)
   const [minifyHeader, setMinifyHeader] = useState<boolean>(false)
   const [locationError, setLocationError] = useState<boolean>(false)

@@ -62,6 +62,16 @@
   }
 }
 
+@media (max-width: $screen-sm) {
+  .page { 
+    padding-left: 30px;
+    padding-right: 30px;
+    main {
+      padding: 30px!important;
+    }    
+  }
+}
+
 @keyframes hide-scroll {
   from,
   to {
