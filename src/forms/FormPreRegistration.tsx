@@ -60,7 +60,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     disabled: formDisabled,
   })
   const [formInputCheckbox, setFormInputCheckbox] = useState<InputProps>({
-    label: 'J\'accèpte de recevoir des informations de la part de Case Tes Potes.',
+    label: 'J\'accepte de recevoir des informations de la part de Case Tes Potes.',
     name: 'subscribe',
     error: false,
     errorMessage: 'Veuillez accepter de recevoir les informations',

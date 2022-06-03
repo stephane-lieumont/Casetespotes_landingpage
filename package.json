@@ -2,6 +2,7 @@
   "name": "case_tes_potes-landingpage",
   "version": "2.1.0",
   "private": true,
+  "homepage": "https://oc.sli-3d.fr/CTP_Landing",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",

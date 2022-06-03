@@ -17,7 +17,7 @@ const Homepage: FunctionComponent = () => {
         <section id="homepage__content">
           <div id="homepage__bubble">
             <aside className="bubble">
-              <h2 className="bubble__content">Application gratuite pendant 1 an pour toute préinscription</h2>
+              <h2 className="bubble__content">Application gratuite pendant 6 mois pour toute préinscription</h2>
             </aside>          
           </div>
           <div className="reveal">
@@ -35,9 +35,9 @@ const Homepage: FunctionComponent = () => {
                 <Fragment>
                   <div id="homepage__footer" className="reveal-6">
                     <p className="text--caption">
-                      Les informations recueillies sur ce formulaire sont enregistrées par Case Tes pootes pour permettre de vous adresser des contenus adaptés à votre profile. 
-                      Elles sont destinées au service marketing. Conformément à la loi "Informatique et Liberté", vous pouvez exercer votre droit d'accès aux données vous concernant et les faire réctifier en contactant : contact@casetespotes.com
-                    </p>
+                    Les informations recueillies sur ce formulaire sont enregistrées par Case Tes Potes pour permettre de vous adresser des contenus adaptés à votre profil. 
+                    Elles sont destinées au service Marketing. Conformément à la loi "Informatique et Liberté", vous pouvez exercer votre droit d'accès aux données vous concernant 
+                    et les faire rectifier en écrivant à <a href="mailto:contact@casetespotes.com">contact@casetespotes.com</a>.</p>
                   </div>
                 </Fragment>              
               }
