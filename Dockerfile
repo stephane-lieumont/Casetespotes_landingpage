@@ -1,14 +1,20 @@
-FROM node:14-alpine AS development
-ENV NODE_ENV development
-
+FROM registry.gitlab.com/casetonpote1/ctp-utils/node-ts:17 as builder
 WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
 
-COPY package.json .
-COPY package-lock.json .
-RUN npm install
+COPY ./package.json /app/
+COPY ./package-lock.json /app/
 
-COPY . .
+RUN npm i
 
-CMD [ "npm", "start" ]
+COPY . /app
 
+RUN npm run build
 
+FROM nginx:1.22.0-alpine as run
+
+COPY --from=builder /app/build /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d
+EXPOSE 80
+CMD [ "nginx", "-g", "daemon off;" ]
