@@ -1,4 +1,5 @@
 import { MouseEventHandler, ReactNode } from "react"
+import { PopupAlert } from "./Components.intf"
 
 export type InputProps = {
   label?: string,
@@ -20,11 +21,20 @@ export type ButtonProps = {
   navigate?: string,
   disabled?: boolean,
   loading?: boolean,
+  validate?: boolean,
   callback?: MouseEventHandler<HTMLButtonElement>,
 }
 
 export type FormComponent = {
   childHeader?: ReactNode,
   childFooter?: ReactNode,
-  className?: string
+  className?: string,
+  submitIsLoading?: boolean,
+  submitIsValid?: boolean,
+  onSubmit?: (formData: Object, isValid: boolean) => void
+}
+
+export type MessageAlert = {
+  message: string,
+  type: PopupAlert
 }

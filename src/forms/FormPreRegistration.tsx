@@ -4,17 +4,23 @@ import Input from "../components/Forms/Input"
 import Button from "../components/Button"
 import SelectBox from "../components/Forms/SelectBox"
 import Checkbox from "../components/Forms/Checkbox"
-import PopupDial, { PopupAlert } from "../components/PopupDial"
 import { IpreRegisterUser } from "../types/StorageAPI.intf"
-import API from "../services/Api"
 import { Validator } from "../utils/formValidator"
-import { AxiosError } from "axios"
 import { FormComponent } from "../types/Forms.intf"
 
-const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null, className = ''}) => {
-  const [showPopup, setShowPopup] = useState<boolean>(false)
-  const [hidePopup, setHidePopup] = useState<boolean>(false)
+const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null, className = '', submitIsValid = false, submitIsLoading = false, onSubmit}) => {
   const [formDisabled, setFormDisabled] =  useState<boolean>(false)
+  const [formValidate, setFormValidate] =  useState<boolean>(false)
+  const [formIsLoading, setFormIsLoading] = useState<boolean>(false)
+
+  useEffect(() => {
+    setFormValidate(submitIsValid)
+    setFormDisabled(submitIsValid)
+  }, [submitIsValid])
+
+  useEffect(() => {
+    setFormIsLoading(submitIsLoading)
+  }, [submitIsLoading])
 
   // Form Controllers
   const [formInputLastname, setFormInputLastname] = useState<InputProps>({
@@ -68,31 +74,6 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     disabled: formDisabled,
   })
 
-  const [formIsLoading, setFormIsLoading] = useState<boolean>(false)
-
-  const [displayPopup, setDisplayPopup] = useState({
-    type: PopupAlert.alert,
-    message: ''
-  })
-
-  // Let show popup daley to desappear
-  useEffect(() => {
-    const delay: number = 5000
-
-    if(showPopup) {
-      const timer = setTimeout(() => {
-        setHidePopup(true)
-        clearTimeout(timer)
-      }, delay)
-
-      const timer2 = setTimeout(() => {
-        setShowPopup(false)
-        setHidePopup(false)
-        clearTimeout(timer2)
-      }, delay + 500)
-    }
-  }, [showPopup])
-
   /**
    * Validate form with JS
    * @returns {boolean}
@@ -136,65 +117,11 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     
     return userDataStorage    
   }
-
-  /**
-   * Data Storage with call API
-   * @param {IpreRegisterUser} userData 
-   * @param {boolean} validForm 
-   */
-  const storeData = async (userData : IpreRegisterUser, validForm : boolean) => {  
-    setShowPopup(false)
-    setDisplayPopup({
-      type: PopupAlert.alert,
-      message: ''
-    })
-
-    if(validForm) {
-      await API.postPreRegisterUserData(userData)
-        .then((resp) => {
-          setDisplayPopup({
-            type: PopupAlert.success,
-            message: `Félicitation ${resp.firstname}, tu fais partie des futures testeurs de l'application case tes potes`
-          })
-          setFormDisabled(true)
-        })
-        .catch((e: AxiosError) => {
-          if(e.response?.status === 400) {
-            setDisplayPopup({
-              type: PopupAlert.alert,
-              message: `Tu es déja inscris en tant que testeur de l'application case tes potes`
-            })
-          } else {
-            setDisplayPopup({
-              type: PopupAlert.alert,
-              message: `Une erreur c'est produite lors de l'inscription, veuillez contacter l'administrateur`
-            })
-          }
-        })
-        .finally(() => {
-          setShowPopup(true);
-          setFormIsLoading(false)
-        })
-    } else {
-      setDisplayPopup({
-        type: PopupAlert.alert,
-        message: `Certains champs comportent des erreurs dans le formulaire`
-      })
-      setShowPopup(true);
-      setFormIsLoading(false)
-    }
-  }
-
+  
   return (
     <div className={"wrapper-form " + className}>
-      {showPopup ? (
-        <div className="form__popup">
-          <PopupDial type={displayPopup.type} message={displayPopup.message} fadeout={hidePopup} />
-        </div>        
-      ) : null}
       {childHeader ?? null}
       <form className="form">
-
         <div className="form__row">
           <Input 
             label={formInputLastname.label}
@@ -250,26 +177,24 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
           }
           disabled={formDisabled}
         />
-        <div className="form__row">
+        <div className="controls form__row">
           <Button
             label="Je me pré-inscris"
+            validate={formValidate}
             disabled={formDisabled}
             loading= {formIsLoading}
-            callback={ () => {
-              setFormIsLoading(true)
+            callback={ async () => {              
               const valid = validForm()
-              const objectFormData = getObjectFormData() 
-              storeData(objectFormData, valid)
+              const objectFormData = getObjectFormData()
+              if(onSubmit) onSubmit(objectFormData, valid)
             }}
-          />
-          {/*
+          />          
           <Button 
             label="En savoir plus"
             buttonLink
             outlined
-            navigate="/a-propos"
+            navigate="/a-propos-de-case-tes-potes"
           />
-          */}
         </div>
       </form>
       {childFooter ?? null}

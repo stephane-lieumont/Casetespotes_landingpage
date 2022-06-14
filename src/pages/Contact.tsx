@@ -6,15 +6,26 @@ import Footer from "../layout/Footer"
 import FormContact from "../forms/FormContact"
 
 import map from "./../assets/pictures/map-location-casetespotes.jpg"
+import { ContactProps } from "../types/Page.intf"
 
-const Contact: FunctionComponent = () => {
+const Contact: FunctionComponent<ContactProps> = ({onSubmitContact, formIsLoading = false, formSubmitIsValid = false}) => {
   const [imgMapLoaded, setImgMapLoaded] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isValid, setIsValid] = useState(false)
 
   useEffect(() => {
     const listNodes = document.querySelectorAll('.reveal')
     const observerReveal = new ObserverReveal(listNodes, 'reveal')
     observerReveal.observe()
   }, [])
+
+  useEffect(() => {
+    setIsLoading(formIsLoading)
+  }, [formIsLoading])
+
+  useEffect(() => {
+    setIsValid(formSubmitIsValid)
+  }, [formSubmitIsValid])
 
   return (
     <Fragment>
@@ -41,7 +52,11 @@ const Contact: FunctionComponent = () => {
             </div>
           </div>
           <div className="reveal-5">
-            <FormContact />
+            <FormContact 
+              onSubmit={onSubmitContact}
+              submitIsValid={isValid}
+              submitIsLoading={isLoading}
+            />
           </div>          
         </section>
       </main>

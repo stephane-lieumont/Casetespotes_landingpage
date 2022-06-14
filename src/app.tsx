@@ -1,25 +1,40 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import RoutesLD from './routes/Routes'
-
+import { RouteLDObject } from './types/RoutesLD.intf';
 import background from './assets/pictures/background-landing-page.jpg'
-
-
 import Header from './layout/Header';
 import MyRoute from './layout/MyRoute';
+import Homepage from './pages/HomePage';
+import Contact from './pages/Contact';
+import About from './pages/About';
+import Error404 from './pages/Error404';
 import Smartphone from './components/Smartphone';
 
 import './sass/main.scss'
-import Error404 from './pages/Error404';
+import { PopupAlert, PopupProps } from './types/Components.intf';
+import API from './services/Api';
+import { AxiosError } from 'axios';
+
 
 const App: FunctionComponent = () => {
+  const homepage: RouteLDObject = RoutesLD.getRouteByName('home')!
+  const contact: RouteLDObject = RoutesLD.getRouteByName('contact')!
+  const about: RouteLDObject = RoutesLD.getRouteByName('about')!
+  const error404: RouteLDObject = RoutesLD.getRouteByName('error')!
+
+
   const location = useLocation()
   const limitScrollMinifyHeader = 30
   const [bgLight, seBgLight] = useState<boolean>(false)
   const [minifyHeader, setMinifyHeader] = useState<boolean>(false)
   const [locationError, setLocationError] = useState<boolean>(false)
-
   const [bgLoaded, setBgLoaded] = useState<boolean>(false)
+  const [formIsLoading, setFormIsLoading] = useState<boolean>(false)
+  const [formAlert, setFormAlert] = useState<PopupProps>({type: PopupAlert.none, message: ''})
+  const [showAlert, setShowAlert] = useState<boolean>(false)
+  const [formPreregisterSuccess, setFormPreregisterSuccess] = useState<boolean>(false)
+  const [formContactSuccess, setFormContactSuccess] = useState<boolean>(false)
   
   // onChange location route to transition CSS
   useEffect(() => {
@@ -28,6 +43,15 @@ const App: FunctionComponent = () => {
     setMinifyHeader(false)
     setLocationError( RoutesLD.getRouteByPathName(location.pathname) ? false : true)
   }, [location, locationError])
+
+  useEffect(() => {
+    if(showAlert) {
+      const timer = setTimeout(() => {
+        setShowAlert(false)
+        clearTimeout(timer)
+      }, 7000)
+    }
+  }, [showAlert])
 
   // onScroll Calculate scroll Position
   const handleScroll = (scrollTop: number) => {
@@ -38,17 +62,97 @@ const App: FunctionComponent = () => {
     }
   }
 
+  const onSubmitPreRegister = async (formData: Object, isValid: boolean) => {
+    setFormIsLoading(true)
+    setFormAlert({type: PopupAlert.none, message: ''})
+
+    if(isValid) {   
+      await API.postPreRegisterUserData(formData)
+        .then((resp) => {
+          setFormAlert({
+            type: PopupAlert.success,
+            message: `Félicitation ${resp.firstname}, tu fais partie des futures testeurs de l'application case tes potes`
+          })
+          setFormPreregisterSuccess(true)
+        })
+        .catch((e: AxiosError) => {
+          if(e.response?.status === 400) {
+            setFormAlert({
+              type: PopupAlert.alert,
+              message: `Tu es déja inscris en tant que testeur de l'application case tes potes`
+            })         
+          } else {
+            setFormAlert({
+              type: PopupAlert.alert,
+              message: `Une erreur c'est produite lors de l'inscription, veuillez contacter l'administrateur`
+            })
+          }
+        })
+    } else {
+      setFormAlert({
+        type: PopupAlert.alert,
+        message: `Certains champs comportent des erreurs dans le formulaire`
+      })
+    }
+    setShowAlert(true)
+    setFormIsLoading(false)
+  }
+
+  const onSubmitContact = async (formData: Object, isValid: boolean) => {
+    setFormIsLoading(true)
+    setFormAlert({type: PopupAlert.none, message: ''})
+
+    if(isValid) {
+      await API.sendEmailContact(formData)
+        .then((res) => {
+          setFormAlert({
+            type: PopupAlert.success,
+            message: `Votre message a bien été envoyé`
+          })
+          setFormContactSuccess(true)
+        })
+        .catch((err: AxiosError) => {
+          setFormAlert({
+            type: PopupAlert.alert,
+            message: `Une erreur serveur c'est produite, veuillez contacter l'administrateur`
+          })          
+        })
+    } else {
+      setFormAlert({
+        type: PopupAlert.alert,
+        message: `Certains champs comportent des erreurs dans le formulaire`
+      })
+    }
+
+    setShowAlert(true)
+    setFormIsLoading(false)
+  }
 
   return (
     <div className={`background-app ${bgLight ? 'background-app--light' : 'background-app--dark'}`}>
-      <Header minifyHeader={minifyHeader} />
-      { !locationError ? 
-          RoutesLD.routesLDO.map(({ path, name, themeLight, Component }) => (
-          name !== 'error' ? (
-            <MyRoute key={path} path={path} element={<Component />} themeLight={themeLight} callbackScroll={handleScroll} />                  
-          ) : null
-        )) : <MyRoute path='*' element={<Error404 />} />  
-      }
+      <div className={`popup-alert
+        ${formAlert.type === PopupAlert.alert ? ' popup-alert--error' : ''}
+        ${formAlert.type === PopupAlert.success ? ' popup-alert--success' : ''}
+        ${formAlert.type === PopupAlert.warning ? ' popup-alert--warning' : ''}
+        ${showAlert ? ' show' : ''}`
+      }>
+        {formAlert.message}
+      </div>
+      <Header minifyHeader={minifyHeader} />      
+        <MyRoute path={homepage.path} themeLight={homepage.themeLight} callbackScroll={handleScroll} >
+          <Homepage onSubmitPreRegister={onSubmitPreRegister} formIsLoading={formIsLoading} formSubmitIsValid={formPreregisterSuccess} />
+        </MyRoute> 
+        <MyRoute path={contact.path} themeLight={contact.themeLight} callbackScroll={handleScroll} >
+          <Contact onSubmitContact={onSubmitContact} formIsLoading={formIsLoading} formSubmitIsValid={formContactSuccess} />
+        </MyRoute>
+        <MyRoute path={about.path} themeLight={about.themeLight} callbackScroll={handleScroll} >
+          <About />
+        </MyRoute> 
+        { locationError ? (
+        <MyRoute path={error404.path} themeLight={error404.themeLight} callbackScroll={handleScroll} > 
+          <Error404 />
+        </MyRoute>
+        ) : null }
       <Smartphone locationPath={location.pathname} locationsAllow={[RoutesLD.getRouteByName('home')!.path]} />
       <div className={`bg-full-width ${bgLoaded ? 'bg-full-width--loaded' : ''}`}>
         <img onLoad={() => setBgLoaded(true)} width="500" src={background} alt="case tes potes lancement application"/>

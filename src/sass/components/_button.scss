@@ -78,6 +78,41 @@
     }
   }
 
+  &--validate {
+    pointer-events: none;
+    background-color: $green;
+    padding-left: 25px;
+
+    &::after {
+      position: absolute;
+      top: 10px;
+      left: 0px;
+      font-family: 'Material Icons';
+      font-size: 22px;
+      padding: 0 15px;
+      color: white;
+      content: '\e2e6';
+    }
+  }
+
+  &--error {
+    pointer-events: none;
+    background-color: $pink;
+    padding-left: 25px;
+    opacity: 0.5;
+
+    &::after {
+      position: absolute;
+      top: 10px;
+      left: 0px;
+      font-family: 'Material Icons';
+      font-size: 22px;
+      padding: 0 15px;
+      color: white;
+      content: '\e000';
+    }
+  }
+
   button, a {
     position: relative;
     display:block;

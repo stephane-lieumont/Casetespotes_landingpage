@@ -2,18 +2,24 @@ import { FunctionComponent, useEffect, useState } from "react"
 import { InputProps } from "../types/Forms.intf"
 import Input from "../components/Forms/Input"
 import Button from "../components/Button"
-import PopupDial, { PopupAlert } from "../components/PopupDial"
 import { Validator } from "../utils/formValidator"
 import { FormComponent } from "../types/Forms.intf"
 import TextArea from "../components/Forms/Textarea"
 import { IContactMessage } from "../types/StorageAPI.intf"
-import API from "../services/Api"
-import { AxiosError } from "axios"
 
-const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null}) => {
-  const [showPopup, setShowPopup] = useState<boolean>(false)
-  const [hidePopup, setHidePopup] = useState<boolean>(false)
+const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null, className = '', submitIsValid = false, submitIsLoading = false, onSubmit}) => {
   const [formDisabled, setFormDisabled] =  useState<boolean>(false)
+  const [formValidate, setFormValidate] =  useState<boolean>(false)
+  const [formIsLoading, setFormIsLoading] = useState<boolean>(false)
+
+  useEffect(() => {
+    setFormValidate(submitIsValid)
+    setFormDisabled(submitIsValid)
+  }, [submitIsValid])
+
+  useEffect(() => {
+    setFormIsLoading(submitIsLoading)
+  }, [submitIsLoading])
 
   // Form Controllers
   const [formInputLastname, setFormInputLastname] = useState<InputProps>({
@@ -57,31 +63,6 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
     value: '',
     disabled: formDisabled,
   })
-
-  const [formIsLoading, setFormIsLoading] = useState<boolean>(false)
-
-  const [displayPopup, setDisplayPopup] = useState({
-    type: PopupAlert.alert,
-    message: ''
-  })
-
-  // Let show popup daley to desappear
-  useEffect(() => {
-    const delay: number = 5000
-
-    if(showPopup) {
-      const timer = setTimeout(() => {
-        setHidePopup(true)
-        clearTimeout(timer)
-      }, delay)
-
-      const timer2 = setTimeout(() => {
-        setShowPopup(false)
-        setHidePopup(false)
-        clearTimeout(timer2)
-      }, delay + 500)
-    }
-  }, [showPopup])
 
   /**
    * Validate form with JS
@@ -127,55 +108,8 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
     return userDataStorage     
   }
 
-  /**
-   * Data Storage with call API
-   * @param {IpreRegisterUser} userData 
-   * @param {boolean} validForm 
-   */
-  const storeData = async (data : IContactMessage, validForm : boolean) => {  
-    setShowPopup(false)
-    setDisplayPopup({
-      type: PopupAlert.alert,
-      message: ''
-    })
-
-    if(validForm) {
-      await API.sendEmailContact(data)
-        .then((res) => {
-          setDisplayPopup({
-            type: PopupAlert.success,
-            message: `Votre message a bien été envoyé`
-          })
-          setFormDisabled(true)
-        })
-        .catch((err: AxiosError) => {
-          setDisplayPopup({
-            type: PopupAlert.alert,
-            message: `Une erreur c'est produite lors de l'inscription, veuillez contacter l'administrateur`
-          })
-        })
-        .finally(() => {
-          setShowPopup(true);
-          setFormIsLoading(false)
-        })
-    } else {
-      setDisplayPopup({
-        type: PopupAlert.alert,
-        message: `Certains champs comportent des erreurs dans le formulaire`
-      })
-      setShowPopup(true);
-      setFormIsLoading(false)
-    }
-  }
-
   return (
     <div className="wrapper-form">
-      {showPopup ? (
-        <div className="form__popup">
-          <PopupDial type={displayPopup.type} message={displayPopup.message} fadeout={hidePopup} />
-        </div>        
-      ) : null}
-      {childHeader ?? null}
       <form className="form form--light">
         <div className="form__row">
           <Input 
@@ -222,13 +156,13 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
         <div className="form__row">
           <Button
             label="Envoyer"
+            validate={formValidate}
             disabled={formDisabled}
             loading= {formIsLoading}
             callback={ () => {
-              setFormIsLoading(true)
               const valid = validForm()
               const objectFormData = getObjectFormData() 
-              storeData(objectFormData, valid)
+              if(onSubmit) onSubmit(objectFormData, valid)
             }}
           />
         </div>

@@ -12,6 +12,8 @@
 
   &__popup {
     position: absolute;
+    width: 100%;
+    max-width: 500px;
     top:0;
     left: 50%;
     transform: translateX(-50%);
@@ -28,12 +30,27 @@ input, textarea, .MuiInput-input {
 
 @media (max-width: $screen-sm) {
   .form {
+    position: inherit!important;
+
     &__row {
       display:flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap:0;
       flex-grow: 1;
+
+      &.controls {  
+        gap: 15px;
+
+        .button, .button button {
+          width: 100%;
+          text-align: center!important;
+        }
+      }
+    }
+
+    &__popup {
+      display: none;
     }
   }
 }

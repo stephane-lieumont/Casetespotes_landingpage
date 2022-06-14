@@ -1,9 +1,12 @@
-import { Fragment, FunctionComponent, useEffect} from "react"
+import { Fragment, FunctionComponent, useEffect, useState} from "react"
 import Footer from "../layout/Footer"
 import FormPreRegistration from "../forms/FormPreRegistration"
 import ObserverReveal from "../modules/ObserverReveal"
+import { HomepageProps } from "../types/Page.intf"
 
-const Homepage: FunctionComponent = () => {
+const Homepage: FunctionComponent<HomepageProps> = ({onSubmitPreRegister, formIsLoading = false, formSubmitIsValid = false}) => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [isValid, setIsValid] = useState(false)
 
   useEffect(() => {
     const listNodes = document.querySelectorAll('.reveal')
@@ -11,8 +14,16 @@ const Homepage: FunctionComponent = () => {
     observerReveal.observe()
   }, [])
 
+  useEffect(() => {
+    setIsLoading(formIsLoading)
+  }, [formIsLoading])
+
+  useEffect(() => {
+    setIsValid(formSubmitIsValid)
+  }, [formSubmitIsValid])
+
   return (
-    <Fragment>      
+    <Fragment>
       <main id ="homepage">
         <section id="homepage__content">
           <div id="homepage__bubble">
@@ -22,6 +33,9 @@ const Homepage: FunctionComponent = () => {
           </div>
           <div className="reveal">
             <FormPreRegistration
+              onSubmit={onSubmitPreRegister}
+              submitIsValid={isValid}
+              submitIsLoading={isLoading}
               childHeader={
                 <Fragment>
                   <h1 className="text--center reveal-1">Avant-première</h1>

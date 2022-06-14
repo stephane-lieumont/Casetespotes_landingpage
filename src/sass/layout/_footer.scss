@@ -44,3 +44,11 @@ footer {
     padding: 0 30px;
   }  
 }
+
+@media (max-width: $screen-sm) {
+  footer {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+  }  
+}
