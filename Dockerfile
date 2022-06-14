@@ -2,6 +2,7 @@ FROM registry.gitlab.com/casetonpote1/ctp-utils/node-ts:17 as builder
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
+COPY ./.env /app/
 COPY ./package.json /app/
 COPY ./package-lock.json /app/
 
