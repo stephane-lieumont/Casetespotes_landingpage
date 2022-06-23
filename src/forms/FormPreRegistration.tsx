@@ -80,8 +80,8 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
    */
   const validForm = ():boolean => {
     // Validator Rules
-    const checkLastname : boolean = !Validator.checkMinLength(formInputLastname.value ?? '', 3)
-    const checkFirstname : boolean = !Validator.checkMinLength(formInputFirstname.value ?? '', 3)
+    const checkLastname : boolean = !Validator.checkMinLength(formInputLastname.value ?? '', 1)
+    const checkFirstname : boolean = !Validator.checkMinLength(formInputFirstname.value ?? '', 1)
     const checkEmail : boolean = !Validator.checkEmail(formInputEmail.value ?? '')
     const checkPhone : boolean = !Validator.checkPhoneNumber(formInputPhone.value ?? '')
     const checkChoice : boolean = formInputChoice.value === ''
