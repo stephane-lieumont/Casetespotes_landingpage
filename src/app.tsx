@@ -47,9 +47,9 @@ const App: FunctionComponent = () => {
   useEffect(() => {
     if(showAlert) {
       const timer = setTimeout(() => {
-        setShowAlert(false)
+        if(showAlert === true) setShowAlert(false)
         clearTimeout(timer)
-      }, 7000)
+      }, 12000)
     }
   }, [showAlert])
 
@@ -71,7 +71,7 @@ const App: FunctionComponent = () => {
         .then((resp) => {
           setFormAlert({
             type: PopupAlert.success,
-            message: `Félicitation ${resp.firstname}, tu fais partie des futures testeurs de l'application case tes potes`
+            message: "Félicitations ! Tu fais partie des futur·e·s testeur·euse·s de l'application Case Tes Potes !  La Team te tiendra informé·e bientôt de la disponibilité de l'application !"
           })
           setFormPreregisterSuccess(true)
         })
@@ -79,7 +79,7 @@ const App: FunctionComponent = () => {
           if(e.response?.status === 400) {
             setFormAlert({
               type: PopupAlert.alert,
-              message: `Tu es déja inscris en tant que testeur de l'application case tes potes`
+              message: "Tu es déjà préinscrit·e en tant que testeur·euse de l'application Case Tes Potes ! La Team te tiendra informé·e bientôt de la disponibilité de l'application !"
             })         
           } else {
             setFormAlert({
