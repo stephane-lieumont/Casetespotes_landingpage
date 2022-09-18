@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/casetonpote1/ctp-utils/node-ts:17 as builder
+FROM node as builder
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
