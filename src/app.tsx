@@ -67,7 +67,7 @@ const App: FunctionComponent = () => {
     setFormAlert({type: PopupAlert.none, message: ''})
 
     if(isValid) {   
-      await API.postPreRegisterUserData(formData)
+      await API.postPreRegisterUserDataMock(formData)
         .then((resp) => {
           setFormAlert({
             type: PopupAlert.success,
@@ -103,7 +103,7 @@ const App: FunctionComponent = () => {
     setFormAlert({type: PopupAlert.none, message: ''})
 
     if(isValid) {
-      await API.sendEmailContact(formData)
+      await API.sendEmailContactMock(formData)
         .then((res) => {
           setFormAlert({
             type: PopupAlert.success,

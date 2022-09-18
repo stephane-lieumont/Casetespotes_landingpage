@@ -1,0 +1,12 @@
+.demo-banner {
+  position: absolute;
+  top:0;
+  right: 0;
+  background-color: white;
+  padding: 10px 100px;
+  color: black;
+  font-weight: 700;
+  transform: translate(70px, 50%) rotate(45deg);
+  z-index: 999;
+  opacity: 0.5;
+}
