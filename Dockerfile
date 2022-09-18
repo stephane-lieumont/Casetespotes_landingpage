@@ -1,15 +1,9 @@
 FROM node as builder
-WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
 
-COPY ./.env /app/
-COPY ./package.json /app/
-COPY ./package-lock.json /app/
+WORKDIR /app
+COPY . ./
 
 RUN npm i
-
-COPY . /app
-
 RUN npm run build
 
 FROM nginx:1.22.0-alpine as run
