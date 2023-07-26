@@ -1,4 +1,4 @@
-import { Fragment, FunctionComponent, useEffect} from "react"
+import React, { Fragment, FunctionComponent, useEffect} from "react"
 import respect from './../assets/icons/respect-case-ton-pote.png'
 import authentic from './../assets/icons/authentique-case-ton-pote.png'
 import fun from './../assets/icons/fun-case-ton-pote.png'
@@ -23,9 +23,9 @@ const About: FunctionComponent = () => {
         <section className="page__container reveal">
           <h1 className="text--center reveal-1">Qui sommes nous ?</h1>
           <p className="text--indent  reveal-2">
-            Case Tes Potes veut casser les codes des sites de rencontre en mettant l'amitié au cœur de l'amour pour faciliter les 
-            rencontres et accompagner les célibataires de la recherche de profils à l'organisation de la première rencontre.
-            Ces dernier·ères n'ont plus qu'à se laisser guider et faire confiance à leur meilleur·e ami·e "Caseur" / "Caseuse".
+            Case Tes Potes veut casser les codes des sites de rencontre en mettant l&apos;amitié au cœur de l&apos;amour pour faciliter les 
+            rencontres et accompagner les célibataires de la recherche de profils à l&apos;organisation de la première rencontre.
+            Ces dernier·ères n&apos;ont plus qu&apos;à se laisser guider et faire confiance à leur meilleur·e ami·e &quot;Caseur&quot; / &quot;Caseuse&quot;.
           </p>
           <ul id="about__values">
             <li className="reveal-3">
@@ -45,8 +45,8 @@ const About: FunctionComponent = () => {
         <section className="page__container reveal">
           <h2 className="text--center reveal-1">Le principe ?</h2>
           <p className="text--indent reveal-2">
-            Mettre en relation les meilleur·es ami·es de célibataires, appelé·es "Caseurs" et "Caseuses", 
-            pour qu'ils·elles les aident dans leur quête de l'amour. Accompagné·es par notre team, les "Caseurs" et "Caseuses" s'occupent de tout.
+            Mettre en relation les meilleur·es ami·es de célibataires, appelé·es &quot;Caseurs&quot; et &quot;Caseuses&quot;, 
+            pour qu&apos;ils·elles les aident dans leur quête de l&apos;amour. Accompagné·es par notre team, les &quot;Caseurs&quot; et &quot;Caseuses&quot; s&apos;occupent de tout.
           </p>
         </section>
         <section className="page__container reveal">

@@ -2,35 +2,36 @@
   "name": "case_tes_potes-landingpage",
   "version": "2.1.0",
   "private": true,
-  "homepage": "/",
   "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/material": "^5.6.1",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^16.11.26",
-    "@types/react": "^17.0.44",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.2",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.5.3",
+    "@types/json-schema": "^7.0.12",
+    "@types/node": "^20.4.5",
+    "@types/react": "^18.2.16",
     "@types/react-router-dom": "^5.3.3",
-    "axios": "^0.26.1",
+    "axios": "^1.4.0",
     "install": "^0.13.0",
-    "npm": "^8.7.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.0",
-    "react-transition-group": "^4.4.2",
-    "sass": "^1.50.0",
-    "typescript": "^4.6.3",
-    "web-vitals": "^2.1.4"
+    "npm": "^9.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "^5.0.1",
+    "react-transition-group": "^4.4.5",
+    "sass": "^1.64.1",
+    "typescript": "^5.1.6",
+    "web-vitals": "^3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:coverage": "react-scripts test --watchAll --coverage",
+    "lint": "eslint \"src/**\""
   },
   "eslintConfig": {
     "extends": [
@@ -51,7 +52,11 @@
     ]
   },
   "devDependencies": {
-    "@types/react-dom": "^18.0.0",
-    "@types/react-transition-group": "^4.4.4"
+    "@types/react-dom": "^18.2.7",
+    "@types/react-transition-group": "^4.4.6",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.33.0"
   }
 }

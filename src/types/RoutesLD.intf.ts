@@ -2,7 +2,7 @@ export type RouteLDObject = {
   path: string,
   name: string,
   Component: React.FunctionComponent,
-  Props?: Object
+  Props?: object
   label?: string,
   themeLight?: boolean
 }

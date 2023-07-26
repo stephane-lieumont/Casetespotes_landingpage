@@ -1,4 +1,4 @@
-import {  FunctionComponent, useEffect, useState } from "react"
+import React, {  FunctionComponent, useEffect, useState } from "react"
 import smartphone from '../assets/pictures/smartphone_splashscreen.png'
 
 type SmartphoneProps = {

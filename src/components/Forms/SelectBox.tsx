@@ -1,9 +1,9 @@
-import { InputLabel, FormControl, Select, SelectChangeEvent, MenuItem } from "@mui/material";
+import React, { InputLabel, FormControl, Select, SelectChangeEvent, MenuItem } from "@mui/material";
 import { FunctionComponent, useState, useEffect } from "react"
 import { InputProps } from "../../types/Forms.intf";
 import { firstLetterUpper } from '../../utils/formatString'; 
 
-const SelectBox: FunctionComponent<InputProps> = ({label = "Label", placeholder= "Select choice", name = "select", disabled = false, choices = [], error = false, errorMessage = "Erreur message", value ='', onChange = () => {} }) => {
+const SelectBox: FunctionComponent<InputProps> = ({label = "Label", placeholder= "Select choice", disabled = false, choices = [], error = false, errorMessage = "Erreur message", value ='', onChange = () => { return } }) => {
   const [valueInput, setValueInput] = useState(value)
   const [errorInput, setErrorInput] = useState(error)
 

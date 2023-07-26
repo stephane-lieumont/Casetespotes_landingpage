@@ -37,12 +37,12 @@ const routesLDO: RouteLDObject[] = [
   }
 ]
 
-const getRouteByName = (name: string):RouteLDObject | undefined => {
-  return routesLDO.find(route => route.name === name)
+const getRouteByName = (name: string):RouteLDObject => {
+  return routesLDO.find(route => route.name === name) ?? routesLDO[0]
 }
 
-const getRouteByPathName = (pathname: string):RouteLDObject | undefined => {
-  return routesLDO.find(route => route.path === pathname)
+const getRouteByPathName = (pathname: string):RouteLDObject => {
+  return routesLDO.find(route => route.path === pathname) ?? routesLDO[0]
 }
 
 const RoutesLD = {

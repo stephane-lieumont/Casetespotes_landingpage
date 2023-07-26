@@ -6,7 +6,7 @@ import { MyRouteProps } from '../types/Components.intf';
 
 
 const MyRoute: React.FunctionComponent<MyRouteProps> = ({path, themeLight = false, callbackScroll, children}) => {
-  const resolvedPath = useResolvedPath(path!)
+  const resolvedPath = useResolvedPath(path)
   const match = useMatch(resolvedPath.pathname)
   const scrollPage = useRef<HTMLDivElement>(null)
 

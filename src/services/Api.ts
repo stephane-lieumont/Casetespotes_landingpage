@@ -12,6 +12,12 @@ const postPreRegisterUserData = async (data: IpreRegisterUser): Promise<IpreRegi
     })
 };
 
+const postPreRegisterUserDataMock = async (data: IpreRegisterUser): Promise<IpreRegisterUser> => {
+  const delay = 1000
+
+  return new Promise(resolve => setTimeout(resolve, delay, data))
+};
+
 const sendEmailContact = async (data: IContactMessage): Promise<IContactMessage> => {
   return axios.post(`${Config.addressApi}/send-email/contact`, data)
     .then(resp => {
@@ -22,12 +28,21 @@ const sendEmailContact = async (data: IContactMessage): Promise<IContactMessage>
     })
 }
 
+const sendEmailContactMock = async (data: IContactMessage): Promise<IContactMessage> => {
+  const delay = 1000
+
+  return new Promise(resolve => setTimeout(resolve, delay, data))
+}
+
+
 /**
  * Object to call functions for API data
  */
 const API = {
   postPreRegisterUserData,
-  sendEmailContact
+  postPreRegisterUserDataMock,
+  sendEmailContact,
+  sendEmailContactMock
 };
 
 export default API;

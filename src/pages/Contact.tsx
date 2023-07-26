@@ -1,4 +1,4 @@
-import { Fragment, FunctionComponent, useEffect, useState} from "react"
+import React, { Fragment, FunctionComponent, useEffect, useState} from "react"
 
 import ObserverReveal from "../modules/ObserverReveal"
 

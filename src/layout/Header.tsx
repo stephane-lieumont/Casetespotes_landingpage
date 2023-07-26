@@ -1,4 +1,4 @@
-import { FunctionComponent, useState, useEffect } from "react"
+import React, { FunctionComponent, useState, useEffect } from "react"
 import Logo from '../assets/logo.svg'
 import { NavLink, Link } from 'react-router-dom'
 import { HeaderProps } from "../types/Components.intf"

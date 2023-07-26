@@ -1,4 +1,4 @@
-import { FunctionComponent, useState, useEffect } from "react"
+import React, { FunctionComponent, useState, useEffect } from "react"
 import { InputProps } from "../../types/Forms.intf"
 
 const Checkbox: FunctionComponent<InputProps> = ({label = "checkbox", name="checkbox", checked = false, disabled = false, error = false, onChange}) => {
@@ -11,7 +11,7 @@ const Checkbox: FunctionComponent<InputProps> = ({label = "checkbox", name="chec
 
   const handleChange = () => {
     setCheckedInput(!checkedInput); 
-    onChange!(!checkedInput)
+    onChange(!checkedInput)
   }
 
   return (
