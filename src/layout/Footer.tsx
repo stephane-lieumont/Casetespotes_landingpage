@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react"
+import React, { FunctionComponent } from "react"
 import IconFacebook from '../assets/icons/facebook-official.svg'
 import IconInstagram from '../assets/icons/instagram-official.svg'
 import IconLinkedin from '../assets/icons/linkedin-official.svg'

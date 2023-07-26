@@ -1,4 +1,4 @@
-import { FunctionComponent, useState, ChangeEvent, useEffect } from "react"
+import React, { FunctionComponent, useState, ChangeEvent, useEffect } from "react"
 import { InputProps } from "../../types/Forms.intf"
 
 const TextArea: FunctionComponent<InputProps> = ({label = 'Label', name = 'inputName', errorMessage = "Erreur message", error = false, onChange, disabled = false} : InputProps) => {
@@ -17,7 +17,7 @@ const TextArea: FunctionComponent<InputProps> = ({label = 'Label', name = 'input
     } else {
       setValueIsEmpty(true)
     }
-    onChange!(event.target.value)
+    onChange(event.target.value)
   }
 
   const handleOnFocus = () => {

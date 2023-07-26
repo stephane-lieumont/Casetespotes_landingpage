@@ -1,7 +1,6 @@
-import {  FunctionComponent } from "react"
+import React from "react"
 
-
-const DemoBanner: FunctionComponent = () => {
+const DemoBanner: React.FunctionComponent = () => {
   return (
     <div className={`demo-banner`}>
       DEMO

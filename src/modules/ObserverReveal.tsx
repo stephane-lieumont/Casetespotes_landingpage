@@ -3,7 +3,7 @@ class ObserverReveal {
   nodeListTarget: NodeListOf<Element>
   classRemoval: string
   ratio: number
-  options: Object
+  options: object
   observer: IntersectionObserver
 
   constructor(nodeListTarget: NodeListOf<Element>, classRemoval: string) {

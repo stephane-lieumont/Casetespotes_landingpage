@@ -15,13 +15,14 @@ import './sass/main.scss'
 import { PopupAlert, PopupProps } from './types/Components.intf';
 import API from './services/Api';
 import { AxiosError } from 'axios';
+import { Config } from './config';
 
 
 const App: FunctionComponent = () => {
-  const homepage: RouteLDObject = RoutesLD.getRouteByName('home')!
-  const contact: RouteLDObject = RoutesLD.getRouteByName('contact')!
-  const about: RouteLDObject = RoutesLD.getRouteByName('about')!
-  const error404: RouteLDObject = RoutesLD.getRouteByName('error')!
+  const homepage: RouteLDObject = RoutesLD.getRouteByName('home')
+  const contact: RouteLDObject = RoutesLD.getRouteByName('contact')
+  const about: RouteLDObject = RoutesLD.getRouteByName('about')
+  const error404: RouteLDObject = RoutesLD.getRouteByName('error')
 
 
   const location = useLocation()
@@ -62,13 +63,15 @@ const App: FunctionComponent = () => {
     }
   }
 
-  const onSubmitPreRegister = async (formData: Object, isValid: boolean) => {
+  const onSubmitPreRegister = async (formData: object, isValid: boolean) => {
     setFormIsLoading(true)
     setFormAlert({type: PopupAlert.none, message: ''})
 
-    if(isValid) {   
-      await API.postPreRegisterUserDataMock(formData)
-        .then((resp) => {
+    if(isValid) {
+      const requestFunc = Config.demo ?  API.postPreRegisterUserDataMock : API.postPreRegisterUserData
+
+      await requestFunc(formData)
+        .then(() => {
           setFormAlert({
             type: PopupAlert.success,
             message: "Félicitations ! Tu fais partie des futur·e·s testeur·euse·s de l'application Case Tes Potes !  La Team te tiendra informé·e bientôt de la disponibilité de l'application !"
@@ -98,20 +101,20 @@ const App: FunctionComponent = () => {
     setFormIsLoading(false)
   }
 
-  const onSubmitContact = async (formData: Object, isValid: boolean) => {
+  const onSubmitContact = async (formData: object, isValid: boolean) => {
     setFormIsLoading(true)
     setFormAlert({type: PopupAlert.none, message: ''})
 
     if(isValid) {
       await API.sendEmailContactMock(formData)
-        .then((res) => {
+        .then(() => {
           setFormAlert({
             type: PopupAlert.success,
             message: `Votre message a bien été envoyé`
           })
           setFormContactSuccess(true)
         })
-        .catch((err: AxiosError) => {
+        .catch(() => {
           setFormAlert({
             type: PopupAlert.alert,
             message: `Une erreur serveur c'est produite, veuillez contacter l'administrateur`
@@ -153,7 +156,7 @@ const App: FunctionComponent = () => {
           <Error404 />
         </MyRoute>
         ) : null }
-      <Smartphone locationPath={location.pathname} locationsAllow={[RoutesLD.getRouteByName('home')!.path]} />
+      <Smartphone locationPath={location.pathname} locationsAllow={[RoutesLD.getRouteByName('home').path]} />
       <div className={`bg-full-width ${bgLoaded ? 'bg-full-width--loaded' : ''}`}>
         <img onLoad={() => setBgLoaded(true)} width="500" src={background} alt="case tes potes lancement application"/>
       </div>      

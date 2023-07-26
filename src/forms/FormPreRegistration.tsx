@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react"
+import React, { FunctionComponent, useEffect, useState } from "react"
 import { InputProps } from "../types/Forms.intf"
 import Input from "../components/Forms/Input"
 import Button from "../components/Button"
@@ -30,6 +30,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     errorMessage: 'Veuillez saisir votre Nom',
     value: '',
     disabled: formDisabled,
+    onChange: () => { return }
   })
   const [formInputFirstname, setFormInputFirstname] = useState<InputProps>({
     label: 'Prénom',
@@ -38,6 +39,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     errorMessage: 'Veuillez saisir votre Prénom',
     value: '',
     disabled: formDisabled,
+    onChange: () => { return }
   })
   const [formInputEmail, setFormInputEmail] = useState<InputProps>({
     label: 'Email',
@@ -46,6 +48,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     errorMessage: 'Veuillez saisir une adresse mail valide',
     value: '',
     disabled: formDisabled,
+    onChange: () => { return }
   })
   const [formInputPhone, setFormInputPhone] = useState<InputProps>({
     label: 'Téléphone',
@@ -54,6 +57,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     errorMessage: 'Saisir un numéro à 10 chiffres',
     value: '',
     disabled: formDisabled,
+    onChange: () => { return }
   })
   const [formInputChoice, setFormInputChoice] = useState<InputProps>({
     label: 'Je souhaite...' ,
@@ -64,6 +68,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     choices: ['Caser un.e am.ie célibataire', 'Trouver l\'amour'],
     value: '',
     disabled: formDisabled,
+    onChange: () => { return }
   })
   const [formInputCheckbox, setFormInputCheckbox] = useState<InputProps>({
     label: 'J\'accepte de recevoir des informations de la part de Case Tes Potes.',
@@ -72,6 +77,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
     errorMessage: 'Veuillez accepter de recevoir les informations',
     checked: false,
     disabled: formDisabled,
+    onChange: () => { return }
   })
 
   /**
@@ -80,12 +86,12 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
    */
   const validForm = ():boolean => {
     // Validator Rules
-    const checkLastname : boolean = !Validator.checkMinLength(formInputLastname.value ?? '', 1)
-    const checkFirstname : boolean = !Validator.checkMinLength(formInputFirstname.value ?? '', 1)
-    const checkEmail : boolean = !Validator.checkEmail(formInputEmail.value ?? '')
-    const checkPhone : boolean = !Validator.checkPhoneNumber(formInputPhone.value ?? '')
-    const checkChoice : boolean = formInputChoice.value === ''
-    const checkCheckbox: boolean = !formInputCheckbox.checked
+    const checkLastname = !Validator.checkMinLength(formInputLastname.value ?? '', 1)
+    const checkFirstname = !Validator.checkMinLength(formInputFirstname.value ?? '', 1)
+    const checkEmail = !Validator.checkEmail(formInputEmail.value ?? '')
+    const checkPhone = !Validator.checkPhoneNumber(formInputPhone.value ?? '')
+    const checkChoice = formInputChoice.value === ''
+    const checkCheckbox = !formInputCheckbox.checked
 
     // Set State with validator
     checkLastname && setFormInputLastname({...formInputLastname, error: true})
@@ -104,10 +110,7 @@ const FormPreRegistration: FunctionComponent<FormComponent> = ({childHeader = nu
    * @returns {IpreRegisterUser}
    */
   const getObjectFormData = (): IpreRegisterUser => {
-    let userDataStorage : IpreRegisterUser
-    
-    // Create Object data storage
-    userDataStorage = {
+    const userDataStorage : IpreRegisterUser = {
       firstname : formInputFirstname.value,
       lastname: formInputLastname.value,
       email: formInputEmail.value,

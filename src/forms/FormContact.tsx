@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react"
+import React, { FunctionComponent, useEffect, useState } from "react"
 import { InputProps } from "../types/Forms.intf"
 import Input from "../components/Forms/Input"
 import Button from "../components/Button"
@@ -7,7 +7,7 @@ import { FormComponent } from "../types/Forms.intf"
 import TextArea from "../components/Forms/Textarea"
 import { IContactMessage } from "../types/StorageAPI.intf"
 
-const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, childFooter = null, className = '', submitIsValid = false, submitIsLoading = false, onSubmit}) => {
+const FormContact: FunctionComponent<FormComponent> = ({ childFooter = null, submitIsValid = false, submitIsLoading = false, onSubmit}) => {
   const [formDisabled, setFormDisabled] =  useState<boolean>(false)
   const [formValidate, setFormValidate] =  useState<boolean>(false)
   const [formIsLoading, setFormIsLoading] = useState<boolean>(false)
@@ -29,6 +29,7 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
     errorMessage: 'Veuillez saisir votre Nom',
     value: '',
     disabled: formDisabled,
+    onChange: () => { return }
   })
   const [formInputFirstname, setFormInputFirstname] = useState<InputProps>({
     label: 'Prénom',
@@ -37,6 +38,7 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
     errorMessage: 'Veuillez saisir votre Prénom',
     value: '',
     disabled: formDisabled,
+    onChange: () => { return }
   })
   const [formInputEmail, setFormInputEmail] = useState<InputProps>({
     label: 'Email',
@@ -45,6 +47,7 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
     errorMessage: 'Veuillez saisir une adresse mail valide',
     value: '',
     disabled: formDisabled,
+    onChange: () => { return }
   })
   const [formInputSubject, setFormInputSubject] = useState<InputProps>({
     label: 'Sujet',
@@ -53,6 +56,7 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
     errorMessage: 'Veuillez indiquer l\'objet de votre demande',
     value: '',
     disabled: formDisabled,
+    onChange: () => { return }
   })
 
   const [formInputMessage, setFormInputMessage] = useState<InputProps>({
@@ -62,6 +66,7 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
     errorMessage: 'Veuillez saisir votre message : minimun 15 charactères',
     value: '',
     disabled: formDisabled,
+    onChange: () => { return }
   })
 
   /**
@@ -70,11 +75,11 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
    */
   const validForm = ():boolean => {
     // Validator Rules
-    const checkLastname : boolean = !Validator.checkMinLength(formInputLastname.value ?? '', 3)
-    const checkFirstname : boolean = !Validator.checkMinLength(formInputFirstname.value ?? '', 3)
-    const checkEmail : boolean = !Validator.checkEmail(formInputEmail.value ?? '')
-    const checkSubject : boolean = !Validator.checkMinLength(formInputSubject.value ?? '', 3)
-    const checkMessage : boolean = !Validator.checkMinLength(formInputMessage.value ?? '', 15)
+    const checkLastname = !Validator.checkMinLength(formInputLastname.value ?? '', 3)
+    const checkFirstname = !Validator.checkMinLength(formInputFirstname.value ?? '', 3)
+    const checkEmail = !Validator.checkEmail(formInputEmail.value ?? '')
+    const checkSubject = !Validator.checkMinLength(formInputSubject.value ?? '', 3)
+    const checkMessage = !Validator.checkMinLength(formInputMessage.value ?? '', 15)
 
     // Set State with validator
     checkLastname && setFormInputLastname({...formInputLastname, error: true})
@@ -93,16 +98,13 @@ const FormContact: FunctionComponent<FormComponent> = ({childHeader = null, chil
    */
   const getObjectFormData = (): IContactMessage => {
     
-    let userDataStorage : IContactMessage
-    
-    // Create Object data storage
-    userDataStorage = {
+    const userDataStorage : IContactMessage = {
       firstname : formInputFirstname.value,
       lastname: formInputLastname.value,
       email: formInputEmail.value,
       subject: formInputSubject.value,
       // format HTML
-      message: `<p>${formInputMessage.value!.replace( /\n/g, '<br />' )}</p>`
+      message: `<p>${formInputMessage.value?.replace( /\n/g, '<br />' )}</p>`
     }
     
     return userDataStorage     

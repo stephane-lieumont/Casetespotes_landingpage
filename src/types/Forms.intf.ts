@@ -7,7 +7,7 @@ export type InputProps = {
   placeholder?: string,
   errorMessage?: string,
   error?: boolean,
-  onChange?: CallableFunction,
+  onChange: CallableFunction,
   value?: string,
   choices?: string[],
   checked?: boolean,
@@ -31,7 +31,7 @@ export type FormComponent = {
   className?: string,
   submitIsLoading?: boolean,
   submitIsValid?: boolean,
-  onSubmit?: (formData: Object, isValid: boolean) => void
+  onSubmit?: (formData: object, isValid: boolean) => void
 }
 
 export type MessageAlert = {
