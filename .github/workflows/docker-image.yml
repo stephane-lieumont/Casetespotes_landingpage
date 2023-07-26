@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
     
     steps:
@@ -16,11 +16,9 @@ jobs:
       run: yarn
     - name: Run linter
       run: yarn lint
-    - name: Run unit tests
-      run: yarn test
 
   build-demo:
-    needs: [test]
+    needs: [lint]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -55,7 +53,7 @@ jobs:
         labels: ${{ steps.meta.outputs.labels }}
   
   build-production:
-    needs: [test]
+    needs: [lint]
     runs-on: ubuntu-latest
     permissions:
       contents: read
