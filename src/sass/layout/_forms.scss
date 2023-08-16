@@ -2,19 +2,19 @@
   padding: 15px 0;
   font-size: 0.9rem;
   &__row {
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    gap:30px;
+    gap: 30px;
   }
 
   &__popup {
     position: absolute;
     width: 100%;
     max-width: 500px;
-    top:0;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -24,27 +24,30 @@
   position: relative;
 }
 
-input, textarea, .MuiInput-input {
-  font-size: 0.9rem!important;
+input,
+textarea,
+.MuiInput-input {
+  font-size: 0.9rem !important;
 }
 
 @media (max-width: $screen-sm) {
   .form {
-    position: inherit!important;
+    position: inherit !important;
 
     &__row {
-      display:flex;
+      display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      gap:0;
+      gap: 0;
       flex-grow: 1;
 
-      &.controls {  
+      &.controls {
         gap: 15px;
 
-        .button, .button button {
+        .button,
+        .button button {
           width: 100%;
-          text-align: center!important;
+          text-align: center !important;
         }
       }
     }

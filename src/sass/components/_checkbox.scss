@@ -1,14 +1,13 @@
 .checkbox {
   margin-bottom: 30px;
   gap: 10px;
-  display:flex;
+  display: flex;
   align-items: center;
-  
 
   input {
-    position:relative;
+    position: relative;
     appearance: none;
-    height:15px;
+    height: 15px;
     width: 15px;
     border-radius: 50%;
     border: 2px solid white;
@@ -21,10 +20,10 @@
     }
 
     &::before {
-      content: '';
-      position:absolute;
-      top:0;
-      left:0;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
       height: 8px;
       width: 8px;
       background-color: $yellow;
@@ -34,14 +33,14 @@
     }
 
     &:checked {
-      border-color: $yellow!important;
+      border-color: $yellow !important;
       &::before {
         opacity: 1;
       }
     }
   }
 
-  &--error{
+  &--error {
     input {
       border-color: $pink;
     }
