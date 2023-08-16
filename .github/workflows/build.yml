@@ -6,7 +6,6 @@ on:
   workflow_run:
     workflows: ["CI"]
     types:
-      - requested
       - completed
 
 jobs:
