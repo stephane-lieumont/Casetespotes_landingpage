@@ -1,34 +1,34 @@
-FROM node:16-alpine AS deps
+FROM node AS deps
 
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
 
-COPY ./package.json /app/
-COPY ./yarn.lock /app/
+COPY ./package.json ./
+COPY ./yarn.lock ./
 
 RUN yarn --frozen-lockfile
 
-FROM node:16-alpine AS builder
+FROM node AS builder
 
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
 
-ARG DEMO
-ENV DEMO ${DEMO}
+COPY . .
 
 ARG PUBLIC_URL
 ENV PUBLIC_URL ${PUBLIC_URL}
 
-RUN if [ "$DEMO" = "true" ] ; then mv /nginx/nginx.demo.conf /nginx/nginx.conf; fi
+ARG REACT_APP_DEMO
+ENV REACT_APP_DEMO ${REACT_APP_DEMO}
+
+RUN if [ "$REACT_APP_DEMO" = "true" ] ; then mv /nginx/nginx.demo.conf /nginx/nginx.conf; fi
 
 RUN yarn build
 
-FROM nginx:1.22.0-alpine as run
+FROM nginx:alpine as run
 
 RUN rm /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /nginx/nginx.conf /etc/nginx/conf.d
 COPY --from=builder /public /usr/share/nginx/html
+COPY --from=builder /nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 

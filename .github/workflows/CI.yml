@@ -1,16 +1,25 @@
-name: Build / docker images
+name: CI
 
 on:
-  push:
+  workflow_call:
+    secrets:
+      GH_TOKEN:
+        required: true
+  pull_request:
     branches: ["main"]
-  workflow_run:
-    workflows: ["CI"]
-    types:
-      - completed
 
 jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: yarn
+      - name: Run checks
+        run: yarn ci
+
   build-demo:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: ["ci"]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -38,14 +47,13 @@ jobs:
         with:
           context: .
           build-args: |
-            "PUBLIC_URL=https://stephane-lieumont.fr/demo/casetespotes-landingpage"
-            "DEMO=true"
+            "PUBLIC_URL=/demo/casetespotes-landingpage"
+            "REACT_APP_DEMO=true"
           push: true
           tags: ghcr.io/stephane-lieumont/ctp-landingpage:demo
-          labels: ${{ steps.meta.outputs.labels }}
 
   build-production:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: ["ci"]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -72,8 +80,5 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          build-args: |
-            "PUBLIC_URL=https://stephane-lieumont.fr/demo/casetespotes-landingpage"
           push: true
           tags: ghcr.io/stephane-lieumont/ctp-landingpage:latest
-          labels: ${{ steps.meta.outputs.labels }}
