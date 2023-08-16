@@ -7,6 +7,7 @@ on:
     workflows: ["CI"]
     types:
       - requested
+      - completed
 
 jobs:
   build-demo:
