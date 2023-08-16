@@ -5,14 +5,15 @@
   width: 100%;
 
   input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
-  input:-webkit-autofill:active{
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
     background-clip: text !important;
     -webkit-text-fill-color: white !important;
   }
 
-  label, input {
+  label,
+  input {
     padding: 5px 0;
     width: 100%;
   }
@@ -21,13 +22,13 @@
     margin-bottom: 20px;
     position: relative;
     background: none;
-    border: none;    
-    border-bottom: 2px  solid white;
+    border: none;
+    border-bottom: 2px solid white;
     outline: none;
     caret-color: $blue;
     color: white;
     font-size: 1rem;
-    transition: border .3s ease-in-out;
+    transition: border 0.3s ease-in-out;
     z-index: 2;
 
     &:disabled {
@@ -35,16 +36,16 @@
     }
 
     &:focus {
-      border-bottom: 2px  solid $blue;
+      border-bottom: 2px solid $blue;
     }
   }
 
   label {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     transform-origin: center left;
-    transition: transform .15s ease-in-out;
+    transition: transform 0.15s ease-in-out;
   }
 
   &__error-message {
@@ -52,52 +53,55 @@
     bottom: 0;
     left: 0;
     transform: translateY(20px);
-    color: lighten($pink, 30%)!important;
+    color: lighten($pink, 30%) !important;
   }
 
-  &--focus, &--active {
-    label {      
+  &--focus,
+  &--active {
+    label {
       transform: translateY(-1.4rem) scale(0.8);
       color: white;
     }
   }
 
   &--focus {
-    label { 
+    label {
       color: $blue;
     }
   }
 
   &--error {
-    label, input {      
-      color: $pink!important;
+    label,
+    input {
+      color: $pink !important;
     }
 
     input {
-      border-bottom: 2px  solid $pink!important;
+      border-bottom: 2px solid $pink !important;
     }
   }
 }
 
 .form--light {
   input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
-  input:-webkit-autofill:active{
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
     -webkit-text-fill-color: $secondary !important;
   }
 
-  input {   
-    border-bottom: 2px  solid lighten($secondary, 50%); 
+  input {
+    border-bottom: 2px solid lighten($secondary, 50%);
     color: $secondary;
   }
 
-  label { 
+  label {
     color: lighten($secondary, 30%);
   }
 
-  .input--focus, .input--active {
-    label {      
+  .input--focus,
+  .input--active {
+    label {
       color: $blue;
     }
   }

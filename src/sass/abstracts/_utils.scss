@@ -1,27 +1,27 @@
 .text {
   &--center {
-    text-align: center!important;
+    text-align: center !important;
 
     &::before {
-      left: 50%;   
+      left: 50%;
       transform: translateX(-50%);
     }
   }
   &--yellow {
-    color: $yellow!important;
+    color: $yellow !important;
   }
   &--pink {
-    color: $pink!important;
+    color: $pink !important;
   }
   &--blue {
-    color: $blue!important;
+    color: $blue !important;
   }
 
   &--white {
-    color: white!important;
+    color: white !important;
   }
   &--caption {
-    font-size: 0.7rem!important;
+    font-size: 0.7rem !important;
   }
   &--indent {
     text-indent: 10px;
@@ -29,9 +29,9 @@
 }
 
 .flex-row {
-  display:flex;
-  flex-direction:row;
-  gap:30px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
 
   &--wrap {
     flex-wrap: wrap;
@@ -71,8 +71,8 @@
   padding-left: 55px;
   height: 40px;
 
-  &::before{
-    font-family: 'Material Icons';
+  &::before {
+    font-family: "Material Icons";
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -81,7 +81,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     content: "\e0be";
     color: white;
@@ -91,21 +91,20 @@
     background-color: $bluedark;
   }
 
-
   &--pin::before {
-    content: "\e0c8"!important;
+    content: "\e0c8" !important;
   }
   &--phone::before {
-    content: "\e0b0"!important;
+    content: "\e0b0" !important;
   }
   &--mail::before {
-    content: "\e0be"!important;
+    content: "\e0be" !important;
   }
 }
 
 .background {
   &--yellow {
-    background-color: $yellow
+    background-color: $yellow;
   }
   &--pink {
     background-color: $pink;
@@ -117,25 +116,25 @@
 
 .bg-full-width {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   opacity: 0;
   z-index: -1;
-  transition: opacity .5s ease-in-out .3s;
+  transition: opacity 0.5s ease-in-out 0.3s;
 
   &::after {
-    content: '';
-    position: absolute;      
-    top:0;
+    content: "";
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 100%;      
+    height: 100%;
     background-color: black;
     opacity: 0;
-    transition: opacity .3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
   }
 
   img {
@@ -143,11 +142,10 @@
     object-fit: cover;
     width: 100%;
     height: 100vh;
-    transition: opacity .3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
   }
 
   &--loaded {
     opacity: 1;
   }
 }
-

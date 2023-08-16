@@ -1,6 +1,6 @@
 #contact {
   &__map {
-    margin-top:20px;
+    margin-top: 20px;
     overflow: hidden;
     width: 50%;
     max-width: 500px;
@@ -18,12 +18,12 @@
   }
 
   &__infos {
-    margin-top:20px;
+    margin-top: 20px;
     max-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    font-size: 0.8rem;;
+    font-size: 0.8rem;
   }
 
   &__presse {
@@ -31,9 +31,9 @@
   }
 
   .form {
-    max-width: 500px;    
-    margin:0 auto;
-    margin-top:50px;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
   }
 
   .form__popup {

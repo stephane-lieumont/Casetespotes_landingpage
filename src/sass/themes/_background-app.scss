@@ -1,13 +1,13 @@
 .background-app {
   &--light {
     .bg-full-width::after {
-      opacity: 0.55!important;
+      opacity: 0.55 !important;
     }
   }
 
   &--dark {
     .bg-full-width::after {
-      opacity: 0!important;
+      opacity: 0 !important;
     }
   }
 }

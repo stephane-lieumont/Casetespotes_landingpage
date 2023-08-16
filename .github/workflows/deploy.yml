@@ -1,0 +1,22 @@
+name: Deploy / docker images
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install SSH keys
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
+      - name: Adding Known Hosts
+        run: ssh-keyscan -p ${{ secrets.SSH_PORT}} -H ${{ secrets.SSH_HOST }} >> /home/runner/.ssh/known_hosts
+      - name: connect and pull
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p ${{ secrets.SSH_PORT}} "cd ${{ secrets.WORK_DIR }} && docker compose pull demo-ctp-landingpage && docker compose up demo-ctp-landingpage -d && exit"
+      - name: cleanup
+        run: rm -rf ~/.ssh
