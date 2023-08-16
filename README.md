@@ -56,3 +56,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 | `REACT_APP_LOG_FORMAT` | Yes      | 'splat,simple'       | See [Winston doc](https://www.npmjs.com/package/winston#formats])       |
 | `REACT_APP_API_HOST`   | Yes      |                      | Url of API.                                                             |
 | `REACT_APP_API_PORT`   | Yes      |                      | Port to use for api connection.                                         |
+
+## Deployment
+
+Container name deployemnt : `demo-ctp-landingpage`
