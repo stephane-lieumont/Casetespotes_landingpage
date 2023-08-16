@@ -1,16 +1,21 @@
-name: Build / docker images
+name: CI / Build
 
 on:
   pull_request:
     branches: ["main"]
-  workflow_run:
-    workflows: ["CI"]
-    types:
-      - completed
 
 jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: yarn
+      - name: Run checks
+        run: yarn ci
+
   build-demo:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: ["ci"]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -45,7 +50,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   build-production:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: ["ci"]
     runs-on: ubuntu-latest
     permissions:
       contents: read
