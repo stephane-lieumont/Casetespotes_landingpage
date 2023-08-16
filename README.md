@@ -53,7 +53,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 | `PORT`                 | No       | `80`                 | port                                                                    |
 | `REACT_APP_NODE_ENV`   | Yes      | `'dev'`              | Env for server                                                          |
 | `REACT_APP_LOG_LEVEL`  | Yes      | 'error'              | See [Winston doc](https://www.npmjs.com/package/winston#logging-levels) |
-| `REACT_APP_LOG_FORMAT` | Yes      | 'splat,simple'       | See [Winston doc](https://www.npmjs.com/package/winston#formats)       |
+| `REACT_APP_LOG_FORMAT` | Yes      | 'splat,simple'       | See [Winston doc](https://www.npmjs.com/package/winston#formats)        |
 | `REACT_APP_API_HOST`   | Yes      |                      | Url of API.                                                             |
 | `REACT_APP_API_PORT`   | Yes      |                      | Port to use for api connection.                                         |
 
