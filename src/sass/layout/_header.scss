@@ -1,25 +1,25 @@
 header {
   position: fixed;
-  top:0;
-  left:50%;
+  top: 0;
+  left: 50%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  gap:30px;
+  gap: 30px;
   padding: 30px 50px;
   height: 160px;
   width: 100%;
   margin-bottom: 30px;
   transform: translateX(-50%);
-  z-index: 2;  
+  z-index: 2;
 
   &::before {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     background-color: $background-darkblue;
@@ -28,7 +28,7 @@ header {
   }
 
   .logo {
-    fill:white;
+    fill: white;
     height: 100px;
     width: 200px;
 
@@ -36,7 +36,6 @@ header {
       height: 100%;
       width: 100%;
     }
-
   }
 
   nav {
@@ -50,40 +49,39 @@ header {
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
-    gap:20px;
+    gap: 20px;
 
     a {
       color: white;
       text-decoration: none;
-      padding:5px 15px;
+      padding: 5px 15px;
       border-radius: 30px;
       font-weight: 600;
       white-space: nowrap;
-      transition: color .15s ease-in-out;
+      transition: color 0.15s ease-in-out;
 
       &:hover {
-        color:$pink;
+        color: $pink;
       }
 
       &.active {
-        color:$pink;
+        color: $pink;
         background-color: white;
       }
     }
   }
 
   &.header-minimizer {
-    height:60px;
+    height: 60px;
     padding: 30px;
     padding-left: 20px;
 
-
     &::before {
       opacity: 0.95;
-      transition: all .3s ease-in-out!important;
+      transition: all 0.3s ease-in-out !important;
     }
 
-    .logo{
+    .logo {
       height: 30px;
       width: 90px;
     }
@@ -91,14 +89,15 @@ header {
 }
 
 // Minify animation
-header, header .logo {
-  transition: all .3s ease-in-out!important;
+header,
+header .logo {
+  transition: all 0.3s ease-in-out !important;
 }
 
 // hamberger menu
 .hamburger {
-  display:none;
-  position:relative;
+  display: none;
+  position: relative;
 
   > .line {
     display: inline-block;
@@ -114,13 +113,13 @@ header, header .logo {
   }
 
   &::before {
-    content:"";
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .5;
+    opacity: 0.5;
     z-index: -1;
   }
 
@@ -133,7 +132,7 @@ header, header .logo {
     }
     .line:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
-    }    
+    }
   }
 
   &:hover {
@@ -141,24 +140,21 @@ header, header .logo {
   }
 }
 
-
-
 @media (max-width: $screen-sm) {
   header {
-
     .logo {
-      fill:white;
+      fill: white;
       height: 50px;
       width: 100px;
     }
     .hamburger {
-      display: block!important;
+      display: block !important;
       z-index: 3;
-  
+
       + ul {
         position: absolute;
-        top:0;
-        right:0;
+        top: 0;
+        right: 0;
         height: 100vh;
         width: 101vw;
         flex-direction: column-reverse;
@@ -174,7 +170,7 @@ header, header .logo {
         }
 
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           height: 100%;
           width: 100%;
@@ -182,14 +178,13 @@ header, header .logo {
           z-index: -1;
         }
       }
-  
-      &.is-active + ul {      
-        animation: hamburger .3s ease-in-out forwards;
+
+      &.is-active + ul {
+        animation: hamburger 0.3s ease-in-out forwards;
       }
     }
   }
 }
-
 
 @keyframes rotate {
   0% {
@@ -208,5 +203,5 @@ header, header .logo {
   100% {
     visibility: visible;
     opacity: 1;
-  }  
+  }
 }

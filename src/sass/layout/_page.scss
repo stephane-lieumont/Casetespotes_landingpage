@@ -3,7 +3,7 @@
   top: 0;
   left: 50%;
   width: 100%;
-  padding:30px 60px;
+  padding: 30px 60px;
   padding-top: 200px;
   min-height: 100vh;
   padding-bottom: 10px;
@@ -14,11 +14,10 @@
   overflow: auto;
   animation: hide-scroll 1.2s;
 
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
 
   &.theme-light {
     background-color: rgba($color: $background-darkblue, $alpha: 0.3);
@@ -36,25 +35,25 @@
     }
 
     h1 {
-      color: $pink!important;
+      color: $pink !important;
     }
 
     h2 {
-      color: black!important;
+      color: black !important;
     }
 
     .form__popup {
-      color:white!important;
-    }    
+      color: white !important;
+    }
   }
 }
 
 @media (max-width: $screen-md) {
   .page {
     &.theme-light {
-      padding-left:0;
+      padding-left: 0;
       padding-right: 0;
-  
+
       main {
         border-radius: 20px 20px 0 0;
       }
@@ -63,12 +62,12 @@
 }
 
 @media (max-width: $screen-sm) {
-  .page { 
+  .page {
     padding-left: 30px;
     padding-right: 30px;
     main {
-      padding: 60px 30px!important;
-    }    
+      padding: 60px 30px !important;
+    }
   }
 }
 

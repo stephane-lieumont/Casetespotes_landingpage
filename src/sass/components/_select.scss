@@ -7,7 +7,7 @@
   margin-bottom: 30px;
   align-items: flex-end;
   padding-right: 15px;
-  gap:20px;
+  gap: 20px;
 
   &__title {
     flex-grow: 1;
@@ -24,27 +24,27 @@
       bottom: 0;
       left: 0;
       transform: translateY(20px);
-      color: lighten($pink, 30%)
+      color: lighten($pink, 30%);
     }
   }
 
   &--error {
-    color:$pink!important;
+    color: $pink !important;
 
     .MuiFormControl-root {
       label {
-        color:$pink!important;
-      }    
+        color: $pink !important;
+      }
       .MuiInput-root {
-        color:$pink!important;
+        color: $pink !important;
         &::before {
-          border-color: $pink!important;
+          border-color: $pink !important;
         }
-      }    
+      }
       svg {
         fill: $pink;
       }
-    }    
+    }
   }
 
   select {
@@ -59,12 +59,12 @@
     width: 100%;
     font-size: 1rem;
     padding-bottom: 10px;
-    padding-top: 10px; 
+    padding-top: 10px;
     line-height: normal;
     color: white;
     text-indent: 5px;
 
-    .option-label{
+    .option-label {
       display: none;
     }
 
@@ -75,25 +75,25 @@
   }
 }
 
-// Custom MUI Colors 
+// Custom MUI Colors
 
 .MuiFormControl-root {
   label {
-    color:white!important;
+    color: white !important;
     font-size: 0.9rem;
-    &.Mui-focused{
-      color: $blue!important;
+    &.Mui-focused {
+      color: $blue !important;
     }
   }
 
   .MuiInput-root {
-    color:white!important;
+    color: white !important;
     &::before {
-      border-color: white!important;
+      border-color: white !important;
       border-width: 2px;
     }
     &::after {
-      border-color: $blue!important;
+      border-color: $blue !important;
     }
   }
 
@@ -103,12 +103,12 @@
 
   .Mui-disabled {
     opacity: 0.4;
-    color: white!important;
-    -webkit-text-fill-color:white!important
+    color: white !important;
+    -webkit-text-fill-color: white !important;
   }
 }
 
-@media (max-width: $screen-md) {    
+@media (max-width: $screen-md) {
   .selectbox {
     max-width: 100%;
     padding-right: 0;

@@ -5,33 +5,34 @@
   width: 100%;
 
   textarea:-webkit-autofill,
-  textarea:-webkit-autofill:hover, 
-  textarea:-webkit-autofill:focus, 
-  textarea:-webkit-autofill:active{
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  textarea:-webkit-autofill:active {
     background-clip: text !important;
     -webkit-text-fill-color: white !important;
   }
 
-  label, textarea {
+  label,
+  textarea {
     padding: 5px 0;
     width: 100%;
   }
 
   textarea {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     margin-bottom: 20px;
     position: relative;
     background: none;
     border: none;
     border-radius: 10px;
-    border: 2px  solid white;
+    border: 2px solid white;
     outline: none;
     min-height: 250px;
     caret-color: $blue;
     color: white;
     font-size: 1rem;
-    padding:10px 15px;
-    transition: border .3s ease-in-out;
+    padding: 10px 15px;
+    transition: border 0.3s ease-in-out;
     z-index: 2;
 
     &:disabled {
@@ -39,16 +40,16 @@
     }
 
     &:focus {
-      border: 2px  solid $blue;
+      border: 2px solid $blue;
     }
   }
 
   label {
     position: absolute;
-    top:10px;
+    top: 10px;
     left: 15px;
     transform-origin: center left;
-    transition: transform .15s ease-in-out;
+    transition: transform 0.15s ease-in-out;
   }
 
   &__error-message {
@@ -56,52 +57,55 @@
     bottom: 0;
     left: 0;
     transform: translateY(20px);
-    color: lighten($pink, 30%)!important;
+    color: lighten($pink, 30%) !important;
   }
 
-  &--focus, &--active {
-    label {      
+  &--focus,
+  &--active {
+    label {
       transform: translate(-10px, -2.4rem) scale(0.8);
       color: white;
     }
   }
 
   &--focus {
-    label { 
+    label {
       color: $blue;
     }
   }
 
   &--error {
-    label, textarea {      
-      color: $pink!important;
+    label,
+    textarea {
+      color: $pink !important;
     }
 
     textarea {
-      border: 2px  solid $pink!important;
+      border: 2px solid $pink !important;
     }
   }
 }
 
 .form--light {
   textarea:-webkit-autofill,
-  textarea:-webkit-autofill:hover, 
-  textarea:-webkit-autofill:focus, 
-  textarea:-webkit-autofill:active{
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  textarea:-webkit-autofill:active {
     -webkit-text-fill-color: $secondary !important;
   }
 
-  textarea {   
-    border: 2px  solid lighten($secondary, 50%); 
+  textarea {
+    border: 2px solid lighten($secondary, 50%);
     color: $secondary;
   }
 
-  label { 
+  label {
     color: lighten($secondary, 30%);
   }
 
-  .textarea--focus, .textarea--active {
-    label {      
+  .textarea--focus,
+  .textarea--active {
+    label {
       color: $blue;
     }
   }

@@ -1,5 +1,5 @@
 .bubble {
-  font-family: 'Square Peg', cursive;
+  font-family: "Square Peg", cursive;
   font-weight: bolder;
   font-size: 1.6rem;
   line-height: 2rem;
@@ -12,7 +12,7 @@
   text-align: center;
   opacity: 0;
   animation: anim-bubble-appear 0.45s ease 1s both;
-  
+
   h2 {
     letter-spacing: normal;
 
@@ -21,21 +21,21 @@
     }
   }
 
-  &__content {    
+  &__content {
     width: 80%;
     z-index: 2;
-    color:$pink;
-    background-image: url('./../../assets/design/underline.png');
+    color: $pink;
+    background-image: url("./../../assets/design/underline.png");
     background-repeat: no-repeat;
     background-position: center bottom;
     padding-bottom: 15px;
   }
 
-  &::after{
+  &::after {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
-    content: '';
+    content: "";
     border-radius: 50%;
     width: 100%;
     height: 100%;
@@ -43,11 +43,11 @@
     z-index: 1;
   }
 
-  &::before{
+  &::before {
     position: absolute;
-    top:0;
-    right:0;
-    content: '';
+    top: 0;
+    right: 0;
+    content: "";
     border-radius: 50%;
     width: 100%;
     height: 100%;
@@ -58,7 +58,6 @@
     animation: anim-bubble-shadow 5s linear infinite both;
   }
 }
-
 
 @media (max-width: $screen-md) {
   .bubble {
@@ -73,7 +72,7 @@
   }
 
   100% {
-    transform: translateX(0) rotateY(360deg) ;
+    transform: translateX(0) rotateY(360deg);
     opacity: 1;
   }
 }

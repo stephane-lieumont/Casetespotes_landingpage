@@ -1,11 +1,7 @@
-import React from "react"
+import React from "react";
 
 const DemoBanner: React.FunctionComponent = () => {
-  return (
-    <div className={`demo-banner`}>
-      DEMO
-    </div>
-  );
-}
+  return <div className={`demo-banner`}>DEMO</div>;
+};
 
-export default DemoBanner
+export default DemoBanner;

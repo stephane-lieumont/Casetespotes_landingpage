@@ -1,33 +1,31 @@
+@import "./themes/colors";
+@import "./themes/background-app";
 
-@import './themes/colors';
-@import './themes/background-app';
+@import "./abstracts/variables";
+@import "./abstracts/utils";
 
-@import './abstracts/variables';
-@import './abstracts/utils';
+@import "./base/reset";
+@import "./base/base";
+@import "./base/transitions";
 
+@import "./layout/header";
+@import "./layout/main";
+@import "./layout/footer";
+@import "./layout/forms";
+@import "./layout/page";
 
-@import './base/reset';
-@import './base/base';
-@import './base/transitions';
+@import "./pages/homepage";
+@import "./pages/contact";
+@import "./pages/about";
+@import "./pages/error404";
 
-@import './layout/header';
-@import './layout/main';
-@import './layout/footer';
-@import './layout/forms';
-@import './layout/page';
-
-@import './pages/homepage';
-@import './pages/contact';
-@import './pages/about';
-@import './pages/error404';
-
-@import './components/input';
-@import './components/textarea';
-@import './components/button';
-@import './components/select';
-@import './components/checkbox';
-@import './components/smartphone';
-@import './components/bubble';
-@import './components/reveal';
-@import './components/popupalert';
-@import './components/demo';
+@import "./components/input";
+@import "./components/textarea";
+@import "./components/button";
+@import "./components/select";
+@import "./components/checkbox";
+@import "./components/smartphone";
+@import "./components/bubble";
+@import "./components/reveal";
+@import "./components/popupalert";
+@import "./components/demo";

@@ -1,51 +1,53 @@
 .button {
   display: inline-block;
   position: relative;
-  font-size: 1rem!important;
+  font-size: 1rem !important;
   line-height: 1rem;
-  background-color: transparent;  
+  background-color: transparent;
   border-radius: 20px;
   overflow: hidden;
-  color:$pink;
+  color: $pink;
   background-color: $yellow;
   cursor: pointer;
 
   &--outlined {
     background-color: transparent;
     border: 2px solid $yellow;
-    color: $yellow!important;
-    transition: border-color .15s ease-in-out  ;
+    color: $yellow !important;
+    transition: border-color 0.15s ease-in-out;
 
-    button, a {
-      transition: color .15s ease-in-out  ;
-      color: $yellow!important;
+    button,
+    a {
+      transition: color 0.15s ease-in-out;
+      color: $yellow !important;
     }
 
     &::before {
-      display:none!important;
+      display: none !important;
     }
 
     &:hover {
       border-color: $pink;
-      button, a {
-        color:$pink!important;
+      button,
+      a {
+        color: $pink !important;
       }
     }
   }
 
   &__loader {
-    position:absolute;
-    top:50%;
+    position: absolute;
+    top: 50%;
     left: 50%;
     height: 20px;
     width: 20px;
     transform: translate(-50%, -50%);
 
     &::before {
-      content: '';
-      position:absolute;
-      top:0;
-      left:0;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
       height: 16px;
       width: 16px;
       border: 3px solid white;
@@ -55,26 +57,28 @@
     }
   }
 
-  &--isloading {    
+  &--isloading {
     &::before {
-      background-color: transparent!important;
+      background-color: transparent !important;
     }
-    button, a  {
+    button,
+    a {
       opacity: 0;
     }
 
-    button, a {
-      cursor:default!important;
+    button,
+    a {
+      cursor: default !important;
     }
-    
   }
 
   &--disabled {
     pointer-events: none;
     opacity: 0.4;
     background-color: gray;
-    button, a {
-      cursor:default!important;
+    button,
+    a {
+      cursor: default !important;
     }
   }
 
@@ -87,11 +91,11 @@
       position: absolute;
       top: 10px;
       left: 0px;
-      font-family: 'Material Icons';
+      font-family: "Material Icons";
       font-size: 22px;
       padding: 0 15px;
       color: white;
-      content: '\e2e6';
+      content: "\e2e6";
     }
   }
 
@@ -105,23 +109,24 @@
       position: absolute;
       top: 10px;
       left: 0px;
-      font-family: 'Material Icons';
+      font-family: "Material Icons";
       font-size: 22px;
       padding: 0 15px;
       color: white;
-      content: '\e000';
+      content: "\e000";
     }
   }
 
-  button, a {
+  button,
+  a {
     position: relative;
-    display:block;
+    display: block;
     outline: none;
     border: none;
     text-decoration: none;
     background-color: transparent;
-    color:white;
-    font-size: 1rem!important;
+    color: white;
+    font-size: 1rem !important;
     line-height: 1rem;
     z-index: 1;
     padding: 10px 20px;
@@ -130,15 +135,15 @@
 
   &::before {
     position: absolute;
-    top:0%;
+    top: 0%;
     left: 50%;
     height: 100%;
     width: 100%;
     background-color: $pink;
     opacity: 0;
-    transition: opacity .15s ease-in-out;
+    transition: opacity 0.15s ease-in-out;
     transform: translateX(-50%);
-    content: '';
+    content: "";
     z-index: 0;
   }
 

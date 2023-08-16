@@ -12,35 +12,35 @@
   z-index: 999;
   transform: translateY(100px);
   opacity: 0;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 
   &::before {
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     margin-right: 10px;
     height: 22px;
     font-size: 22px;
-    content: '';
+    content: "";
   }
 
   &--success {
     background-color: rgba($green, 0.7);
     &::before {
-      content: '\e2e6';
-    }    
+      content: "\e2e6";
+    }
   }
 
   &--warning {
     background-color: rgba($yellow, 0.7);
     &::before {
-      content: '\e002';
-    }  
+      content: "\e002";
+    }
   }
 
   &--error {
     background-color: rgba($pink, 0.7);
     &::before {
-      content: '\e000';
-    }  
+      content: "\e000";
+    }
   }
 
   &.show {
