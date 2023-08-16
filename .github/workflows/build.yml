@@ -1,6 +1,8 @@
-name: CI / Build docker image
+name: Build / docker images
 
 on:
+  push:
+    branches: ["main"]
   workflow_run:
     workflows: ["CI"]
     types:
