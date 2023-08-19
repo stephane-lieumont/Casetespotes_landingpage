@@ -5,7 +5,13 @@ on:
     branches: ["main"]
 
 jobs:
+  workflow_call-ci:
+    uses: ./.github/workflows/ci.yml
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   deploy-demo:
+    needs: [workflow_call-ci]
     runs-on: ubuntu-latest
 
     steps:
