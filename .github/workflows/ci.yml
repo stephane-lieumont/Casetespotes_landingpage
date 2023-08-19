@@ -1,8 +1,10 @@
 name: CI
 
 on:
-  push:
-    branches: ["main"]
+  workflow_call:
+    secrets:
+      GH_TOKEN:
+        required: true
   pull_request:
     branches: ["main"]
 
