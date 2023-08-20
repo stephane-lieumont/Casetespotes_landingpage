@@ -23,6 +23,6 @@ jobs:
       - name: Adding Known Hosts
         run: ssh-keyscan -p ${{ secrets.SSH_PORT}} -H ${{ secrets.SSH_HOST }} >> /home/runner/.ssh/known_hosts
       - name: connect and pull
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p ${{ secrets.SSH_PORT}} "cd ${{ secrets.WORK_DIR }} && docker compose pull demo-ctp-landingpage && docker compose up demo-ctp-landingpage -d && exit"
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p ${{ secrets.SSH_PORT}} "cd ${{ secrets.WORK_DIR }} && make update-container demo-ctp-landingpage && exit"
       - name: cleanup
         run: rm -rf ~/.ssh
