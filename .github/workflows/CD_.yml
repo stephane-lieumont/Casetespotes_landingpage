@@ -6,7 +6,7 @@ on:
 
 jobs:
   workflow-call:
-    uses: ./.github/workflows/ci.yml
+    uses: ./.github/workflows/CI.yml
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
