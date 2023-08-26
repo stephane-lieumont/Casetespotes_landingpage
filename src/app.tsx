@@ -1,5 +1,5 @@
 import { AxiosError } from "axios";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import background from "./assets/pictures/background-landing-page.jpg";
