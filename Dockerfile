@@ -2,9 +2,10 @@ FROM node:16-alpine AS deps
 
 WORKDIR /app
 
-COPY ./package.json /.
+COPY ./package.json ./
+COPY ./yarn.lock ./
 
-RUN yarn
+RUN yarn --frozen-lockfile
 
 FROM node:16-alpine AS builder
 
