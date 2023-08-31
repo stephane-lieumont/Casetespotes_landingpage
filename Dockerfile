@@ -19,18 +19,14 @@ ARG REACT_APP_DEMO
 ENV PUBLIC_URL ${PUBLIC_URL}
 ENV REACT_APP_DEMO ${REACT_APP_DEMO}
 
-RUN if [ "$REACT_APP_DEMO" = "true" ] ; then mv /nginx/nginx.demo.conf /nginx/nginx.conf; fi
-
 RUN yarn build
 
 FROM nginx:alpine as run
 
 ENV NODE_ENV production
 
-RUN rm /etc/nginx/conf.d/default.conf
-
 COPY --from=builder /build /usr/share/nginx/html
-COPY --from=builder /nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /nginx/nginx.conf /etc/nginx/templates/default.conf.template
 
 EXPOSE 80
 
